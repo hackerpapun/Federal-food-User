@@ -1,10 +1,12 @@
 import './App.css'
-import AppRoutes from './components/AppRouters'
+import ItemsComponents from './components/Items/ItemsComponents'
+// import AppRoutes from './components/AppRouters'
 
 function App() {
   return (
     <>
-    <AppRoutes />
+    {/* <AppRoutes /> */}
+    <ItemsComponents/>
     </>
   )
 }
