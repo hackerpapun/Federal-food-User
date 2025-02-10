@@ -13,9 +13,9 @@ const AppNavbar = () => {
           <img className="NavLogo" src={logo1} alt="Logo" />
         </Navbar.Brand>
 
-        <For className="NavSearch">
+        <Form className="NavSearch">
           <FormControl type="text" placeholder="Search for products" className="NavSearchInput" />
-        </For>
+        </Form>
 
         <Dropdown className="NavDropdown">
           <Dropdown.Toggle variant="success" id="dropdown-basic">

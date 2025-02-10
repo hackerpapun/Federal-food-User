@@ -1,12 +1,10 @@
 import './App.css'
-// import AppRoutes from './components/AppRouters'
-import Login from "./components/Login/Login";
+import AppRoutes from './components/AppRouters'
 
 function App() {
   return (
     <>
-    {/* <AppRoutes /> */}
-    <Login />
+    <AppRoutes />
     </>
   )
 }
