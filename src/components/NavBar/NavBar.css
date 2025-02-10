@@ -1,0 +1,89 @@
+
+.Nav1 {
+    background-color: #7FAD39;
+    padding: 10px 20px;
+    width: 100vw;  
+    position: fixed;  
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+
+.NavContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+.NavLogo {
+    height: 25px;
+    margin-left:200px;
+}
+
+
+.NavSearch {
+    flex-grow: 1;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    /* margin-right:200px; */
+}
+
+.NavSearchInput {
+    width: 100%;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    outline: none;
+}
+.NavDropdown .dropdown-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    justify-content: space-around;
+
+
+}
+
+.NavDropdown .dropdown-toggle::after {
+    display: none;
+}
+
+
+.dropdown-arrow {
+    margin-left: 5px;
+    font-size: 12px;
+}
+.NavDropdown .dropdown-menu {
+    background: #7FAD39;
+    color: white;
+}
+
+.NavDropdown .dropdown-item {
+    color: white;
+}
+
+.NavDropdown .dropdown-item:hover {
+    background: #6d9f32;
+}
+
+
+.NavIcon {
+    background: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    /* margin-left: 10px; */
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}

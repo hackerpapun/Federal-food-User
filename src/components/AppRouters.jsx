@@ -1,18 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import {Home} from "../pages/Home";
-import {Login} from "../pages/Login";
-import {Register} from "../pages/Register";
-import {Profile} from "../pages/Profile";
+import { Home } from "../pages/Home";
+import { Login } from "../pages/Login";
+import { Register } from "../pages/Register";
+import { Profile } from "../pages/Profile";
 import { Cart } from "../pages/Cart";
-import {Checkout} from "../pages/Checkout";
-import {Navbar} from "../components/Navbar";
-import {Footer} from "../components/Footer";
-import {NotFound} from "../pages/NotFound"; 
+import { Checkout } from "../pages/Checkout";
+import { Footer } from "../components/Footer";
+import { NotFound } from "../pages/NotFound";
+import AppNavbar from "./NavBar/Navbar";
 
 function AppRoutes() {
   return (
     <Router>
-      <Navbar />
+      <AppNavbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
