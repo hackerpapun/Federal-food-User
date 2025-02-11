@@ -128,7 +128,7 @@ export const ProductDropdown = () => {
 
             <Dropdown.Menu id="dropdown-box">
               {bakeryData.map((bakery, index) => (
-                <Dropdown.Item key={index} href={`#action-${index + 1}`}style={{marginBottom:'4px'}}>
+                <Dropdown.Item key={index} href={`#action-${index + 1}`}>
                   {bakery}
                 </Dropdown.Item>
               ))}
