@@ -12,19 +12,21 @@ import { NavbarMain } from "./NavBar/NavbarMain";
 
 function AppRoutes() {
   return (
-    <Router>
-      <NavbarMain />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="*" element={<NotFound />} />{" "}
-      </Routes>
-      <Footer />
-    </Router>
+    <>
+       <Footer />
+    </>
+    // <Router>
+    //   <NavbarMain />
+    //   <Routes>
+    //     <Route path="/" element={<Home />} />
+    //     <Route path="/login" element={<Login />} />
+    //     <Route path="/register" element={<Register />} />
+    //     <Route path="/profile" element={<Profile />} />
+    //     <Route path="/cart" element={<Cart />} />
+    //     <Route path="/checkout" element={<Checkout />} />
+    //     <Route path="*" element={<NotFound />} />{" "}
+    //   </Routes>
+    // </Router>
   );
 }
 
