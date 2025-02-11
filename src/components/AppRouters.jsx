@@ -8,22 +8,27 @@ import { Checkout } from "../pages/Checkout";
 import { Footer } from "../components/Footer";
 import { NotFound } from "../pages/NotFound";
 import AppNavbar from "./NavBar/Navbar";
+import ProductCard from "./ProductsItem/ProductCard";
 
 function AppRoutes() {
   return (
-    <Router>
-      <AppNavbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="*" element={<NotFound />} />{" "}
-      </Routes>
-      <Footer />
-    </Router>
+    // <Router>
+    //   <AppNavbar />
+    //   <Routes>
+    //     <Route path="/" element={<Home />} />
+    //     <Route path="/login" element={<Login />} />
+    //     <Route path="/register" element={<Register />} />
+    //     <Route path="/profile" element={<Profile />} />
+    //     <Route path="/cart" element={<Cart />} />
+    //     <Route path="/checkout" element={<Checkout />} />
+    //     <Route path="*" element={<NotFound />} />{" "}
+    //   </Routes>
+    //   <Footer />
+    // </Router>
+    <>
+      <ProductCard/>  
+     <AppNavbar/> 
+    </>
   );
 }
 
