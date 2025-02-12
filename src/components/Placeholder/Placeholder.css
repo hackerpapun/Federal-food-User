@@ -1,0 +1,13 @@
+.btn-1 {
+  color: white;
+  background-color: seagreen;
+}
+.heading1 {
+  font-size: 20px;
+}
+.btn2 {
+  display-flex:end;
+  margin-left:250px;
+  
+  
+}
