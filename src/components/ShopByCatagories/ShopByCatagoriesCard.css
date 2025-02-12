@@ -1,0 +1,42 @@
+.shop-by-category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.shop-by-category-card:hover {
+    transform: translateY(-5px);
+}
+
+.category-icon-container {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.category-icon {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.category-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+    text-align: center;
+    margin: 0;
+}
