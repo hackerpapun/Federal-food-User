@@ -8,7 +8,7 @@ import { Checkout } from "../pages/Checkout";
 import { Footer } from "../components/Footer";
 import { NotFound } from "../pages/NotFound";
 import AppNavbar from "./NavBar/Navbar";
-import ProductCard from "./ProductsItem/ProductCard";
+import ProductCard from "./ProductsItem/Product";
 
 function AppRoutes() {
   return (
@@ -27,7 +27,7 @@ function AppRoutes() {
     // </Router>
     <>
       <ProductCard/>  
-     <AppNavbar/> 
+     {/* <AppNavbar/>  */}
     </>
   );
 }
