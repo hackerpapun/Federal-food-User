@@ -2,6 +2,44 @@
     border: none !important;
 }
 
-.sidebar-list{
-    border: none !important;
+.sidebar-heading{
+    margin-left: 16px;
 }
+
+.sidebar-list{
+    display: flex;
+    flex-direction: column;
+    border: none;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-top: 15px;
+}
+
+
+.sidebar-button1 {
+    display: flex;
+    align-items: flex-start;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    /* border: 1px solid #ced4da;  */
+    background-color: transparent; /* Trnsprnt bg */
+    border: none !important;
+    color: #3F3F3F; 
+    cursor: pointer; 
+    width: 100%; 
+    transition: background-color 0.3s, color 0.3s; 
+  }
+
+.sidebar-button1:hover{
+    background-color: #E1ECE7;
+    color: #7FAD39;
+    font-weight: 500;
+
+  }
+
+  .sidebar-button1:focus{
+    background-color: #E1ECE7;
+    color: #7FAD39;
+    font-weight: 500;
+    border-left: 2px solid #7FAD39 !important;
+  }
