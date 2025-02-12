@@ -1,6 +1,6 @@
-.signuppage{
-    overflow-y: auto;
-    height: 80vh;
+.signuppage {
+  overflow-y: auto;
+  height: 80vh;
 }
 .heading {
   display: flex;
@@ -11,7 +11,6 @@
   color: #212529;
   line-height: 1.5;
   font-weight: 468;
-  
 }
 .formbody {
   display: block;
@@ -48,15 +47,15 @@
 }
 
 .allplaceholder::placeholder {
-    color: #a9abb2 !important;
-    font-weight: bold;
+  color: #a9abb2 !important;
+  font-weight: bold;
 }
-.note{
-    font-size: 10px;
-    font-family: Arial, Helvetica, sans-serif;
+.note {
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
 }
-#dropdown-basic-button{
-    background-color: #ffffff;
-    color: rgb(69, 64, 64);
-    border: 2px solid #a9abb2 ;
+#dropdown-basic-button {
+  background-color: #ffffff;
+  color: rgb(69, 64, 64);
+  border: 2px solid #a9abb2;
 }
