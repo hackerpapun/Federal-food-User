@@ -13,6 +13,11 @@
 .product-card:hover {
     transform: scale(1.05);
 }
+.product-image{
+   width:max-content;
+    min-height:max-content;
+    object-fit:fill;
+}
 
 .food-icon {
     position: absolute;
@@ -37,23 +42,21 @@
     border-radius: 3px;
 }
 
-.product-image {
-    width: 100%;
-    max-height: 180px;
-    object-fit: contain;
-}
 
 .product-details {
     background-color: white;
     padding: 10px;
     transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
-    max-height: 0;
+    max-height: 100px;
     overflow: hidden;
     opacity: 0;
+    z-index: 1;
 }
 
 .product-card:hover .product-details {
     max-height: 200px;
+    position: relative;
+    margin-top: -100px;
     opacity: 1;
 }
 
