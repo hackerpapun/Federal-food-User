@@ -1,0 +1,65 @@
+.main-row{
+}
+
+.profile-title{
+    font-size: 18px;
+    padding: 5px;
+    margin: 0px 0px 16px;
+}
+
+.profileorder-img{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.profile-heading2{
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 25px;
+    /* text-align: center; */
+    margin-top: 20px;
+    margin-bottom: 5px
+}
+
+.profile-order-img{
+    height: 100px;
+    width: 105px;
+}
+
+.profile-edit-icon{
+    size: 5px !important;
+    position: relative; 
+    top: 57px;
+    right: 35px;
+    background-color: #7fad39;
+    color: #fff;
+    height: 25px;
+    width: 25px;
+    padding: 5px;
+    border-radius: 50px;
+}
+
+.profileorder-form{
+    color: #323539;
+}
+
+.profile-save-button{
+    background: #7fad39 !important;
+    border: #7fad39 !important;
+    border-radius: 2px !important;
+    width: 120px;
+    height: 50px;
+    color: #fff;
+    font-size: 18px;
+    margin: 50px 0 0;
+    letter-spacing: 1px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.save-button{
+    display: flex;
+    justify-content: center;
+}
