@@ -4,8 +4,8 @@ import rose from "../../assets/rose-flower-pictures-beautiful-roses-love-rose-fl
 import Tulip from "../../assets/th.jpg";
 import Sunflower from "../../assets/th (1).jpg";
 import eggIcon from "../../assets/5f04962e5082b.jpg";
-import meatIcon from "../../assets/react.svg";
-import fishIcon from "../../assets/react.svg";
+import meatIcon from "../../assets/5f002abb9280f.jpg";
+import fishIcon from "../../assets/5f0457235dd79.jpg";
 import store1 from "../../assets/discount.png";
 import store2 from "../../assets/th (1).jpg";
 import store3 from "../../assets/th (3).jpg";
