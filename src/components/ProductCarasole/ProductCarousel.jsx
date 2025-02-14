@@ -30,7 +30,7 @@ const ProductCarousel = ({ products, title, subtitle, viewAllLink, type }) => {
       <h2 className="ProductCarouselh2 text-center">{title}</h2>
       <p className="text-center">{subtitle}</p>
       <p className="text-center text-danger">
-        <a href={viewAllLink} style={{ color: "red",textDecoration:'none' }}>
+        <a href={viewAllLink} style={{ color: "red", textDecoration: "none" }}>
           View All
         </a>
       </p>
@@ -38,11 +38,17 @@ const ProductCarousel = ({ products, title, subtitle, viewAllLink, type }) => {
       <Slider {...settings} className="product-carousel">
         {products.map((product) =>
           type === "product" ? (
-            <ProductCard key={product.id} product={product} />
+            <div key={product.id} style={{ marginRight: "12px" }}>
+              <ProductCard product={product} />
+            </div>
           ) : type === "category" ? (
-            <ShopByCatagoriesCard key={product.id} product={product} />
+            <div key={product.id} style={{ marginRight: "12px" }}>
+              <ShopByCatagoriesCard product={product} />
+            </div>
           ) : type === "topStores" ? (
-            <TopStoresCard key={product.id} store={product} />
+            <div key={product.id} style={{ marginRight: "12px" }}>
+              <TopStoresCard store={product} />
+            </div>
           ) : null
         )}
       </Slider>

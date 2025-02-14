@@ -23,9 +23,10 @@ const ProductCard = ({ product }) => {
 
   return (
     <div
-      className="product-card"
+      className="product-card-unq"
       onMouseEnter={() => count !== 1 && setIsHovered(true)}
       onMouseLeave={() => count === 1 && setIsHovered(false)}
+      style={{marginRight:'12px !important'}}
     >
       <div className="food-icon">
         <img

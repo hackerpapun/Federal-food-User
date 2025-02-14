@@ -1,0 +1,21 @@
+.container{
+    font-family: sans-serif;
+    height: fit-content;
+    width: 450px;
+}
+.gorecy-items{
+    color: #808090;
+}
+.cart{
+    font-size: large;
+}
+.addtocart-image{
+    display: flex;
+}
+.grocery-total{
+  color: #303437;
+}
+.addtocart-details{
+    display: flex !important;
+    flex-direction: column!important;
+}
