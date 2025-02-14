@@ -25,8 +25,9 @@ function AppRoutes() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="product" element={<product/>}/>
         </Routes>
-      </main>
+       </main>
       <Footer />
     </Router>
   );
