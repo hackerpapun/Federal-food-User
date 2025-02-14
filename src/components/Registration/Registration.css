@@ -1,6 +1,8 @@
 .signuppage {
   overflow-y: auto;
   height: 80vh;
+  width: 500px;
+  height: 500px;
 }
 .heading {
   display: flex;
@@ -22,7 +24,7 @@
 }
 .emailplaceholder {
   display: block;
-  width: 90%;
+  /* width: 100%; */
   height: 40px;
   border-radius: 5px;
   font-size: 1rem;
@@ -56,5 +58,5 @@
 #dropdown-basic-button {
   background-color: #ffffff;
   color: rgb(69, 64, 64);
-  border: 2px solid #a9abb2;
+  border: 2px solid #a9abb2 ;
 }

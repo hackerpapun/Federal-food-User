@@ -52,7 +52,7 @@ const Login = () => {
       <Modal.Footer
         className="text-center"
         style={{ borderBottom: "1px solid #ced4da ",justifyContent:'center', display:'flex' }}>
-        <Button className="loginbtn" type="submit" onClick={handleSubmit}>
+        <Button className="loginbtn" type="submit">
           Login
         </Button>
       </Modal.Footer>

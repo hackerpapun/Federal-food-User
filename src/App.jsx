@@ -32,12 +32,13 @@
 
 // export default App;
 import React from 'react'
-import AppRoutes from './components/AppRouters'
-import ShopByCatagoriesCard from './components/ShopByCatagories/ShopByCatagoriesCard'
-import { Home } from './pages/Home'
-import Product from './components/Product/Product'
-import ProductSidebar from './components/ProductSidebar/ProductSidebar'
-import  Login  from './components/Login/Login'
+// import AppRoutes from './components/AppRouters'
+// import ShopByCatagoriesCard from './components/ShopByCatagories/ShopByCatagoriesCard'
+// import { Home } from './pages/Home'
+// import Product from './components/Product/Product'
+// import ProductSidebar from './components/ProductSidebar/ProductSidebar'
+// import  Login  from './components/Login/Login'
+import Registration from './components/Registration/Registration'
 // import ProductCard from './components/ProductCard/ProductCard'
 
 export const App = () => {
@@ -46,9 +47,10 @@ export const App = () => {
       {/* <AppRoutes/> */}
       {/* <Home/> */}
       {/* <Product/> */}
-      <ProductSidebar />
+      {/* <ProductSidebar /> */}
       {/* <ProductCard /> */}
       {/* <Login /> */}
+      <Registration />
     </div>
   )
 }
