@@ -37,6 +37,8 @@ import ShopByCatagoriesCard from './components/ShopByCatagories/ShopByCatagories
 import { Home } from './pages/Home'
 import Product from './components/Product/Product'
 import ProductSidebar from './components/ProductSidebar/ProductSidebar'
+import  Login  from './components/Login/Login'
+// import ProductCard from './components/ProductCard/ProductCard'
 
 export const App = () => {
   return (
@@ -45,6 +47,8 @@ export const App = () => {
       {/* <Home/> */}
       {/* <Product/> */}
       <ProductSidebar />
+      {/* <ProductCard /> */}
+      {/* <Login /> */}
     </div>
   )
 }

@@ -303,7 +303,7 @@ const Sidebar = () => {
                 <span
                   className="subcategory-text"
                   style={{
-                    color: activeKey === "9" ? "#7fda39" : "black", 
+                    color: activeKey === "9" ? "#7fad39" : "black", font: "16px"
                   }}
                 >
                   {" "}

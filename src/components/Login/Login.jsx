@@ -43,7 +43,7 @@ const Login = () => {
           <Row className="text-center ">
             <Col>
               <a href="#" className="text4 ">
-                or <span style={{ color: "red" }}>Create an Account</span>
+                or <span style={{ color: "red" }}>Create an account</span>
               </a>
             </Col>
           </Row>
@@ -52,7 +52,7 @@ const Login = () => {
       <Modal.Footer
         className="text-center"
         style={{ borderBottom: "1px solid #ced4da ",justifyContent:'center', display:'flex' }}>
-        <Button className="loginbtn" type="submit">
+        <Button className="loginbtn" type="submit" onClick={handleSubmit}>
           Login
         </Button>
       </Modal.Footer>

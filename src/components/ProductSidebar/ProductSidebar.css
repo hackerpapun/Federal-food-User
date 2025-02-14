@@ -13,11 +13,13 @@
 }
 
 .subcategory-text {
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: semi-bold;
   font-family: Arial, Helvetica, sans-serif;
   display: inline-block;
   text-align: center;
+  margin: 0px 0px 0px 0px;
+  color: #000000;
 }
 
 .subcategory-list {
@@ -26,10 +28,13 @@
 }
 
 .subcategory-list a {
-  padding: 5px 0;
-  color: #555;
+  padding: 5px ;
+  margin: 5px 0px;
+  color: #212529;
   text-decoration: none;
   display: flex;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .subcategory-list .disabled {
