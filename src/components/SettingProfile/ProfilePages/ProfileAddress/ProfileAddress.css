@@ -1,0 +1,20 @@
+.add-heading{
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;  
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.add-heading2{
+    display: flex;
+    justify-content: center;
+}
+
+.add-heading2:hover{
+    background-color: #F2F2F2;
+}
+
+.add-heading3{
+    left: 20px !important;
+}
