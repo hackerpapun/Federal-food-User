@@ -15,7 +15,7 @@ function AppRoutes() {
   return (
     <Router>
       <Navbar />
-      <main style={{ minHeight: "80vh" }}>
+      <main style={{ minHeight: "80vh",margin:'0px 200px 0px 200px' }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
