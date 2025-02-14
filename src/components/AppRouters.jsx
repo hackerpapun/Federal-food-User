@@ -6,8 +6,8 @@ import {Profile} from "../pages/Profile";
 import {Cart} from "../pages/Cart";
 import {Checkout} from "../pages/Checkout";
 import ProductDetails from "../pages/ProductDetails"; // Ensure it exists
-import {Navbar} from "../components/Navbar";
-import {Footer} from "../components/Footer";
+import Navbar from "../components/Navbar/AppNavbar";
+import Footer from "../components/Footer/Footer";
 import {NotFound} from "../pages/NotFound";
 
 function AppRoutes() {
@@ -24,10 +24,12 @@ function AppRoutes() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="product" element={<product/>}/>
         </Routes>
-      </main>
+       </main>
       <Footer />
-    </Router>
+    </Router> 
+
   );
 }
 
