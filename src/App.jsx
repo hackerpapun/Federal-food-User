@@ -6,7 +6,7 @@ import './App.css'
 // import ProfileOrder from './components/SettingProfile/ProfilePages/ProfileOrder/ProfileOrder'
 import ProfileAddress from './components/SettingProfile/ProfilePages/ProfileAddress/ProfileAddress'
 
-function App() {
+export const App = () => {
   return (
     <>
     {/* <AppRoutes /> */}
@@ -18,5 +18,3 @@ function App() {
     </>
   )
 }
-
-export default App
