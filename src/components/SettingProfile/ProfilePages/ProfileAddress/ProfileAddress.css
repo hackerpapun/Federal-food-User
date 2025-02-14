@@ -9,6 +9,14 @@
 .add-heading2{
     display: flex;
     justify-content: center;
+    width: 300px;
+    height: 60px;
+}
+
+.icons-div{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .add-heading2:hover{
@@ -17,4 +25,8 @@
 
 .add-heading3{
     left: 20px !important;
+}
+
+.add-icon{
+    margin-top: 5px;
 }

@@ -4,7 +4,8 @@ import './App.css'
 // import ProfileDetails from './components/SettingProfile/ProfileDetails/ProfileDetails'
 // import ProfileSidebar from './components/SettingProfile/ProfileSidebar/ProfileSidebar'
 // import ProfileOrder from './components/SettingProfile/ProfilePages/ProfileOrder/ProfileOrder'
-import ProfileAddress from './components/SettingProfile/ProfilePages/ProfileAddress/ProfileAddress'
+// import ProfileAddress from './components/SettingProfile/ProfilePages/ProfileAddress/ProfileAddress'
+import Addresslocation from './components/SettingProfile/ProfilePages/ProfileAddress/Addresslocation'
 
 export const App = () => {
   return (
@@ -14,7 +15,8 @@ export const App = () => {
     {/* <ProfileDetails/> */}
     {/* <ProfileSidebar/> */}
     {/* <ProfileOrder/> */}
-    <ProfileAddress/>
+    {/* <ProfileAddress/> */}
+    <Addresslocation/>
     </>
   )
 }
