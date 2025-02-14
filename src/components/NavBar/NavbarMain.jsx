@@ -5,8 +5,10 @@ import { ProductDropdown } from '../dropdown/ProductDropdown'
 export const NavbarMain = () => {
   return (
     <div>
-    <AppNavbar/>
-    <ProductDropdown/>
+      <AppNavbar />
+      <div className="">
+        <ProductDropdown />
+      </div>
     </div>
-  )
+  );
 }

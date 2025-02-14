@@ -17,24 +17,26 @@ const AppNavbar = () => {
           <FormControl type="text" placeholder="Search for products" className="NavSearchInput" />
         </Form>
 
-        <Dropdown className="NavDropdown">
-          <Dropdown.Toggle variant="success" id="dropdown-basic">
+         <Dropdown className="NavDropdown">
+          <Dropdown.Toggle id="dropdown-basic" className="NavDropdownToggle">
             English <span className="dropdown-arrow">▼</span>
           </Dropdown.Toggle>
-          <Dropdown.Menu>
-            <Dropdown.Item href="#">English</Dropdown.Item>
-            <Dropdown.Item href="#">Spanish</Dropdown.Item>
-            <Dropdown.Item href="#">Hindi</Dropdown.Item>
+          <Dropdown.Menu className="NavDropdownMenu">
+            <Dropdown.Item className="NavDropdownItem" href="#">English</Dropdown.Item>
+            <Dropdown.Item className="NavDropdownItem" href="#">Arabic</Dropdown.Item>
+            <Dropdown.Item className="NavDropdownItem" href="#">Spanish</Dropdown.Item>
+            <Dropdown.Item className="NavDropdownItem" href="#">Hindi</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
 
-        <Button variant="outline-light" className="NavIcon">
+        <Button className="NavIcon">
           <FaUser /> Login / Register
         </Button>
 
-        <Button variant="outline-light" className="NavIcon">
+        <Button className="NavIcon">
           <FaShoppingCart /> Cart
-        </Button>
+        </Button> 
+        
       </Container>
     </Navbar>
   );

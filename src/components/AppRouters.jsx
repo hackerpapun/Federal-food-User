@@ -5,24 +5,28 @@ import { Register } from "../pages/Register";
 import { Profile } from "../pages/Profile";
 import { Cart } from "../pages/Cart";
 import { Checkout } from "../pages/Checkout";
-import { Footer } from "../components/Footer/Footer";
+import  Footer  from "../components/Footer/Footer";
 import { NotFound } from "../pages/NotFound";
-import { NavbarMain } from "./NavBar/NavbarMain";
+import Navbar from "./NavBar/AppNavbar";
+import ProductDetails from "./Product/Product";
 
 
 function AppRoutes() {
   return (
     <Router>
-      <NavbarMain />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="*" element={<NotFound />} />{" "}
-      </Routes>
+      <Navbar />
+      <main style={{ minHeight: "80vh" }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
       <Footer />
     </Router>
   );
