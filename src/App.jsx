@@ -41,8 +41,8 @@ export const App = () => {
   return (
     <div>
       <AppRoutes/>
-      {/* <Home/> */}
-      {/* <Product/> */}
+      <Home/>
+      <Product/>
     </div>
   )
 }
