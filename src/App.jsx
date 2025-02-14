@@ -36,13 +36,15 @@ import AppRoutes from './components/AppRouters'
 import ShopByCatagoriesCard from './components/ShopByCatagories/ShopByCatagoriesCard'
 import { Home } from './pages/Home'
 import Product from './components/Product/Product'
+import ProductSidebar from './components/ProductSidebar/ProductSidebar'
 
 export const App = () => {
   return (
     <div>
-      <AppRoutes/>
+      {/* <AppRoutes/> */}
       {/* <Home/> */}
       {/* <Product/> */}
+      <ProductSidebar />
     </div>
   )
 }

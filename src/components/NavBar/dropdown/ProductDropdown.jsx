@@ -45,7 +45,7 @@ const bakeryData = [
 
 export const ProductDropdown = () => {
   return (
-    <Container fluid className="dropdown-container">
+    <Container fluid className="dropdown-container"style={{marginLeft:'0px'}}>
       <Row>
         <Col>
           <Dropdown >

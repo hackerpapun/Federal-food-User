@@ -43,7 +43,6 @@
   border: 1px solid #a9abb2;
   border-radius: 5px;
   margin: 0;
-  /* line-height: 1.2; */
 }
 
 .allplaceholder::placeholder {

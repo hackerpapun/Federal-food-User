@@ -35,6 +35,7 @@ const Sidebar = () => {
                   eventKey={"0"}
                 />
                 <span
+                  className="subcategory-text"
                   style={{
                     color: activeKey === "0" ? "#7fda39" : "black",
                   }}
@@ -62,6 +63,7 @@ const Sidebar = () => {
                   eventKey={"1"}
                 />
                 <span
+                  className="subcategory-text"
                   style={{
                     color: activeKey === "1" ? "#7fda39" : "black",
                   }}
@@ -88,6 +90,7 @@ const Sidebar = () => {
                   eventKey={"2"}
                 />
                 <span
+                  className="subcategory-text"
                   style={{
                     color: activeKey === "2" ? "#7fda39" : "black",
                   }}
@@ -118,6 +121,7 @@ const Sidebar = () => {
                   eventKey={"3"}
                 />
                 <span
+                  className="subcategory-text"
                   style={{
                     color: activeKey === "3" ? "#7fda39" : "black",
                   }}
@@ -147,6 +151,7 @@ const Sidebar = () => {
                   eventKey={"4"}
                 />
                 <span
+                  className="subcategory-text"
                   style={{
                     color: activeKey === "4" ? "#7fda39" : "black",
                   }}
@@ -177,6 +182,7 @@ const Sidebar = () => {
                   eventKey={"5"}
                 />
                 <span
+                  className="subcategory-text"
                   style={{
                     color: activeKey === "5" ? "#7fda39" : "black",
                   }}
@@ -205,6 +211,7 @@ const Sidebar = () => {
                   eventKey={"6"}
                 />
                 <span
+                  className="subcategory-text"
                   style={{
                     color: activeKey === "6" ? "#7fda39" : "black",
                   }}
@@ -235,6 +242,7 @@ const Sidebar = () => {
                   eventKey={"7"}
                 />
                 <span
+                  className="subcategory-text"
                   style={{
                     color: activeKey === "7" ? "#7fda39" : "black",
                   }}
@@ -266,6 +274,7 @@ const Sidebar = () => {
                   eventKey={"8"}
                 />
                 <span
+                  className="subcategory-text"
                   style={{
                     color: activeKey === "8" ? "#7fda39" : "black",
                   }}
@@ -292,8 +301,9 @@ const Sidebar = () => {
                   eventKey={"9"}
                 />
                 <span
+                  className="subcategory-text"
                   style={{
-                    color: activeKey === "9" ? "#7fda39" : "black",
+                    color: activeKey === "9" ? "#7fda39" : "black", 
                   }}
                 >
                   {" "}
@@ -323,6 +333,7 @@ const Sidebar = () => {
                   eventKey={"10"}
                 />
                 <span
+                  className="subcategory-text"
                   style={{
                     color: activeKey === "10" ? "#7fda39" : "black",
                   }}
