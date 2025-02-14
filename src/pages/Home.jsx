@@ -1,8 +1,12 @@
 ﻿import React from 'react'
-import TopPicked from '../components/TopPicked/TopPicked.jsx'
+import { HomeCarasole } from '../components/HomeCarasole/HomeCarasole'
+import { HomeProducts } from '../components/HomeProducts/HomeProducts'
 
 export const Home = () => {
   return (
-    <div><TopPicked/></div>
-  )
-}
+    <div>
+      <HomeCarasole/>
+      <HomeProducts/>
+    </div>
+  );
+};

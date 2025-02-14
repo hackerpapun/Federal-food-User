@@ -1,0 +1,61 @@
+.signuppage {
+  overflow-y: auto;
+  height: 80vh;
+}
+.heading {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.7rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #212529;
+  line-height: 1.5;
+  font-weight: 468;
+}
+.formbody {
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2;
+  color: #495057;
+  background-color: #fff;
+}
+.emailplaceholder {
+  display: block;
+  width: 90%;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 3px;
+  border: 1px solid #a9abb2;
+  margin: 0;
+  padding: 0;
+}
+.passwordplaceholder {
+  margin: 12px;
+  display: block;
+  width: 70%;
+  height: 40px;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 3px;
+  border: 1px solid #a9abb2;
+  border-radius: 5px;
+  margin: 0;
+  /* line-height: 1.2; */
+}
+
+.allplaceholder::placeholder {
+  color: #a9abb2 !important;
+  font-weight: bold;
+}
+.note {
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#dropdown-basic-button {
+  background-color: #ffffff;
+  color: rgb(69, 64, 64);
+  border: 2px solid #a9abb2;
+}

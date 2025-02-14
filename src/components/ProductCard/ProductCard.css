@@ -1,0 +1,103 @@
+.product-card {
+    text-align: center;
+    border-radius: 10px;
+    padding: 15px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+.product-image{
+   width:max-content;
+    min-height:max-content;
+    object-fit:fill;
+}
+
+.food-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.food-symbol {
+    width: 20px;
+    height: 20px;
+}
+
+.discount-badge {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: red;
+    color: white;
+    padding: 5px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+
+.product-details {
+    background-color: white;
+    padding: 10px;
+    transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    max-height: 100px;
+    overflow: hidden;
+    opacity: 0;
+    z-index: 1;
+}
+
+.product-card:hover .product-details {
+    max-height: 200px;
+    position: relative;
+    margin-top: -100px;
+    opacity: 1;
+}
+
+.product-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.product-quantity {
+    font-size: 14px;
+    color: #666;
+}
+
+.price-container {
+    margin-top: 5px;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    margin-right: 5px;
+}
+
+.new-price {
+    font-weight: bold;
+    color: green;
+}
+
+.add-btn {
+    background-color: #79b530;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: block;
+}
+
+.product-card:hover .add-btn {
+    display: block;
+}
