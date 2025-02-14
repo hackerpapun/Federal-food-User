@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Addresslocation.css";
 import { Col, Modal, Row, Button } from "react-bootstrap";
+import mapimage from "../../../../assets/map.jpg";
 
 export const Addresslocation = () => {
   function LocationModal() {
@@ -11,7 +12,7 @@ export const Addresslocation = () => {
 
     const handleClose = () => setShow(false);
     const handleChangeAddress = () => {
-      alert("Implement address change functionality here!");
+      alert("change location");
     };
 
     return (
@@ -27,7 +28,7 @@ export const Addresslocation = () => {
           <Row>
             <Col>
               <div id="map">
-                <p>set the map here</p>
+                <img className="map-img" src={mapimage} />
               </div>
             </Col>
           </Row>
@@ -35,9 +36,7 @@ export const Addresslocation = () => {
             <Col className="location-heading">Set your delivery location</Col>
           </Row>
           <Row>
-            <Col className="delivery-heading">
-            DELIVERY AREA
-            </Col>
+            <Col className="delivery-heading">DELIVERY AREA</Col>
             <Col>
               <div className="delivery-address">
                 {address}{" "}
@@ -49,12 +48,19 @@ export const Addresslocation = () => {
           </Row>
         </Modal.Body>
 
-
         <Modal.Footer className="footer-buttons">
-          <Button className="confirm-button" variant="primary" onClick={handleClose}>
+          <Button
+            className="confirm-button"
+            variant="primary"
+            onClick={handleClose}
+          >
             CONFIRM AND PROCEED
           </Button>
-          <Button className="cancel-button" variant="secondary" onClick={handleClose}>
+          <Button
+            className="cancel-button"
+            variant="secondary"
+            onClick={handleClose}
+          >
             CANCEL
           </Button>
         </Modal.Footer>
