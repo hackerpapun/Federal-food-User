@@ -1,43 +1,58 @@
 import React from "react";
 import CategorySection from "../CategoriesSection/CategoriesSection";
 import fruitsIcon from "../../assets/5f04962e5082b.jpg";
+import herbs from "../../assets/cherry1.png";
+import cherry from"../../assets/cherry1.png";
+import food from "../../assets/11.jpeg";
+import organicfood from"../../assets/2.jpeg";
+import cuts from "../../assets/4.jpeg";
+import freshfruits from "../../assets/fruit6.png";
+import water from"../../assets/beverages1.png";
+import Tea from"../../assets/Tea.png";
+import coffee from "../../assets/nutella.jpeg"
+import Drink from"../../assets/11.jpeg";
+import juices from"../../assets/beverages1.png";
+import Atta from"../../assets/grain.png";
+import pulses from"../../assets/grain.png";
+import rice from "../../assets/5.jpeg"
+
 
 export const HomeProducts = () => {
   const categoriesData = [
     {
       title: "Fruits",
       categories: [
-        { name: "Fruits", image: fruitsIcon },
-        { name: "Herbs & Seasonings", image: fruitsIcon },
-        { name: "Cherry", image: fruitsIcon },
-        { name: "Exotic Foods & Veggies", image: fruitsIcon },
-        { name: "Organic Food & Vegetables", image: fruitsIcon },
-        { name: "Cuts & Sprouts", image: fruitsIcon },
-        { name: "Flower Bouquets, Bunches", image: fruitsIcon },
-        { name: "Fresh Fruits", image: fruitsIcon },
+        { name: "Fruits", image: herbs },
+        { name: "Herbs & Seasonings", image: cherry },
+        { name: "Cherry", image: food },
+        { name: "Exotic Foods & Veggies", image: organicfood },
+        { name: "Organic Food & Vegetables", image: cuts },
+        { name: "Cuts & Sprouts", image: freshfruits },
+        { name: "Flower Bouquets, Bunches", image: freshfruits },
+        
       ],
     },
     {
       title: "Beverages",
       categories: [
-        { name: "Water", image: fruitsIcon },
-        { name: "Tea", image: fruitsIcon },
-        { name: "Coffee", image: fruitsIcon },
-        { name: "Health Drink, Supplements", image: fruitsIcon },
-        { name: "Fruit Juices & Drinks", image: fruitsIcon },
+        { name: "Water", image: water },
+        { name: "Tea", image: Tea },
+        { name: "Coffee", image: coffee },
+        { name: "Health Drink, Supplements", image: Drink },
+        { name: "Fruit Juices & Drinks", image:juices },
       ],
     },
     {
       title: "Foodgrains, Oils & Masalas",
       categories: [
-        { name: "Atta, Flour & Sooji", image: fruitsIcon },
-        { name: "Dals & Pulses", image: fruitsIcon },
-        { name: "Rice & Rice Products", image: fruitsIcon },
-        { name: "Organic Staples", image: fruitsIcon },
-        { name: "Salt, Sugar & Jaggery", image: fruitsIcon },
-        { name: "Edible Oils & Ghee", image: fruitsIcon },
-        { name: "Masalas & Spices", image: fruitsIcon },
-        { name: "Dry Fruits", image: fruitsIcon },
+        { name: "Atta, Flour & Sooji", image: Atta },
+        { name: "Dals & Pulses", image:pulses  },
+        { name: "Rice & Rice Products", image: rice },
+        { name: "Organic Staples", image:water },
+        { name: "Salt, Sugar & Jaggery", image: water },
+        { name: "Edible Oils & Ghee", image: water },
+        { name: "Masalas & Spices", image:water  },
+        { name: "Dry Fruits", image: water },
       ],
     },
     {
