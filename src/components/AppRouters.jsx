@@ -15,7 +15,7 @@ function AppRoutes() {
   return (
     <Router>
       <Navbar />
-      <main style={{ minHeight: "80vh" }}>
+      <main style={{ minHeight: "80vh",margin:'0px 160px 0px 160px' }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -25,8 +25,9 @@ function AppRoutes() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="product" element={<product/>}/>
         </Routes>
-      </main>
+       </main>
       <Footer />
     </Router>
   );

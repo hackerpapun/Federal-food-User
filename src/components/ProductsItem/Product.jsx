@@ -13,7 +13,7 @@ const Product = ({ product = {} }) => {
   const {
     images = [],
     image = "",
-    title = "Bisleri",
+    title = "No Title Available",
     size = "N/A",
     mrp = "0.00",
     price = "0.00",

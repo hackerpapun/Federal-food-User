@@ -1,8 +1,22 @@
-import React from 'react'
-import { Modal, Col, Form, Button, Row, FormControl, FormCheck, FormGroup, DropdownButton, Dropdown } from "react-bootstrap";
-import  "./Registration.css"
+import React from "react";
+import {
+  Modal,
+  Col,
+  Form,
+  Button,
+  Row,
+  FormControl,
+  FormCheck,
+  FormGroup,
+  DropdownButton,
+  Dropdown,
+} from "react-bootstrap";
+import "./Registration.css";
 
 const Registration = () => {
+  const handleSubmit = async () => {
+    console.log("Submitted Successfully");
+  };
   return (
     <Modal show={Registration} onHide={Registration} className="signuppage">
       <Modal.Header>
@@ -12,7 +26,7 @@ const Registration = () => {
       </Modal.Header>
 
       <Modal.Body className="h-100">
-        <Form className="formbody">
+        <Form onSubmit={handleSubmit} className="formbody">
           <Row className="mb-3">
             <Col sm={12}>
               <Form.Control
@@ -125,6 +139,6 @@ const Registration = () => {
       </Modal.Footer>
     </Modal>
   );
-}
+};
 
-export default Registration
+export default Registration;
