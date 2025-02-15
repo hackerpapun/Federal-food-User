@@ -14,10 +14,10 @@ const ProductCard = ({ product }) => {
     product.options?.length > 0 ? product.options[0] : null
   );
 
-    const increaseCount = (e) => {
-      e.stopPropagation(); 
-      setCount(count + 1);
-    };
+  const increaseCount = (e) => {
+    e.stopPropagation();
+    setCount(count + 1);
+  };
 
   const decreaseCount = () => setCount(count > 1 ? count - 1 : 0);
 
@@ -41,7 +41,6 @@ const ProductCard = ({ product }) => {
       )}
 
       <img src={product.image} alt={product.name} className="product-image" />
-
       <div className={`product-details ${isHovered ? "show" : ""}`}>
         <h4 className="product-name">{product.name}</h4>
         <p className="product-quantity">{product.quantity}</p>

@@ -5,7 +5,7 @@ import Tulip from "../../assets/th.jpg";
 import Sunflower from "../../assets/th (1).jpg";
 import eggIcon from "../../assets/5f04962e5082b.jpg";
 import meatIcon from "../../assets/th (1).jpg";
-import fishIcon from "../../assets/5f0457235dd79.jpg";
+import fishIcon from "../../assets/th (1).jpg";
 import store1 from "../../assets/discount.png";
 import store2 from "../../assets/th (1).jpg";
 import store3 from "../../assets/th (3).jpg";
@@ -14,15 +14,63 @@ export const HomeCarasole = () => {
   const flowerProducts = [
     {
       id: 1,
-      name: "Rose",
-      image: rose,
+      name: "Apple",
+      image: 	"https://ultimate-grocery-capacitor.initappz.com/assets/placeholder.png",
       price: "$10.00",
       originalPrice: "$15.00",
       discount: 33,
     },
     {
       id: 2,
-      name: "Tulip",
+      name: "Kashmiri Cherry",
+      image: "https://ultimate-grocery-api-capacitor.initappz.com/public/storage/images/5f04076d2310b.jpg",
+      price: "$12.00",
+      originalPrice: "$18.00",
+      discount: 33,
+    },
+    {
+      id: 3,
+      name: "Banana",
+      image: Sunflower,
+      price: "$8.00",
+      originalPrice: "$12.00",
+      discount: 33,
+    },
+    {
+      id: 4,
+      name: "Sona Mongoori Rice",
+      image: rose,
+      price: "$10.00",
+      originalPrice: "$15.00",
+      discount: 33,
+    },
+    {
+      id: 5,
+      name: "Bisleri",
+      image: Tulip,
+      price: "$12.00",
+      originalPrice: "$18.00",
+      discount: 33,
+    },
+    {
+      id: 6,
+      name: "Fresho Ginger",
+      image: Sunflower,
+      price: "$8.00",
+      originalPrice: "$12.00",
+      discount: 33,
+    },
+    {
+      id: 7,
+      name: "Aashirwad Atta",
+      image: rose,
+      price: "$10.00",
+      originalPrice: "$15.00",
+      discount: 33,
+    },
+    {
+      id: 8,
+      name: "Red Chill",
       image: Tulip,
       price: "$12.00",
       originalPrice: "$18.00",
@@ -30,7 +78,7 @@ export const HomeCarasole = () => {
     },
     {
       id: 3,
-      name: "Sunflower",
+      name: "Cut Red Roses",
       image: Sunflower,
       price: "$8.00",
       originalPrice: "$12.00",

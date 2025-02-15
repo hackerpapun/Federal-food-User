@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Container, Row, Col, Card } from "react-bootstrap";
-import "./CategorySection.css";
+import "./CategoriesSection.css";
 
 const CategoryCard = ({ category }) => {
   return (
