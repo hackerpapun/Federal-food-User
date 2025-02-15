@@ -43,7 +43,7 @@ const Login = () => {
           <Row className="text-center ">
             <Col>
               <a href="#" className="text4 ">
-                or <span style={{ color: "red" }}>Create an account</span>
+                or <span style={{ color: "red" }}>Create an Account</span>
               </a>
             </Col>
           </Row>

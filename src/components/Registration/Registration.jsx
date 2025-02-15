@@ -134,7 +134,7 @@ const Registration = () => {
         }}
       >
         <Button className="loginbtn" type="submit">
-          SIGNUP
+          SIGNUP 
         </Button>
       </Modal.Footer>
     </Modal>
