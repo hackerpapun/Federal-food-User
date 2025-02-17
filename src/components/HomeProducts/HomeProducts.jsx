@@ -132,11 +132,21 @@ export const HomeProducts = () => {
   return (
     <div>
       {categoriesData.map((section, index) => (
-        <CategorySection
-          key={index}
-          title={section.title}
-          categories={section.categories}
-        />
+        <div key={index} style={{ marginBottom: "20px" }}>
+          <h2
+            style={{
+              backgroundColor: "#F3F3F3",
+              padding: "15px",
+              textAlign: "center",
+              width: "100%",
+              fontSize: "34px",
+              fontWeight: "500",
+            }}
+          >
+            {section.title}
+          </h2>
+          <CategorySection categories={section.categories} />
+        </div>
       ))}
     </div>
   );

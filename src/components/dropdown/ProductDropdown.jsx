@@ -1,8 +1,9 @@
 import React from "react";
 import "./ProductDropdown.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Row, Col, Dropdown, Button } from "react-bootstrap";
+import { Container, Row, Col, Dropdown } from "react-bootstrap";
 import { FaLocationDot } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 
 const locationData = ["Ahmedabad", "Bhavnagar", "Dhaka"];
 const fruitsData = [
@@ -21,7 +22,6 @@ const beveragesData = [
   "Health drink , Supplements",
   "Fruit Juices and Driks",
 ];
-
 const grainsData = [
   "Atta,Flour & Sooji",
   "Dals & Pulses",
@@ -32,7 +32,6 @@ const grainsData = [
   "Masala & Spices",
   "Dry Fruits",
 ];
-
 const bakeryData = [
   "Bakery Snacks",
   "Breads & Buns",
@@ -44,11 +43,22 @@ const bakeryData = [
 ];
 
 export const ProductDropdown = () => {
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  const handleSelectCategory = (category) => {
+    // Navigate to the category page with the selected category as a query parameter
+    navigate(`/category?category=${encodeURIComponent(category)}`);
+  };
+
   return (
-    <Container fluid className="dropdown-container"style={{marginLeft:'0px'}}>
+    <Container
+      fluid
+      className="dropdown-container"
+      style={{ marginLeft: "0px" }}
+    >
       <Row>
         <Col>
-          <Dropdown >
+          <Dropdown>
             <Dropdown.Toggle variant="success" className="top-dropdown">
               <FaLocationDot className="location-icon" />
               Deliver to
@@ -70,9 +80,12 @@ export const ProductDropdown = () => {
               Fruits
             </Dropdown.Toggle>
 
-            <Dropdown.Menu id="dropdown-box" >
+            <Dropdown.Menu id="dropdown-box">
               {fruitsData.map((fruit, index) => (
-                <Dropdown.Item key={index} href={`#action-${index + 1}`}>
+                <Dropdown.Item
+                  key={index}
+                  onClick={() => handleSelectCategory(fruit)}
+                >
                   {fruit}
                 </Dropdown.Item>
               ))}
@@ -88,7 +101,10 @@ export const ProductDropdown = () => {
 
             <Dropdown.Menu id="dropdown-box">
               {beveragesData.map((beverages, index) => (
-                <Dropdown.Item key={index} href={`#action-${index + 1}`}>
+                <Dropdown.Item
+                  key={index}
+                  onClick={() => handleSelectCategory(beverages)}
+                >
                   {beverages}
                 </Dropdown.Item>
               ))}
@@ -112,7 +128,10 @@ export const ProductDropdown = () => {
 
             <Dropdown.Menu id="dropdown-box">
               {grainsData.map((grains, index) => (
-                <Dropdown.Item key={index} href={`#action-${index + 1}`}>
+                <Dropdown.Item
+                  key={index}
+                  onClick={() => handleSelectCategory(grains)}
+                >
                   {grains}
                 </Dropdown.Item>
               ))}
@@ -128,7 +147,10 @@ export const ProductDropdown = () => {
 
             <Dropdown.Menu id="dropdown-box">
               {bakeryData.map((bakery, index) => (
-                <Dropdown.Item key={index} href={`#action-${index + 1}`}>
+                <Dropdown.Item
+                  key={index}
+                  onClick={() => handleSelectCategory(bakery)}
+                >
                   {bakery}
                 </Dropdown.Item>
               ))}

@@ -22,7 +22,7 @@ import {
 } from "react-icons/fa";
 import logo1 from "../../assets/logo.png";
 import "../NavBar/NavBar.css";
-import { ProductDropdown } from "./dropdown/ProductDropdown";
+import { ProductDropdown } from "../dropdown/ProductDropdown";
 
 export default function AppNavbar() {
   return (

@@ -1,21 +1,21 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { Home } from "../pages/Home";
 import { Login } from "../pages/Login";
 import { Register } from "../pages/Register";
 import { Profile } from "../pages/Profile";
 import { Cart } from "../pages/Cart";
 import { Checkout } from "../pages/Checkout";
-import  Footer  from "../components/Footer/Footer";
+import Footer from "../components/Footer/Footer";
 import { NotFound } from "../pages/NotFound";
-import Navbar from "./NavBar/AppNavbar";
+import { NavbarMain } from "./NavBar/NavbarMain";
 import ProductDetails from "./Product/Product";
-
+import CategoryPage from "./CategoryPage/CategoryPage";
 
 function AppRoutes() {
   return (
-    <Router>
-      <Navbar />
-      <main style={{ minHeight: "80vh",margin:'0px 160px 0px 160px' }}>
+    <>
+      <NavbarMain />
+      <main className="content-area">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -23,15 +23,14 @@ function AppRoutes() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/category" element={<CategoryPage />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="product" element={<product/>}/>
         </Routes>
-       </main>
+      </main>
       <Footer />
-    </Router>
+    </>
   );
 }
 
 export default AppRoutes;
-
