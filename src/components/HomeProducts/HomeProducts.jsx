@@ -15,6 +15,66 @@ import juices from"../../assets/beverages1.png";
 import Atta from"../../assets/grain.png";
 import pulses from"../../assets/grain.png";
 import rice from "../../assets/5.jpeg"
+import staple from "../../assets/9.jpeg";
+import salt from "../../assets/10.jpeg";
+import oil from "../../assets/oil.jpeg";
+import spices from"../../assets/41.jpeg";
+import DryFruits from"../../assets/10.jpeg";
+import snacks from "../../assets/31.jpeg";
+import BakerySnacks from "../../assets/clean1.png";
+import Breads from "../../assets/bread.png";
+import cakes from "../../assets/dairy.png";
+import cookies from "../../assets/non-veg.png";
+import Dairy from "../../assets/veg1.png";
+import GourmetBreads from "../../assets/fruit6.png";
+import Breakfast from"../../assets/meat1.png";
+import Biscuit from"../../assets/veg1.png";
+import FrozenVeggies from"../../assets/clean1.png";
+import spreads from "../../assets/9.jpeg";
+import Namkeens from "../../assets/10.jpeg";
+import cook from"../../assets/10.jpeg";
+import chocolate from"../../assets/bread.png";
+import pickles from"../../assets/fruit6.png";
+import Mithai from"../../assets/non-veg.png";
+import OralCare from "../../assets/clean1.png";
+import Bath from "../../assets/Tea.png";
+import Medicine from"../../assets/grain.png";
+import HairCare from "../../assets/clean1.png";
+import Grooming from"../../assets/beverages1.png";
+import SkinCare from"../../assets/fruit6.png";
+import Fragrance from"../../assets/5.jpeg";
+import Makeup from "../../assets/10.jpeg";
+import Cleaners from "../../assets/2.jpeg";
+import GarbageBags from"../../assets/81.jpeg";
+import Repellents from"../../assets/Tea.png";
+import Bins from"../../assets/clean1.png";
+import car from"../../assets/fruit6.png";
+import Dishwash from "../../assets/dairy.png";
+import Mops from"../../assets/clean1.png";
+import eggs from"../../assets/meat1.png";
+import fish from "../../assets/non-veg.png";
+import mutton from"../../assets/foods.png";
+import poultry from "../../assets/bread.png";
+import Bacon from "../../assets/veg1.png";
+import sweets from"../../assets/non-veg.png";
+import Biscuit from"../../assets/non-veg.png";
+import cheese from "../../assets/bread.png"
+import Drinks from"../../assets/Tea.png";
+import Oils from "../../assets/oil.jpeg";
+import Pasta from "../../assets/10.jpeg";
+import Dips from "../../assets/10.jpeg";
+import Nuts from "../../assets/nutella.jpeg";
+import Food from "../../assets/offer.png";
+import Accessories from "../../assets/81.jpeg";
+import Hygiene from "../../assets/11.jpeg";
+import Formula from"../../assets/9.jpeg";
+import Wipes from"../../assets/31.jpeg";
+import Nursing from "../../assets/10.jpeg";
+import Maternity from"../../assets/10.jpeg";
+
+
+
+
 
 
 export const HomeProducts = () => {
@@ -48,98 +108,98 @@ export const HomeProducts = () => {
         { name: "Atta, Flour & Sooji", image: Atta },
         { name: "Dals & Pulses", image:pulses  },
         { name: "Rice & Rice Products", image: rice },
-        { name: "Organic Staples", image:water },
-        { name: "Salt, Sugar & Jaggery", image: water },
-        { name: "Edible Oils & Ghee", image: water },
-        { name: "Masalas & Spices", image:water  },
-        { name: "Dry Fruits", image: water },
+        { name: "Organic Staples", image: staple },
+        { name: "Salt, Sugar & Jaggery", image: salt },
+        { name: "Edible Oils & Ghee", image: oil },
+        { name: "Masalas & Spices", image:spices  },
+        { name: "Dry Fruits", image: DryFruits },
       ],
     },
     {
       title: "Bakery, Cakes & Dairy",
       categories: [
-        { name: "Bakery Snacks", image: fruitsIcon },
-        { name: "Breads & Buns", image: fruitsIcon },
-        { name: "Cakes & Pastries", image: fruitsIcon },
-        { name: "Cookies, Rusk & Khari", image: fruitsIcon },
-        { name: "Dairy", image: fruitsIcon },
-        { name: "Gourmet Breads", image: fruitsIcon },
-        { name: "Ice Creams & Desserts", image: fruitsIcon },
+        { name: "Bakery Snacks", image: snacks },
+        { name: "Breads & Buns", image: BakerySnacks },
+        { name: "Cakes & Pastries", image: Breads },
+        { name: "Cookies, Rusk & Khari", image: cakes },
+        { name: "Dairy", image: cookies },
+        { name: "Gourmet Breads", image: Dairy },
+        { name: "Ice Creams & Desserts", image: GourmetBreads },
       ],
     },
     {
       title: "Snacks & Branded Foods",
       categories: [
-        { name: "Breakfast Cereals", image: fruitsIcon },
-        { name: "Biscuits & Cookies", image: fruitsIcon },
-        { name: "Frozen Veggies & Snacks", image: fruitsIcon },
-        { name: "Spreads, Sauces, Ketchup", image: fruitsIcon },
-        { name: "Snacks & Namkeens", image: fruitsIcon },
-        { name: "Ready to Cook & Eat", image: fruitsIcon },
-        { name: "Chocolate & Candies", image: fruitsIcon },
-        { name: "Pickles & Chutney", image: fruitsIcon },
-        { name: "Indian Mithai", image: fruitsIcon },
+        { name: "Breakfast Cereals", image: Breakfast },
+        { name: "Biscuits & Cookies", image: Biscuits },
+        { name: "Frozen Veggies & Snacks", image: FrozenVeggies },
+        { name: "Spreads, Sauces, Ketchup", image: spreads },
+        { name: "Snacks & Namkeens", image:Namkeens },
+        { name: "Ready to Cook & Eat", image: cook },
+        { name: "Chocolate & Candies", image: chocolate },
+        { name: "Pickles & Chutney", image: pickles },
+        { name: "Indian Mithai", image: Mithai },
       ],
     },
     {
       title: "Beauty & Hygiene",
       categories: [
-        { name: "Oral Care", image: fruitsIcon },
-        { name: "Bath & Hand Wash", image: fruitsIcon },
-        { name: "Health & Medicine", image: fruitsIcon },
-        { name: "Hair Care", image: fruitsIcon },
-        { name: "Men's Grooming", image: fruitsIcon },
-        { name: "Skin Care", image: fruitsIcon },
-        { name: "Fragrances & Deos", image: fruitsIcon },
-        { name: "Makeup", image: fruitsIcon },
+        { name: "Oral Care", image: OralCare },
+        { name: "Bath & Hand Wash", image: Bath },
+        { name: "Health & Medicine", image: Medicine },
+        { name: "Hair Care", image: HairCare },
+        { name: "Men's Grooming", image: Grooming },
+        { name: "Skin Care", image: SkinCare },
+        { name: "Fragrances & Deos", image: Fragrance },
+        { name: "Makeup", image: Makeup },
       ],
     },
     {
       title: "Cleaning & Household",
       categories: [
-        { name: "All Purpose Cleaners", image: fruitsIcon },
-        { name: "Disposable & Garbage Bags", image: fruitsIcon },
-        { name: "Fresheners & Repellents", image: fruitsIcon },
-        { name: "Bins & Bathroom Ware", image: fruitsIcon },
-        { name: "Car & Shoe Care", image: fruitsIcon },
-        { name: "Detergents & Dishwash", image: fruitsIcon },
-        { name: "Mops, Brushes & Scrubs", image: fruitsIcon },
+        { name: "All Purpose Cleaners", image: Cleaners },
+        { name: "Disposable & Garbage Bags", image: GarbageBags },
+        { name: "Fresheners & Repellents", image: Repellents },
+        { name: "Bins & Bathroom Ware", image:Bins  },
+        { name: "Car & Shoe Care", image: car },
+        { name: "Detergents & Dishwash", image: Dishwash },
+        { name: "Mops, Brushes & Scrubs", image:Mops  },
       ],
     },
     {
       title: "Eggs, Meat & Fish",
       categories: [
-        { name: "Eggs", image: fruitsIcon },
-        { name: "Fish & Seafood", image: fruitsIcon },
-        { name: "Mutton & Lamb", image: fruitsIcon },
-        { name: "Poultry", image: fruitsIcon },
-        { name: "Sausages, Bacon & Salami", image: fruitsIcon },
+        { name: "Eggs", image: eggs },
+        { name: "Fish & Seafood", image: fish },
+        { name: "Mutton & Lamb", image: mutton },
+        { name: "Poultry", image: poultry },
+        { name: "Sausages, Bacon & Salami", image: Bacon },
       ],
     },
     {
       title: "Gourmet & World Food",
       categories: [
-        { name: "Cereals & Breakfast", image: fruitsIcon },
-        { name: "Chocolates & Biscuits", image: fruitsIcon },
-        { name: "Cooking & Baking Needs", image: fruitsIcon },
-        { name: "Dairy & Cheese", image: fruitsIcon },
-        { name: "Drinks & Beverages", image: fruitsIcon },
-        { name: "Oils & Vinegar", image: fruitsIcon },
-        { name: "Pasta, Soup & Noodles", image: fruitsIcon },
-        { name: "Sauces, Spreads & Dips", image: fruitsIcon },
-        { name: "Snacks, Dry Fruits, Nuts", image: fruitsIcon },
-        { name: "Tinned & Processed Food", image: fruitsIcon },
+        { name: "Cereals & Breakfast", image: Breakfast  },
+        { name: "Chocolates & Biscuits", image: sweets },
+        { name: "Cooking & Baking Needs", image: sweets },
+        { name: "Dairy & Cheese", image: cheese },
+        { name: "Drinks & Beverages", image: Drinks },
+        { name: "Oils & Vinegar", image: Oils },
+        { name: "Pasta, Soup & Noodles", image: Pasta },
+        { name: "Sauces, Spreads & Dips", image: Dips },
+        { name: "Snacks, Dry Fruits, Nuts", image: Nuts },
+        { name: "Tinned & Processed Food", image: Food },
       ],
     },
     {
       title: "Baby Care",
       categories: [
-        { name: "Baby Accessories", image: fruitsIcon },
-        { name: "Baby Bath & Hygiene", image: fruitsIcon },
-        { name: "Baby Food & Formula", image: fruitsIcon },
-        { name: "Diapers & Wipes", image: fruitsIcon },
-        { name: "Feeding & Nursing", image: fruitsIcon },
-        { name: "Mothers & Maternity", image: fruitsIcon },
+        { name: "Baby Accessories", image: Accessories },
+        { name: "Baby Bath & Hygiene", image: Hygiene },
+        { name: "Baby Food & Formula", image: Formula },
+        { name: "Diapers & Wipes", image: Wipes },
+        { name: "Feeding & Nursing", image: Nursing },
+        { name: "Mothers & Maternity", image: Maternity },
       ],
     },
   ];
