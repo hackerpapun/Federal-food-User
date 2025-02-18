@@ -46,7 +46,7 @@
 
 .text1 {
     display: block;
-    height: calc(0.90em + .60rem + 1px);
+    height: calc(1.5em + .75rem + 2px);
     padding: .375rem .75rem;
     font-size: 1rem;
     font-weight: 400;
