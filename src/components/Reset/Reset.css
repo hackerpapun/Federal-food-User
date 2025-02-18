@@ -7,8 +7,11 @@
   line-height: 1.5;
   margin: 0;
   font-weight: bold;
+  margin: auto;
+  margin-right: 0;
+  padding-right: 0;
 }
-.closebtn{
+/* .closebtn{
     display: block;
     justify-content: right;
     font-size: 1.5rem;
@@ -16,7 +19,7 @@
     line-height: 1;
     color: #000;
     text-shadow: 0 1px 0 #fff;
-}
+} */
 .closebtn:hover{
   text-decoration: none;
   color:#000 ; 
