@@ -40,6 +40,7 @@ import React from 'react'
 // import  Login  from './components/Login/Login'
 import Registration from './components/Registration/Registration'
 // import ProductCard from './components/ProductCard/ProductCard'
+// import Reset from './components/Reset/Reset'
 
 export const App = () => {
   return (
@@ -51,6 +52,8 @@ export const App = () => {
       {/* <ProductCard /> */}
       {/* <Login /> */}
       <Registration />
+      {/* <Reset /> */}
+      
     </div>
   )
 }
