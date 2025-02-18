@@ -6,7 +6,7 @@ import ProfileInformation from '../components/SettingProfile/ProfilePages/Profil
 import ProfileAddress from '../components/SettingProfile/ProfilePages/ProfileAddress/ProfileAddress';
 import Orderhistory from '../components/SettingProfile/ProfilePages/ProfileOrder/Orderhistory';
 
-const ProfileAddressBar = () => {
+const ProfileSetting = () => {
   return (
     <Router>
       <div style={{ display: 'flex' }}>
@@ -27,4 +27,4 @@ const ProfileAddressBar = () => {
   );
 }
 
-export default ProfileAddressBar;
+export default ProfileSetting;

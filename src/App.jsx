@@ -1,4 +1,7 @@
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 // import AppRoutes from './components/AppRouters'
 // import { ProductDropdown } from './components/dropdown/ProductDropdown'
 // import ProfileDetails from './components/SettingProfile/ProfileDetails/ProfileDetails'
