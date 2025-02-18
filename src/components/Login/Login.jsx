@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Modal, Form, Row, Col } from "react-bootstrap";
 import "./Login.css";
 
-const Login = ({ handleClose, show }) => (
+const Login = ({ show , handleClose }) => (
   <Row className="justify-content-center">
     <Col md={6}></Col>
 
