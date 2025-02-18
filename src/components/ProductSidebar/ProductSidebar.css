@@ -11,6 +11,15 @@
   padding-bottom: 8px;
   color: #212529;
 }
+.subcategory-text.active {
+  color: #7fda39;
+  font-weight: bold;
+}
+
+.accordion-toggle-icon {
+  margin-right: 1rem;
+  cursor: pointer;
+}
 
 .subcategory-text {
   font-size: 16px;
