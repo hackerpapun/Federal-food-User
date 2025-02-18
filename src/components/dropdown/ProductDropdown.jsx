@@ -1,164 +1,151 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ProductDropdown.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Dropdown } from "react-bootstrap";
 import { FaLocationDot } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
+import { useNavigate } from "react-router-dom";
 
 const locationData = ["Ahmedabad", "Bhavnagar", "Dhaka"];
-const fruitsData = [
-  "Herbs & seasonings",
-  "Cherry",
-  "Exotic Foods & Veggies",
-  "Organic Foods & Vegetables",
-  "Cuts & Spourts",
-  "Flower bouqets, Bunches",
-  "Fresh Fruits",
-];
-const beveragesData = [
-  "water",
-  "tea",
-  "coffee",
-  "Health drink , Supplements",
-  "Fruit Juices and Driks",
-];
-const grainsData = [
-  "Atta,Flour & Sooji",
-  "Dals & Pulses",
-  "Rice & Rice Products",
-  "Oraganic Staples",
-  "Salt, Sudat & Jaggery",
-  "Edible Oils & Ghee",
-  "Masala & Spices",
-  "Dry Fruits",
-];
-const bakeryData = [
-  "Bakery Snacks",
-  "Breads & Buns",
-  "Cakes & Pastries",
-  "Cookies, Rusk & Khari",
-  "Dairy",
-  "Gourmet Breads",
-  "Ice Creams & Desserts",
-];
+const categoryData = {
+  Fruits: [
+    "Herbs & seasonings",
+    "Cherry",
+    "Exotic Foods & Veggies",
+    "Organic Foods & Vegetables",
+    "Cuts & Sprouts",
+    "Flower bouquets, Bunches",
+    "Fresh Fruits",
+  ],
+  Frurits: [
+    "Herbs & seasonings",
+    "Cherry",
+    "Exotic Foods & Veggies",
+    "Organic Foods & Vegetables",
+    "Cuts & Sprouts",
+    "Flower bouquets, Bunches",
+    "Fresh Fruits",
+  ],
+  Frurits: [
+    "Herbs & seasonings",
+    "Cherry",
+    "Exotic Foods & Veggies",
+    "Organic Foods & Vegetables",
+    "Cuts & Sprouts",
+    "Flower bouquets, Bunches",
+    "Fresh Fruits",
+  ],
+  Fruitrs: [
+    "Herbs & seasonings",
+    "Cherry",
+    "Exotic Foods & Veggies",
+    "Organic Foods & Vegetables",
+    "Cuts & Sprouts",
+    "Flower bouquets, Bunches",
+    "Fresh Fruits",
+  ],
+  Fruirts: [
+    "Herbs & seasonings",
+    "Cherry",
+    "Exotic Foods & Veggies",
+    "Organic Foods & Vegetables",
+    "Cuts & Sprouts",
+    "Flower bouquets, Bunches",
+    "Fresh Fruits",
+  ],
+  Fruitrs: [
+    "Herbs & seasonings",
+    "Cherry",
+    "Exotic Foods & Veggies",
+    "Organic Foods & Vegetables",
+    "Cuts & Sprouts",
+    "Flower bouquets, Bunches",
+    "Fresh Fruits",
+  ],
+  Beverages: [
+    "Water",
+    "Tea",
+    "Coffee",
+    "Health Drink & Supplements",
+    "Fruit Juices and Drinks",
+  ],
+  "Foodgrains, Oils & Masalas": [
+    "Atta, Flour & Sooji",
+    "Dals & Pulses",
+    "Rice & Rice Products",
+    "Organic Staples",
+    "Salt, Sugar & Jaggery",
+    "Edible Oils & Ghee",
+    "Masala & Spices",
+    "Dry Fruits",
+  ],
+  "Bakery, Cakes & Dairy": [
+    "Bakery Snacks",
+    "Breads & Buns",
+    "Cakes & Pastries",
+    "Cookies, Rusk & Khari",
+    "Dairy",
+    "Gourmet Breads",
+    "Ice Creams & Desserts",
+  ],
+};
 
 export const ProductDropdown = () => {
-  const navigate = useNavigate(); // Initialize useNavigate
+  const [selectedLocation, setSelectedLocation] = useState("Deliver to");
+  const navigate = useNavigate();
+
+  const handleSelectLocation = (location) => {
+    setSelectedLocation(location);
+  };
 
   const handleSelectCategory = (category) => {
-    // Navigate to the category page with the selected category as a query parameter
     navigate(`/category?category=${encodeURIComponent(category)}`);
   };
 
   return (
-    <Container
-      fluid
-      className="dropdown-container"
-      style={{ marginLeft: "0px" }}
-    >
-      <Row>
-        <Col>
+    <Container fluid className="dropdown-container">
+      <Row className="align-items-center"style={{width:'100%'}}>
+        <Col xs={12} md={2} className="deliver-to-col">
           <Dropdown>
             <Dropdown.Toggle variant="success" className="top-dropdown">
               <FaLocationDot className="location-icon" />
-              Deliver to
+              Delevary to {" "}
+              {selectedLocation}
             </Dropdown.Toggle>
-
             <Dropdown.Menu id="dropdown-box">
               {locationData.map((location, index) => (
-                <Dropdown.Item key={index} href={`#action-${index + 1}`}>
+                <Dropdown.Item
+                  key={index}
+                  onClick={() => handleSelectLocation(location)}
+                >
                   {location}
                 </Dropdown.Item>
               ))}
             </Dropdown.Menu>
           </Dropdown>
         </Col>
-
-        <Col>
-          <Dropdown>
-            <Dropdown.Toggle variant="success" className="top-dropdown">
-              Fruits
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu id="dropdown-box">
-              {fruitsData.map((fruit, index) => (
-                <Dropdown.Item
-                  key={index}
-                  onClick={() => handleSelectCategory(fruit)}
-                >
-                  {fruit}
-                </Dropdown.Item>
-              ))}
-            </Dropdown.Menu>
-          </Dropdown>
+        <Col xs={12} md={10} className="d-none d-md-block">
+          <Row className="g-2">
+            {Object.entries(categoryData).map(([category, items]) => (
+              <Col key={category}>
+                <Dropdown>
+                  <Dropdown.Toggle variant="success" className="top-dropdown">
+                    {category}
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu id="dropdown-box">
+                    {items.map((item, index) => (
+                      <Dropdown.Item
+                        key={index}
+                        onClick={() => handleSelectCategory(item)}
+                      >
+                        {item}
+                      </Dropdown.Item>
+                    ))}
+                  </Dropdown.Menu>
+                </Dropdown>
+              </Col>
+            ))}
+          </Row>
         </Col>
-
-        <Col>
-          <Dropdown>
-            <Dropdown.Toggle variant="success" className="top-dropdown">
-              Beverages
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu id="dropdown-box">
-              {beveragesData.map((beverages, index) => (
-                <Dropdown.Item
-                  key={index}
-                  onClick={() => handleSelectCategory(beverages)}
-                >
-                  {beverages}
-                </Dropdown.Item>
-              ))}
-            </Dropdown.Menu>
-          </Dropdown>
-        </Col>
-
-        <Col>
-          <Dropdown>
-            <Dropdown.Toggle variant="success" className="top-dropdown">
-              Herbs and Seasonings
-            </Dropdown.Toggle>
-          </Dropdown>
-        </Col>
-
-        <Col>
-          <Dropdown>
-            <Dropdown.Toggle variant="success" className="top-dropdown">
-              Foodgrains , Oils & Masalas
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu id="dropdown-box">
-              {grainsData.map((grains, index) => (
-                <Dropdown.Item
-                  key={index}
-                  onClick={() => handleSelectCategory(grains)}
-                >
-                  {grains}
-                </Dropdown.Item>
-              ))}
-            </Dropdown.Menu>
-          </Dropdown>
-        </Col>
-
-        <Col>
-          <Dropdown>
-            <Dropdown.Toggle variant="success" className="top-dropdown">
-              Bakery , Cakes & Dairy
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu id="dropdown-box">
-              {bakeryData.map((bakery, index) => (
-                <Dropdown.Item
-                  key={index}
-                  onClick={() => handleSelectCategory(bakery)}
-                >
-                  {bakery}
-                </Dropdown.Item>
-              ))}
-            </Dropdown.Menu>
-          </Dropdown>
-        </Col>
-
-        <Col></Col>
       </Row>
     </Container>
   );

@@ -1,4 +1,4 @@
-﻿import React from "react";
+﻿import React, { useState } from "react";
 import {
   Navbar,
   Nav,
@@ -22,9 +22,22 @@ import {
 } from "react-icons/fa";
 import logo1 from "../../assets/logo.png";
 import "../NavBar/NavBar.css";
-import { ProductDropdown } from "../dropdown/ProductDropdown";
+import Login from "../Login/Login";
+import Registration from "../Registration/Registration";
+import ForgotPassword from "../Reset/Reset";
 
 export default function AppNavbar() {
+  const [showLogin, setShowLogin] = useState(false);
+  const [showRegistration, setShowRegistration] = useState(false);
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+
+  const handleLoginClose = () => setShowLogin(false);
+  const handleLoginShow = () => setShowLogin(true);
+  const handleRegistrationClose = () => setShowRegistration(false);
+  const handleRegistrationShow = () => setShowRegistration(true);
+  const handleForgotPasswordClose = () => setShowForgotPassword(false);
+  const handleForgotPasswordShow = () => setShowForgotPassword(true);
+
   return (
     <>
       <Navbar
@@ -46,10 +59,10 @@ export default function AppNavbar() {
           </Navbar.Brand>
 
           <div className="d-flex align-items-center d-lg-none">
-            <Nav.Link href="/login" className="text-white me-3">
+            <Nav.Link onClick={handleLoginShow} className="text-white me-3">
               <FaUser />
             </Nav.Link>
-            <Nav.Link href="/cart" className="text-white  nav-link">
+            <Nav.Link href="/cart" className="text-white nav-link">
               <FaShoppingCart />
             </Nav.Link>
           </div>
@@ -152,8 +165,11 @@ export default function AppNavbar() {
                 </Dropdown.Menu>
               </Dropdown>
 
-              <Nav.Link className="text-white me-3 d-flex align-items-center">
-                <FaUser className="me-1" /> Login / Register
+              <Nav.Link
+                onClick={handleLoginShow}
+                className="text-white me-3 d-flex align-items-center"
+              >
+                <FaUser className="me-1" /> Account
               </Nav.Link>
 
               <Nav.Link className="text-white d-flex align-items-center">
@@ -163,9 +179,23 @@ export default function AppNavbar() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <Container fluid>
-        <ProductDropdown />
-      </Container>
+
+      <Login
+        show={showLogin}
+        handleClose={handleLoginClose}
+        handleShowRegistration={handleRegistrationShow}
+        handleShowForgotPassword={handleForgotPasswordShow}
+      />
+
+      <Registration
+        show={showRegistration}
+        handleClose={handleRegistrationClose}
+      />
+
+      <ForgotPassword
+        show={showForgotPassword}
+        handleClose={handleForgotPasswordClose}
+      />
     </>
   );
 }

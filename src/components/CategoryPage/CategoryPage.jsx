@@ -2,12 +2,13 @@ import React, { useState, useMemo, useEffect } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import Sidebar from "../ProductSidebar/ProductSidebar.jsx";
 import ProductCard from "../ProductCard/ProductCard.jsx";
-import { useLocation } from "react-router-dom"; // Import useLocation to read query parameters
+import { useLocation, useParams } from "react-router-dom";
 import "./CategoryPage.css";
 
 const CategoryPage = ({ categories = [], products = [] }) => {
   const [sortBy, setSortBy] = useState("popularity");
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const { categoryId } = useParams();
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
@@ -23,7 +24,7 @@ const CategoryPage = ({ categories = [], products = [] }) => {
     if (!Array.isArray(products)) return [];
 
     return selectedCategory
-      ? products.filter((product) => product.category === selectedCategory)
+      ? products.filter((product) => product.category === selectedCategory) // Filter by selected category
       : products;
   }, [selectedCategory, products]);
 
@@ -44,7 +45,7 @@ const CategoryPage = ({ categories = [], products = [] }) => {
         sorted.sort((a, b) => b.name.localeCompare(a.name));
         break;
       default:
-        break; // Keep original order for "popularity"
+        break;
     }
 
     return sorted;
@@ -53,14 +54,14 @@ const CategoryPage = ({ categories = [], products = [] }) => {
   return (
     <Container fluid>
       <Row>
-        {/* Sidebar */}
-        <Col md={3} className="sidebar-container">
-          <Sidebar categories={categories} />
+        <Col lg={3} className="sidebar-container d-none d-lg-block">
+          <Sidebar
+            categories={categories}
+            setSelectedCategory={setSelectedCategory} 
+          />
         </Col>
 
-        {/* Product Section */}
-        <Col md={9}>
-          {/* Sorting Buttons */}
+        <Col lg={9} md={12}>
           <div className="sorting-container">
             <span>Sort By:</span>
             {[
@@ -94,7 +95,9 @@ const CategoryPage = ({ categories = [], products = [] }) => {
                 </Col>
               ))
             ) : (
-              <p>No products available.</p>
+              <Col className="text-center">
+                <p className="no-products-message">No products available.</p>
+              </Col>
             )}
           </Row>
         </Col>

@@ -12,12 +12,17 @@ const ProductCard = ({ product }) => {
   const [selectedOption, setSelectedOption] = useState(
     product.options?.length > 0 ? product.options[0] : null
   );
+  const [isHovered, setIsHovered] = useState(false);
 
   const increaseCount = () => setCount(count + 1);
   const decreaseCount = () => setCount(count > 0 ? count - 1 : 0);
 
   return (
-     <div className="product-card">
+    <div
+      className="product-card"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div className="food-icon">
         <img
           src={product.isVegetarian ? vegIcon : nonVegIcon}
@@ -31,6 +36,7 @@ const ProductCard = ({ product }) => {
       )}
 
       <img src={product.image} alt={product.name} className="product-image" />
+
       <div className="product-details">
         <h4 className="product-name">{product.name}</h4>
         <p className="product-quantity">{product.quantity}</p>
@@ -55,59 +61,67 @@ const ProductCard = ({ product }) => {
             </Dropdown.Menu>
           </Dropdown>
         )}
+      </div>
 
-        <div style={{ marginTop: "10px", display: "flex", justifyContent: "center" }}>
-          {count === 0 ? (
+      <div
+        className={`button-container ${
+          isHovered || count > 0 ? "show-button" : ""
+        }`}
+      >
+        {count === 0 ? (
+          <Button
+            onClick={() => setCount(1)}
+            style={{
+              backgroundColor: "#7FAD39",
+              border: "none",
+              padding: "8px 15px",
+              fontSize: "16px",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              borderRadius: "5px",
+              width: "100px",
+              justifyContent: "center",
+            }}
+          >
+            <IoBag size={18} />
+            ADD
+          </Button>
+        ) : (
+          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             <Button
-              onClick={() => setCount(1)}
+              variant="outline-success"
+              onClick={decreaseCount}
               style={{
-                backgroundColor: "#7FAD39",
                 border: "none",
-                padding: "8px 15px",
-                fontSize: "16px",
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-                borderRadius: "5px",
-                width: "100px",
-                justifyContent: "center",
+                fontSize: "18px",
+                borderRadius: "50%",
+                paddingBottom: "7px",
+                backgroundColor: "#7FAD39",
+                color: "white",
               }}
             >
-              <IoBag size={18} />
-              ADD
+              <FaMinus />
             </Button>
-          ) : (
-            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              <Button
-                variant="outline-success"
-                onClick={decreaseCount}
-                style={{
-                  border: "none",
-                  fontSize: "18px",
-                  borderRadius: "50%",
-                  backgroundColor: "#7FAD39",
-                  color: "white",
-                }}
-              >
-                <FaMinus />
-              </Button>
-              <span style={{ fontSize: "18px", fontWeight: "bold" }}>{count}</span>
-              <Button
-                variant="outline-success"
-                onClick={increaseCount}
-                style={{
-                  border: "none",
-                  fontSize: "18px",
-                  borderRadius: "50%",
-                  backgroundColor: "#7FAD39",
-                  color: "white",
-                }}
-              >
-                <FaPlus />
-              </Button>
-            </div>
-          )}
-        </div>
+            <span style={{ fontSize: "18px", fontWeight: "bold" }}>
+              {count}
+            </span>
+            <Button
+              variant="outline-success"
+              onClick={increaseCount}
+              style={{
+                border: "none",
+                fontSize: "18px",
+                borderRadius: "50%",
+                paddingBottom: "7px",
+                backgroundColor: "#7FAD39",
+                color: "white",
+              }}
+            >
+              <FaPlus />
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );
