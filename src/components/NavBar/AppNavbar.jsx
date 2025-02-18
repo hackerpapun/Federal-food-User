@@ -163,9 +163,6 @@ export default function AppNavbar() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <Container fluid>
-        <ProductDropdown />
-      </Container>
     </>
   );
 }

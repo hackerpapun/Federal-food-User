@@ -1,6 +1,9 @@
 .sidebar {
+  width: 100%;
   max-width: 300px;
   background: #fff;
+  height: 100vh;
+  /* Ensure it takes full height */
 }
 
 .category-title {
@@ -11,13 +14,13 @@
   padding-bottom: 8px;
   color: #212529;
 }
+
 .subcategory-text.active {
   color: #7fda39;
   font-weight: bold;
 }
 
 .accordion-toggle-icon {
-  margin-right: 1rem;
   cursor: pointer;
 }
 
@@ -26,7 +29,7 @@
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
   display: inline-block;
-  text-align: center;
+  text-align: left;
 }
 
 .subcategory-list {
@@ -38,9 +41,24 @@
   padding: 5px 0;
   color: #555;
   text-decoration: none;
-  display: flex;
+  display: block;
+  width: 100%;
+}
+
+.subcategory-list a:hover {
+  color: #7fda39;
+}
+
+.subcategory-list .active-link {
+  color: #7fda39 !important;
 }
 
 .subcategory-list .disabled {
   color: #ccc;
+}
+
+/* Hover Effects */
+.subcategory-text:hover {
+  color: #7fda39;
+  cursor: pointer;
 }

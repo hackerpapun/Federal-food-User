@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { Home } from "../pages/Home";
 import { Login } from "../pages/Login";
 import { Register } from "../pages/Register";
@@ -13,9 +13,9 @@ import CategoryPage from "./CategoryPage/CategoryPage";
 
 function AppRoutes() {
   return (
-    <>
+    <BrowserRouter>
       <NavbarMain />
-      <main className="content-area">
+      <main className="content-area" style={{ margin: "0px 200px 0px  200px" }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -29,7 +29,7 @@ function AppRoutes() {
         </Routes>
       </main>
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 

@@ -28,7 +28,6 @@ import cookies from "../../assets/non-veg.png";
 import Dairy from "../../assets/veg1.png";
 import GourmetBreads from "../../assets/fruit6.png";
 import Breakfast from"../../assets/meat1.png";
-import Biscuit from"../../assets/veg1.png";
 import FrozenVeggies from"../../assets/clean1.png";
 import spreads from "../../assets/9.jpeg";
 import Namkeens from "../../assets/10.jpeg";
@@ -58,7 +57,6 @@ import poultry from "../../assets/bread.png";
 import Bacon from "../../assets/veg1.png";
 import sweets from"../../assets/non-veg.png";
 import Biscuit from"../../assets/non-veg.png";
-import cheese from "../../assets/bread.png"
 import Drinks from"../../assets/Tea.png";
 import Oils from "../../assets/oil.jpeg";
 import Pasta from "../../assets/10.jpeg";
@@ -89,7 +87,6 @@ export const HomeProducts = () => {
         { name: "Organic Food & Vegetables", image: cuts },
         { name: "Cuts & Sprouts", image: freshfruits },
         { name: "Flower Bouquets, Bunches", image: freshfruits },
-        
       ],
     },
     {
@@ -99,19 +96,19 @@ export const HomeProducts = () => {
         { name: "Tea", image: Tea },
         { name: "Coffee", image: coffee },
         { name: "Health Drink, Supplements", image: Drink },
-        { name: "Fruit Juices & Drinks", image:juices },
+        { name: "Fruit Juices & Drinks", image: juices },
       ],
     },
     {
       title: "Foodgrains, Oils & Masalas",
       categories: [
         { name: "Atta, Flour & Sooji", image: Atta },
-        { name: "Dals & Pulses", image:pulses  },
+        { name: "Dals & Pulses", image: pulses },
         { name: "Rice & Rice Products", image: rice },
         { name: "Organic Staples", image: staple },
         { name: "Salt, Sugar & Jaggery", image: salt },
         { name: "Edible Oils & Ghee", image: oil },
-        { name: "Masalas & Spices", image:spices  },
+        { name: "Masalas & Spices", image: spices },
         { name: "Dry Fruits", image: DryFruits },
       ],
     },
@@ -131,10 +128,10 @@ export const HomeProducts = () => {
       title: "Snacks & Branded Foods",
       categories: [
         { name: "Breakfast Cereals", image: Breakfast },
-        { name: "Biscuits & Cookies", image: Biscuits },
+        { name: "Biscuits & Cookies", image: Breakfast },
         { name: "Frozen Veggies & Snacks", image: FrozenVeggies },
         { name: "Spreads, Sauces, Ketchup", image: spreads },
-        { name: "Snacks & Namkeens", image:Namkeens },
+        { name: "Snacks & Namkeens", image: Namkeens },
         { name: "Ready to Cook & Eat", image: cook },
         { name: "Chocolate & Candies", image: chocolate },
         { name: "Pickles & Chutney", image: pickles },
@@ -160,10 +157,10 @@ export const HomeProducts = () => {
         { name: "All Purpose Cleaners", image: Cleaners },
         { name: "Disposable & Garbage Bags", image: GarbageBags },
         { name: "Fresheners & Repellents", image: Repellents },
-        { name: "Bins & Bathroom Ware", image:Bins  },
+        { name: "Bins & Bathroom Ware", image: Bins },
         { name: "Car & Shoe Care", image: car },
         { name: "Detergents & Dishwash", image: Dishwash },
-        { name: "Mops, Brushes & Scrubs", image:Mops  },
+        { name: "Mops, Brushes & Scrubs", image: Mops },
       ],
     },
     {
@@ -179,10 +176,10 @@ export const HomeProducts = () => {
     {
       title: "Gourmet & World Food",
       categories: [
-        { name: "Cereals & Breakfast", image: Breakfast  },
+        { name: "Cereals & Breakfast", image: Breakfast },
         { name: "Chocolates & Biscuits", image: sweets },
         { name: "Cooking & Baking Needs", image: sweets },
-        { name: "Dairy & Cheese", image: cheese },
+        { name: "Dairy & Cheese", image: sweets },
         { name: "Drinks & Beverages", image: Drinks },
         { name: "Oils & Vinegar", image: Oils },
         { name: "Pasta, Soup & Noodles", image: Pasta },
