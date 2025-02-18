@@ -4,8 +4,10 @@ import "./Registration.css";
 
 const Registration = ({ show, handleClose }) => (
   <Modal show={show} onHide={handleClose} centered className="loginpage">
-    <Modal.Header closeButton>
-      <Modal.Title className="tsignup">Sign Up</Modal.Title>
+    <Modal.Header 
+    closeButton 
+    >
+      <Modal.Title className={"tsignup"}>Sign Up</Modal.Title>
     </Modal.Header>
     <Modal.Body>
       <Form>

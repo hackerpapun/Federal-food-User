@@ -5,7 +5,9 @@ import { Button, Modal, Form, Row, Col } from "react-bootstrap";
 const Reset = ({ show, handleClose }) => {
   return (
     <Modal show={show} onHide={handleClose} centered className="resetpage">
-      <Modal.Header className="closebtn" closeButton>
+      <Modal.Header
+       closeButton
+       >
         <Modal.Title className="reset">Reset Password</Modal.Title>
       </Modal.Header>
       <Modal.Body>

@@ -2,17 +2,13 @@ import React from "react";
 import { Button, Modal, Form, Row, Col } from "react-bootstrap";
 import "./Login.css";
 
-const Login = () => (
+const Login = ({ handleClose, show }) => (
   <Row className="justify-content-center">
     <Col md={6}></Col>
 
-    <Modal show="login" onHide="true" centered className="loginpage">
-      <Modal.Header className="closebtn" closeButton>
-        <Row>
-          <Col className="tlogin">
-          <Modal.Title>Login</Modal.Title>
-          </Col>
-        </Row>
+    <Modal show={show} onHide={handleClose} centered className="loginpage">
+      <Modal.Header closeButton>
+        <Modal.Title className={"tlogin"}>Login</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form>
@@ -52,6 +48,13 @@ const Login = () => (
               </a>
             </Col>
           </Row>
+          <Row className="text-center"
+            style={{
+              borderBottom: "1px solid #ced4da ",
+              justifyContent: "center",
+              display: "flex",
+            }}
+          ></Row>
           <Row>
             <Col>
               <Button className="login-btn" type="submit">

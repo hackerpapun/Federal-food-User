@@ -32,26 +32,26 @@
 
 // export default App;
 import React from 'react'
-// import AppRoutes from './components/AppRouters'
+import AppRoutes from './components/AppRouters'
 // import ShopByCatagoriesCard from './components/ShopByCatagories/ShopByCatagoriesCard'
 // import { Home } from './pages/Home'
 // import Product from './components/Product/Product'
 // import ProductSidebar from './components/ProductSidebar/ProductSidebar'
-import  Login  from './components/Login/Login'
-// import Registration from './components/Registration/Registration'
+// import  Login  from './components/Login/Login'
+import Registration from './components/Registration/Registration'
 // import ProductCard from './components/ProductCard/ProductCard'
 // import Reset from './components/Reset/Reset'
-import CategorySection from './components/CategoriesSection/CategoriesSection'
+// import CategorySection from './components/CategoriesSection/CategoriesSection'
 
 export const App = () => {
   return (
     <div>
-      {/* <AppRoutes/> */}
+      <AppRoutes/>
       {/* <Home/> */}
       {/* <Product/> */}
       {/* <ProductSidebar /> */}
       {/* <ProductCard /> */}
-      <Login />
+      {/* <Login /> */}
       {/* <Registration /> */}
       {/* <Reset /> */}
       {/* <CategorySection /> */}
