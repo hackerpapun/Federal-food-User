@@ -37,10 +37,11 @@ import React from 'react'
 // import { Home } from './pages/Home'
 // import Product from './components/Product/Product'
 // import ProductSidebar from './components/ProductSidebar/ProductSidebar'
-// import  Login  from './components/Login/Login'
-import Registration from './components/Registration/Registration'
+import  Login  from './components/Login/Login'
+// import Registration from './components/Registration/Registration'
 // import ProductCard from './components/ProductCard/ProductCard'
 // import Reset from './components/Reset/Reset'
+import CategorySection from './components/CategoriesSection/CategoriesSection'
 
 export const App = () => {
   return (
@@ -50,9 +51,10 @@ export const App = () => {
       {/* <Product/> */}
       {/* <ProductSidebar /> */}
       {/* <ProductCard /> */}
-      {/* <Login /> */}
-      <Registration />
+      <Login />
+      {/* <Registration /> */}
       {/* <Reset /> */}
+      {/* <CategorySection /> */}
       
     </div>
   )

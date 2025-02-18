@@ -8,8 +8,11 @@ const Login = () => (
 
     <Modal show="login" onHide="true" centered className="loginpage">
       <Modal.Header className="closebtn" closeButton>
-        
-        <Modal.Title className="tlogin">Login</Modal.Title>
+        <Row>
+          <Col className="tlogin">
+          <Modal.Title>Login</Modal.Title>
+          </Col>
+        </Row>
       </Modal.Header>
       <Modal.Body>
         <Form>
