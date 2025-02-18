@@ -5,6 +5,7 @@ import { z } from "zod";
 import { Button, Modal, Form, Row, Col, FormCheck } from "react-bootstrap";
 import "./Registration.css";
 
+// Zod schema for validation
 const schema = z.object({
   email: z.string().email("Invalid email address"),
   password: z.string().min(6, "Password must be at least 6 characters"),
@@ -17,7 +18,7 @@ const schema = z.object({
   }),
 });
 
-const Registration = ({ show, handleClose }) => {
+const Registration = ({ show, handleClose, handleShowLogin }) => {
   const {
     register,
     handleSubmit,
@@ -117,7 +118,7 @@ const Registration = ({ show, handleClose }) => {
             </Col>
           </Row>
           <Row>
-            <Col>
+             <Col>
               <Form.Group>
                 <Form.Control
                   type="text"
@@ -157,17 +158,20 @@ const Registration = ({ show, handleClose }) => {
           </Row>
           <Row>
             <Col>
-              <a href="#" className="note1">
+              <a href="#" className="note1" onClick={handleShowLogin}>
                 <span style={{ color: " #212529" }}>or</span> Login to your
                 account
               </a>
             </Col>
           </Row>
-          <Row className="text-center" style={{
-                      borderBottom: "1px solid #ced4da",
-                      justifyContent: "center",
-                      display: "flex"
-                    }}></Row>
+          <Row
+            className="text-center"
+            style={{
+              borderBottom: "1px solid #ced4da",
+              justifyContent: "center",
+              display: "flex",
+            }}
+          ></Row>
           <Row>
             <Col>
               <Button className="login-btn" type="submit">
