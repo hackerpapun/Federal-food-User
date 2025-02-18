@@ -1,62 +1,65 @@
 import React from "react";
+import { Button, Modal, Form, Row, Col } from "react-bootstrap";
 import "./Login.css";
-import { Modal, Col, Form, Button, Row } from "react-bootstrap";
 
-const Login = () => {
-  return (
-    <Modal show={Login} onHide={Login} className="loginpage">
-      <Modal.Header>
-        <Modal.Title className="w-100 text-center">
-          <h3 className="heading">Login</h3>
-        </Modal.Title>
+const Login = () => (
+  <Row className="justify-content-center">
+    <Col md={6}></Col>
+
+    <Modal show="login" onHide="true" centered className="loginpage">
+      <Modal.Header className="closebtn" closeButton>
+        
+        <Modal.Title className="tlogin">Login</Modal.Title>
       </Modal.Header>
-
-      <Modal.Body className="h-100">
-        <Form className="formbody">
-          <Row className="mb-3">
-            <Col sm={12}>
-              <Form.Control
-                className="emailplaceholder"
-                type="email"
-                placeholder="Email"
-              />
-            </Col>
-          </Row>
-
-          <Row className="mb-3">
-            <Col sm={12}>
-              <Form.Control
-                className="passwordplaceholder"
-                type="password"
-                placeholder="Password"
-              />
-            </Col>
-          </Row>
-          <Row className="text-center">
+      <Modal.Body>
+        <Form>
+          <Row>
             <Col>
-              <a href="#" className="text3 ">
-                <span style={{ color: "#212529" }}>Forgot Password?</span>
+              <Form.Group>
+                <Form.Control
+                  type="email"
+                  placeholder="Email"
+                  className="form-input"
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Form.Group>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  className="form-input"
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <a href="#" className="forgot-password">
+                Forgot Password?
               </a>
             </Col>
           </Row>
-
-          <Row className="text-center ">
+          <Row>
             <Col>
-              <a href="#" className="text4 ">
-                or <span style={{ color: "red" }}>Create an Account</span>
+              <a href="#" className="create-account">
+                <span style={{ color: " #212529" }}>or</span> Create an account
               </a>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Button className="login-btn" type="submit">
+                Login
+              </Button>
             </Col>
           </Row>
         </Form>
       </Modal.Body>
-      <Modal.Footer
-        className="text-center"
-        style={{ borderBottom: "1px solid #ced4da ",justifyContent:'center', display:'flex' }}>
-        <Button className="loginbtn" type="submit">
-          Login
-        </Button>
-      </Modal.Footer>
     </Modal>
-  );
-};
+  </Row>
+);
+
 export default Login;

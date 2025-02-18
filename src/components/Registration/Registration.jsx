@@ -1,144 +1,123 @@
 import React from "react";
-import {
-  Modal,
-  Col,
-  Form,
-  Button,
-  Row,
-  FormControl,
-  FormCheck,
-  FormGroup,
-  DropdownButton,
-  Dropdown,
-} from "react-bootstrap";
+import { Button, Modal, Form, Row, Col, FormCheck } from "react-bootstrap";
 import "./Registration.css";
 
-const Registration = () => {
-  const handleSubmit = async () => {
-    console.log("Submitted Successfully");
-  };
-  return (
-    <Modal show={Registration} onHide={Registration} className="signuppage">
-      <Modal.Header>
-        <Modal.Title className="w-100 text-center">
-          <h3 className="heading">Signup</h3>
-        </Modal.Title>
-      </Modal.Header>
+const Registration = () => (
+  <Row className="justify-content-center">
+    <Col md={6}></Col>
 
-      <Modal.Body className="h-100">
-        <Form onSubmit={handleSubmit} className="formbody">
-          <Row className="mb-3">
-            <Col sm={12}>
-              <Form.Control
-                className="allplaceholder"
-                type="email"
-                placeholder="Email"
-              />
-            </Col>
-          </Row>
-          <Row className="mb-3">
-            <Col sm={12}>
-              <Form.Control
-                className="allplaceholder"
-                type="password"
-                placeholder="Password"
-              />
-            </Col>
-          </Row>
-          <Row className="mb-3">
-            <Col sm={12}>
-              <Form.Control
-                className="allplaceholder"
-                type="text"
-                placeholder="First Name"
-              />
-            </Col>
-          </Row>
-          <Row className="mb-3">
-            <Col sm={12}>
-              <Form.Control
-                className="allplaceholder"
-                type="text"
-                placeholder="Last Name"
-              />
-            </Col>
-          </Row>
-          <Row className="mb-3">
-            <Col sm={4}>
-              <DropdownButton id="dropdown-basic-button" title="country">
-                <Dropdown.Item href="#/action-1">India</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Japan</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">UK</Dropdown.Item>
-                <Dropdown.Item href="#/action-4">Italy</Dropdown.Item>
-                <Dropdown.Item href="#/action-5">Iran</Dropdown.Item>
-                <Dropdown.Item href="#/action-6">Kuwait</Dropdown.Item>
-                <Dropdown.Item href="#/action-7">Maxcau</Dropdown.Item>
-                <Dropdown.Item href="#/action-8">Maldives</Dropdown.Item>
-                <Dropdown.Item href="#/action-9">Norway</Dropdown.Item>
-                <Dropdown.Item href="#/action-10">Poland</Dropdown.Item>
-              </DropdownButton>
-            </Col>
-            <Col sm={8}>
-              <Form.Control
-                className="allplaceholder"
-                type="tel"
-                placeholder="Mobile Number"
-              />
-            </Col>
-          </Row>
-          <Row className="mb-3">
-            <Col sm={12}>
-              <Form.Control
-                className="allplaceholder"
-                type="text"
-                placeholder="Referral Code (Optional)"
-              />
+    <Modal show="login" onHide="true" centered className="loginpage">
+      <Modal.Header closeButton  >
+        <Modal.Title className="tsignup">Sign Up</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <Form>
+          <Row>
+            <Col>
+              <Form.Group>
+                <Form.Control
+                  type="email"
+                  placeholder="Email"
+                  className="text1"
+                />
+              </Form.Group>
             </Col>
           </Row>
           <Row>
             <Col>
-              <FormCheck
-                type="checkbox"
-                label={
-                  <p className="note">
-                    By clicking on the I agree button click, download or if you
-                    use the Application, you agree to be bound by the{" "}
-                    <a href="" style={{ color: "blue" }}>
-                      EULA certificate
-                    </a>
-                    and
-                    <a href="" style={{ color: "blue" }}>
-                      Privacy policy
-                    </a>
-                    of this app.
-                  </p>
-                }
-              />
+              <Form.Group>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  className="text1"
+                />
+              </Form.Group>
             </Col>
           </Row>
-          <Row className="text-center ">
+          <Row>
             <Col>
-              <a href="#" className="text4 ">
-                or <span style={{ color: "red" }}>Login to your account</span>
+              <Form.Group>
+                <Form.Control
+                  type="text"
+                  placeholder="First Name"
+                  className="text1"
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Form.Group>
+                <Form.Control
+                  type="text"
+                  placeholder="Last Name"
+                  className="text1"
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Form.Group>
+                <Form.Control
+                  type="tel"
+                  placeholder="Mobile Number"
+                  className="text1"
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Form.Group>
+                <Form.Control
+                  type="text"
+                  placeholder="Referral Code (Optional)"
+                  className="text1"
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+                <FormCheck
+                  type="checkbox"
+                  label={
+                    <p className="note">
+                      By clicking on the I agree button click, download or if
+                      you use the Application, you <br />agree to be bound by the{" "}
+                      <a href="" style={{ color: "blue" }}>
+                        EULA certificate
+                      </a>
+                      and
+                      <a href="" style={{ color: "blue" }}>
+                        Privacy policy
+                      </a>
+                      of this app.
+                    </p>
+                  }
+                />
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <a href="#" className="note1">
+                <span style={{ color: " #212529" }}>or</span> Login to your
+                account
               </a>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Button className="login-btn" type="submit">
+                SIGNUP
+              </Button>
             </Col>
           </Row>
         </Form>
       </Modal.Body>
-      <Modal.Footer
-        className="text-center"
-        style={{
-          borderBottom: "1px solid #ced4da ",
-          justifyContent: "center",
-          display: "flex",
-        }}
-      >
-        <Button className="loginbtn" type="submit">
-          SIGNUP 
-        </Button>
-      </Modal.Footer>
     </Modal>
-  );
-};
+  </Row>
+);
 
 export default Registration;
