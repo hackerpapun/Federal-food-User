@@ -14,8 +14,8 @@
     line-height: 1;
     color: #000;
     text-shadow: 0 1px 0 #fff;
-    opacity: .5;
-}
+    opacity: 0.5;
+    }
 .closebtn:hover{
   text-decoration: none;
   color:#000 ; 
@@ -23,13 +23,12 @@
 
 .loginpage {
   height: 100%;
-  width: 500px;
+  width: 100%;
   border: 1px solid #d0d0d0 ;
   justify-content: center;
   display: flex;
   /* flex-direction: column; */
   pointer-events: auto;
-  background-color: #fff;
   border-radius: .3rem;
   outline: 0;
   box-shadow: 0 5px 11px #0000002e, 0 4px 15px #00000026;
