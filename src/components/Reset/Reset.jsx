@@ -6,8 +6,9 @@ const Reset = ({ show, handleClose }) => {
   return (
     <Modal show={show} onHide={handleClose} centered className="resetpage">
       <Modal.Header className="closebtn" closeButton>
-        <Modal.Title className="reset">Reset Password</Modal.Title>
+        {" "}
       </Modal.Header>
+      <Modal.Title className="reset">Reset Password</Modal.Title>
       <Modal.Body>
         <Form>
           <Row>
