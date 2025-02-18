@@ -31,8 +31,10 @@ const Login = ({
 
   return (
     <Modal show={show} onHide={handleClose} centered className="loginpage">
-      <Modal.Header className="closebtn" closeButton></Modal.Header>
-      <Modal.Title className="tlogin">Login</Modal.Title>
+      <Modal.Header closeButton>
+        <Modal.Title className="tlogin">Login</Modal.Title>
+      </Modal.Header>
+    
       <Modal.Body>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Row>
@@ -89,6 +91,11 @@ const Login = ({
               </a>
             </Col>
           </Row>
+          <Row className="text-center" style={{
+            borderBottom: "1px solid #ced4da",
+            justifyContent: "center",
+            display: "flex"
+          }}></Row>
           <Row>
             <Col>
               <Button className="login-btn" type="submit">

@@ -11,18 +11,17 @@
   padding-right: 0;
 }
 
-}
-.closebtn{
+/* .closebtn{
     display: flex;
     justify-content: right;
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 1;
-    /* margin-right: 170px; */
+    margin-right: 170px;
     color: #000;
     text-shadow: 0 1px 0 #fff;
     opacity: 0.5;
-    }
+    } */
 .closebtn:hover{
   text-decoration: none;
   color:#000 ; 
@@ -37,6 +36,7 @@
   /* flex-direction: column; */
   pointer-events: auto;
   border-radius: .3rem;
+  overflow-y: auto!important;
   outline: 0;
   box-shadow: 0 5px 11px #0000002e, 0 4px 15px #00000026;
   

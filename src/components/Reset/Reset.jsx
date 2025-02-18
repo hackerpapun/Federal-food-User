@@ -5,10 +5,11 @@ import { Button, Modal, Form, Row, Col } from "react-bootstrap";
 const Reset = ({ show, handleClose }) => {
   return (
     <Modal show={show} onHide={handleClose} centered className="resetpage">
-      <Modal.Header className="closebtn" closeButton>
+      <Modal.Header closeButton>
         {" "}
+        <Modal.Title className="reset">Reset Password</Modal.Title>
       </Modal.Header>
-      <Modal.Title className="reset">Reset Password</Modal.Title>
+      
       <Modal.Body>
         <Form>
           <Row>
@@ -30,6 +31,14 @@ const Reset = ({ show, handleClose }) => {
               </a>
             </Col>
           </Row>
+          <Row
+            className="text-center"
+            style={{
+              borderBottom: "1px solid #ced4da",
+              justifyContent: "center",
+              display: "flex",
+            }}
+          ></Row>
           <Row>
             <Col>
               <Button className="submit-btn" type="submit">

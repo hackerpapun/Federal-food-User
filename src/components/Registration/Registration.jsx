@@ -163,6 +163,11 @@ const Registration = ({ show, handleClose }) => {
               </a>
             </Col>
           </Row>
+          <Row className="text-center" style={{
+                      borderBottom: "1px solid #ced4da",
+                      justifyContent: "center",
+                      display: "flex"
+                    }}></Row>
           <Row>
             <Col>
               <Button className="login-btn" type="submit">
