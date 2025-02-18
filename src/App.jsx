@@ -3,9 +3,10 @@ import './App.css'
 // import { ProductDropdown } from './components/dropdown/ProductDropdown'
 // import ProfileDetails from './components/SettingProfile/ProfileDetails/ProfileDetails'
 // import ProfileSidebar from './components/SettingProfile/ProfileSidebar/ProfileSidebar'
-// import ProfileOrder from './components/SettingProfile/ProfilePages/ProfileOrder/ProfileOrder'
-// import ProfileAddress from './components/SettingProfile/ProfilePages/ProfileAddress/ProfileAddress'
-import Addresslocation from './components/SettingProfile/ProfilePages/ProfileAddress/Addresslocation'
+// import ProfileOrder from './components/SettingProfile/'
+import ProfileAddress from './components/SettingProfile/ProfilePages/ProfileAddress/ProfileAddress'
+// import Addresslocation from './components/SettingProfile/ProfilePages/ProfileAddress/Addresslocation'
+// import Orderhistory from './components/SettingProfile/ProfilePages/ProfileOrder/Orderhistory'
 
 export const App = () => {
   return (
@@ -15,8 +16,9 @@ export const App = () => {
     {/* <ProfileDetails/> */}
     {/* <ProfileSidebar/> */}
     {/* <ProfileOrder/> */}
-    {/* <ProfileAddress/> */}
-    <Addresslocation/>
+    <ProfileAddress/>
+    {/* <Addresslocation/> */}
+    {/* <Orderhistory/> */}
     </>
   )
 }

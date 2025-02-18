@@ -1,11 +1,11 @@
 import React from "react";
-import "./ProfileOrder.css";
+import "./ProfileInformation.css";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import imagee from "../../../../assets/profile.png";
 import { FaPencil } from "react-icons/fa6";
 
 
-export const ProfileOrder = () => {
+export const ProfileInformation = () => {
   return (
     <Container fluid>
       <Row className="main-row">
@@ -82,4 +82,4 @@ export const ProfileOrder = () => {
   );
 };
 
-export default ProfileOrder;
+export default ProfileInformation;

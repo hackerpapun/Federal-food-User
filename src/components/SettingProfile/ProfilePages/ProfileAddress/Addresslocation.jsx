@@ -7,12 +7,17 @@ export const Addresslocation = () => {
   function LocationModal() {
     const [show, setShow] = useState(true);
     const [address, setAddress] = useState(
-      "9RCM+GWR, Raghunathpur, Bhubaneswar, 751024, India"
+      "9R7P+PPW, Nandan Vihar ,Patia , Bhubaneswar, 751024, India"
     );
+    const [isConfirmed, setIsConfirmed] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleChangeAddress = () => {
       alert("change location");
+    };
+
+    const handleConfirm = () => {
+      setIsConfirmed(true);
     };
 
     return (
@@ -40,19 +45,60 @@ export const Addresslocation = () => {
             <Col>
               <div className="delivery-address">
                 {address}{" "}
-                <span className="change-address" onClick={handleChangeAddress}>
-                  Change
-                </span>
+                <span
+                  className="address-div"
+                  onClick={handleChangeAddress}
+                ></span>
+                <div className="change-address">Change</div>
               </div>
+              <div className="line-div"></div>
             </Col>
           </Row>
+
+          {isConfirmed && (
+            <div>
+              <div className="address-house">
+                <input
+                  className="address-house1"
+                  placeholder="HOUSE/FLAT NO"
+                  type="text"
+                />
+              </div>
+              <div className="address-house">
+                <input
+                  className="address-house1"
+                  placeholder="LANDMARK"
+                  type="text"
+                />
+              </div>
+              <div className="address-house">
+                <input
+                  className="address-house1"
+                  placeholder="Pincode"
+                  type="text"
+                />
+              </div>
+              <div className="address-home">
+                {/* <input
+                  className="address-home1"
+                  placeholder="HOME"
+                  type="text"
+                /> */}
+                <select id="addressType">
+                  <option value="HOME">HOME</option>
+                  <option value="WORK">WORK</option>
+                  <option value="OTHER">OTHER</option>
+                </select>
+              </div>
+            </div>
+          )}
         </Modal.Body>
 
         <Modal.Footer className="footer-buttons">
           <Button
             className="confirm-button"
             variant="primary"
-            onClick={handleClose}
+            onClick={handleConfirm}
           >
             CONFIRM AND PROCEED
           </Button>
