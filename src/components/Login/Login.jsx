@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Button, Modal, Form, Row, Col } from "react-bootstrap";
+import { Button, Modal, Form, Row, Col, Spinner } from "react-bootstrap";
 import "./Login.css";
 
 // Zod Schema for validation
@@ -34,7 +34,7 @@ const Login = ({
       <Modal.Header closeButton>
         <Modal.Title className="tlogin">Login</Modal.Title>
       </Modal.Header>
-    
+
       <Modal.Body>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Row>
@@ -91,15 +91,21 @@ const Login = ({
               </a>
             </Col>
           </Row>
-          <Row className="text-center" style={{
-            borderBottom: "1px solid #ced4da",
-            justifyContent: "center",
-            display: "flex"
-          }}></Row>
+          <Row
+            className="text-center"
+            style={{
+              borderBottom: "1px solid #ced4da",
+              justifyContent: "center",
+              display: "flex",
+            }}
+          ></Row>
           <Row>
             <Col>
               <Button className="login-btn" type="submit">
-                Login
+                <Spinner animation="border" role="status">
+                  {" "}
+                  <span className="visually-hidden">Loading</span>
+                </Spinner>
               </Button>
             </Col>
           </Row>
