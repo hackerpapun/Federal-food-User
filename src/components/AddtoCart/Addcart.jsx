@@ -88,6 +88,7 @@ const AddCart = () => {
         </Col>
       </Row>
     </Container>
+    
   );
 };
 

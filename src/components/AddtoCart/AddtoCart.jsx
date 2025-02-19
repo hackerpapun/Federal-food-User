@@ -4,9 +4,11 @@ import "./AddtoCart.css";
 import { Button, Col, Container, Form, FormCheck, Overlay, Row } from "react-bootstrap";
 import { FaCreditCard, FaMapMarker, FaShoppingCart } from "react-icons/fa";
 import { FaClipboardCheck } from "react-icons/fa6";
+import Applycoupon from "../Applycoupon/Applycoupon";
 
 const AddtoCart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
+  const [popup, setPopUp] = useState(false);
   const [show,setShow]=useState(false);
   const target=useRef(null);
 
@@ -94,7 +96,15 @@ const AddtoCart = () => {
       cartItems.reduce((total, item) => total + item.price * item.quantity, 0)
     );
   }, [cartItems]);
+
+  const handlePopup =()=>{
+    handlePopup(true);
+  };
+  const handleClose=()=>{
+    handleClose(null);
+  };
   return (
+    <>
     <Container>
       <Row>
         <Col md={7}>
@@ -179,7 +189,7 @@ const AddtoCart = () => {
                 <div className="apply-coupon">
                   <div>Apply Coupon</div>
                   <div>
-                    <a href="#veiw details">View Details</a>
+                    <a href="#veiw details" onClick={handlePopup}>View Details</a>
                   </div>
                 </div>
                 <div className="enter-coupon mt-2">
@@ -365,6 +375,11 @@ const AddtoCart = () => {
         </Col>
       </Row>
     </Container>
+    <Applycoupon
+    show={handlePopup}
+    handleClose={handleClose}
+    />
+    </>
   );
 };
 
