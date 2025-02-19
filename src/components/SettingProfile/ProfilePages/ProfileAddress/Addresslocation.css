@@ -1,0 +1,125 @@
+.location-modal-container{
+    width: 450px;
+    height: max-content;
+    /* display: flex !important; */
+ /* align-items: center; */
+border: none;
+border-radius: 5px;
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+padding: 10px;
+margin-left: 400px;
+outline: 0;
+
+}
+
+.map-img{
+    height: 160px;
+    width: 450px;
+}
+
+.location-heading{
+    font-size: 1.5rem;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #616161;
+    font-size: 24px;
+
+}
+
+.delivery-heading{
+    color: #616161;
+    font-size: 16px;
+
+
+}
+
+.delivery-address{
+    /* color: #616161; */
+    padding: 5px;
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  margin-top: 15px; 
+  background-color: #ffffff; 
+  display: inline-block; 
+  height: 35px;
+  color: #929292;
+  display: flex;
+}
+
+.change-address {
+    color: #7FAD39; 
+    cursor: pointer;
+    font-weight: 700 !important;
+    font-size: 16px;
+    margin-top: 10px;
+     
+  }
+
+  .footer-buttons{
+    margin-top: 20px;
+    column-gap: 10px !important;
+  }
+
+  .confirm-button{
+    height: 45px;
+    width: 250px;
+    background-color: #FF3547;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin-left: 40px;
+
+  }
+
+  .cancel-button{
+    height: 45px;
+width: 100px;
+background-color: #FF3547;
+color: white;
+border: none;
+border-radius: 2px;
+box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+margin-left: 15px;
+  }
+
+  .line-div{
+    color: #D3D3D3;
+    width: 100%;
+  height: 0.5px;
+  /* max-width: fit-content;  */
+  background-color: #D3D3D3; 
+  margin-top: 8px;
+  width: 450px !important;
+  }
+
+  .address-house1{
+    font-size: 16px;
+    color: #757575;
+    margin-top: 5px;
+    border: none;
+    margin-bottom: 5px;
+  }
+
+  .address-house{
+    margin-top: 25px;
+    line-height: 1.5;
+    border-bottom: 1px solid #CED4DA;
+  }
+
+  .address-home{
+margin-top: 20px;
+width: 50px;
+height: 10px;
+margin-bottom: 5px;
+  }
+
+  #addressType{
+    border-radius: 2px;
+    width: 448px;
+height: 30px;
+color: #495057;
+font-size: 1rem;
+font-weight: 400;
+  }

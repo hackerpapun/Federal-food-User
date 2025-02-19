@@ -1,11 +1,11 @@
-.accordion-button::after {
+ .accordion-button::after {
   display: none !important;
 }
 .accordion-button:not(.collapsed) {
   background-color: transparent !important;
   box-shadow: none !important;
 }
-.[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
     cursor: pointer;
 }
 .accordion {
@@ -30,4 +30,9 @@
     --bs-accordion-body-padding-y: 1rem;
     --bs-accordion-active-color: var(--bs-primary-text-emphasis);
     --bs-accordion-active-bg: var(--bs-primary-bg-subtle);
-}
+} 
+
+
+
+
+

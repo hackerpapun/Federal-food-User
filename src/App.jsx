@@ -1,13 +1,12 @@
-import "./App.css";
+import { BrowserRouter as Router } from "react-router-dom";
+import AppRoutes from "./components/AppRouters.jsx";
+import ProfileAddressBar from "./pages/ProfileAddressBar.jsx";
 
-import AppRoutes from "./components/AppRouters";
-import "bootstrap/dist/css/bootstrap.min.css";
-// import SubByCategories from "./components/ShopByCategories/ShopByCategories.jsx";
 function App() {
   return (
     <>
       <AppRoutes />
-      {/* <SubByCategories /> */}
+      {/* <ProfileAddressBar/> */}
     </>
   );
 }
