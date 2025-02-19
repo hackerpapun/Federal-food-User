@@ -1,142 +1,186 @@
 import React from "react";
-import {
-  Modal,
-  Col,
-  Form,
-  Button,
-  Row,
-  FormControl,
-  FormCheck,
-  FormGroup,
-  DropdownButton,
-  Dropdown,
-} from "react-bootstrap";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { Button, Modal, Form, Row, Col, FormCheck } from "react-bootstrap";
 import "./Registration.css";
 
-const Registration = () => {
-  const handleSubmit = async () => {
-    console.log("Submitted Successfully");
-  };
-  return (
-    <Modal show={Registration} onHide={Registration} className="signuppage">
-      <Modal.Header>
-        <Modal.Title className="w-100 text-center">
-          <h3 className="heading">Signup</h3>
-        </Modal.Title>
-      </Modal.Header>
+// Zod schema for validation
+const schema = z.object({
+  email: z.string().email("Invalid email address"),
+  password: z.string().min(6, "Password must be at least 6 characters"),
+  firstName: z.string().min(2, "First Name is required"),
+  lastName: z.string().min(2, "Last Name is required"),
+  mobileNumber: z.string().regex(/^\d{10}$/, "Invalid mobile number"),
+  referralCode: z.string().optional(),
+  agree: z.literal(true, {
+    errorMap: () => ({ message: "You must agree to the terms" }),
+  }),
+});
 
-      <Modal.Body className="h-100">
-        <Form onSubmit={handleSubmit} className="formbody">
-          <Row className="mb-3">
-            <Col sm={12}>
-              <Form.Control
-                className="allplaceholder"
-                type="email"
-                placeholder="Email"
-              />
+const Registration = ({ show, handleClose, handleShowLogin }) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(schema),
+  });
+
+  const onSubmit = (data) => {
+    console.log("Registration Data:", data);
+  };
+
+  return (
+    <Modal show={show} onHide={handleClose} centered className="loginpage">
+      <Modal.Header closeButton>
+        <Modal.Title className="tsignup">Sign Up</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <Row>
+            <Col>
+              <Form.Group>
+                <Form.Control
+                  type="email"
+                  placeholder="Email"
+                  className={`text1 ${errors.email ? "is-invalid" : ""}`}
+                  {...register("email")}
+                />
+                {errors.email && (
+                  <div className="error-message">{errors.email.message}</div>
+                )}
+              </Form.Group>
             </Col>
           </Row>
-          <Row className="mb-3">
-            <Col sm={12}>
-              <Form.Control
-                className="allplaceholder"
-                type="password"
-                placeholder="Password"
-              />
+          <Row>
+            <Col>
+              <Form.Group>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  className={`text1 ${errors.password ? "is-invalid" : ""}`}
+                  {...register("password")}
+                />
+                {errors.password && (
+                  <div className="error-message">{errors.password.message}</div>
+                )}
+              </Form.Group>
             </Col>
           </Row>
-          <Row className="mb-3">
-            <Col sm={12}>
-              <Form.Control
-                className="allplaceholder"
-                type="text"
-                placeholder="First Name"
-              />
+          <Row>
+            <Col>
+              <Form.Group>
+                <Form.Control
+                  type="text"
+                  placeholder="First Name"
+                  className={`text1 ${errors.firstName ? "is-invalid" : ""}`}
+                  {...register("firstName")}
+                />
+                {errors.firstName && (
+                  <div className="error-message">
+                    {errors.firstName.message}
+                  </div>
+                )}
+              </Form.Group>
             </Col>
           </Row>
-          <Row className="mb-3">
-            <Col sm={12}>
-              <Form.Control
-                className="allplaceholder"
-                type="text"
-                placeholder="Last Name"
-              />
+          <Row>
+            <Col>
+              <Form.Group>
+                <Form.Control
+                  type="text"
+                  placeholder="Last Name"
+                  className={`text1 ${errors.lastName ? "is-invalid" : ""}`}
+                  {...register("lastName")}
+                />
+                {errors.lastName && (
+                  <div className="error-message">{errors.lastName.message}</div>
+                )}
+              </Form.Group>
             </Col>
           </Row>
-          <Row className="mb-3">
-            <Col sm={4}>
-              <DropdownButton id="dropdown-basic-button" title="country">
-                <Dropdown.Item href="#/action-1">India</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Japan</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">UK</Dropdown.Item>
-                <Dropdown.Item href="#/action-4">Italy</Dropdown.Item>
-                <Dropdown.Item href="#/action-5">Iran</Dropdown.Item>
-                <Dropdown.Item href="#/action-6">Kuwait</Dropdown.Item>
-                <Dropdown.Item href="#/action-7">Maxcau</Dropdown.Item>
-                <Dropdown.Item href="#/action-8">Maldives</Dropdown.Item>
-                <Dropdown.Item href="#/action-9">Norway</Dropdown.Item>
-                <Dropdown.Item href="#/action-10">Poland</Dropdown.Item>
-              </DropdownButton>
-            </Col>
-            <Col sm={8}>
-              <Form.Control
-                className="allplaceholder"
-                type="tel"
-                placeholder="Mobile Number"
-              />
+          <Row>
+            <Col>
+              <Form.Group>
+                <Form.Control
+                  type="tel"
+                  placeholder="Mobile Number"
+                  className={`text1 ${errors.mobileNumber ? "is-invalid" : ""}`}
+                  {...register("mobileNumber")}
+                />
+                {errors.mobileNumber && (
+                  <div className="error-message">
+                    {errors.mobileNumber.message}
+                  </div>
+                )}
+              </Form.Group>
             </Col>
           </Row>
-          <Row className="mb-3">
-            <Col sm={12}>
-              <Form.Control
-                className="allplaceholder"
-                type="text"
-                placeholder="Referral Code (Optional)"
-              />
+          <Row>
+             <Col>
+              <Form.Group>
+                <Form.Control
+                  type="text"
+                  placeholder="Referral Code (Optional)"
+                  className="text1"
+                  {...register("referralCode")}
+                />
+              </Form.Group>
             </Col>
           </Row>
           <Row>
             <Col>
               <FormCheck
                 type="checkbox"
+                className={errors.agree ? "is-invalid" : ""}
+                {...register("agree")}
                 label={
                   <p className="note">
                     By clicking on the I agree button click, download or if you
-                    use the Application, you agree to be bound by the{" "}
-                    <a href="" style={{ color: "blue" }}>
+                    use the Application, you <br />
+                    agree to be bound by the{" "}
+                    <a href="#" style={{ color: "blue" }}>
                       EULA certificate
-                    </a>
-                    and
-                    <a href="" style={{ color: "blue" }}>
+                    </a>{" "}
+                    and{" "}
+                    <a href="#" style={{ color: "blue" }}>
                       Privacy policy
-                    </a>
+                    </a>{" "}
                     of this app.
                   </p>
                 }
               />
+              {errors.agree && (
+                <div className="error-message">{errors.agree.message}</div>
+              )}
             </Col>
           </Row>
-          <Row className="text-center ">
+          <Row>
             <Col>
-              <a href="#" className="text4 ">
-                or <span style={{ color: "red" }}>Login to your account</span>
+              <a href="#" className="note1" onClick={handleShowLogin}>
+                <span style={{ color: " #212529" }}>or</span> Login to your
+                account
               </a>
+            </Col>
+          </Row>
+          <Row
+            className="text-center"
+            style={{
+              borderBottom: "1px solid #ced4da",
+              justifyContent: "center",
+              display: "flex",
+            }}
+          ></Row>
+          <Row>
+            <Col>
+              <Button className="login-btn" type="submit">
+                SIGNUP
+              </Button>
             </Col>
           </Row>
         </Form>
       </Modal.Body>
-      <Modal.Footer
-        className="text-center"
-        style={{
-          borderBottom: "1px solid #ced4da ",
-          justifyContent: "center",
-          display: "flex",
-        }}
-      >
-        <Button className="loginbtn" type="submit">
-          SIGNUP 
-        </Button>
-      </Modal.Footer>
     </Modal>
   );
 };

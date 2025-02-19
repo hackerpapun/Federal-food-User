@@ -1,4 +1,4 @@
-﻿import React from "react";
+﻿import React, { useState } from "react";
 import {
   Navbar,
   Nav,
@@ -9,7 +9,7 @@ import {
   Offcanvas,
 } from "react-bootstrap";
 import {
-  FaUser,
+  FaUser ,
   FaShoppingCart,
   FaBars,
   FaHome,
@@ -22,9 +22,29 @@ import {
 } from "react-icons/fa";
 import logo1 from "../../assets/logo.png";
 import "../NavBar/NavBar.css";
-import { ProductDropdown } from "./dropdown/ProductDropdown";
+import Login from "../Login/Login";
+import Registration from "../Registration/Registration";
+import ForgotPassword from "../Reset/Reset"; // Assuming this is the correct import for the reset password modal
 
 export default function AppNavbar() {
+  const [activeModal, setActiveModal] = useState(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userName, setUserName] = useState("");
+
+  const handleShowModal = (modal) => {
+    setActiveModal(modal);
+  };
+
+  const handleCloseModal = () => {
+    setActiveModal(null);
+  };
+
+  const handleLoginSuccess = (name) => {
+    setIsAuthenticated(true);
+    setUserName(name);
+    handleCloseModal();
+  };
+
   return (
     <>
       <Navbar
@@ -46,10 +66,28 @@ export default function AppNavbar() {
           </Navbar.Brand>
 
           <div className="d-flex align-items-center d-lg-none">
-            <Nav.Link href="/login" className="text-white me-3">
-              <FaUser />
-            </Nav.Link>
-            <Nav.Link href="/cart" className="text-white  nav-link">
+            {isAuthenticated ? (
+              <Dropdown>
+                <Dropdown.Toggle
+                  style={{ backgroundColor: "#7fad39", border: "none" }}
+                >
+                  {userName}
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                  <Dropdown.Item href="/orders">Orders</Dropdown.Item>
+                  <Dropdown.Item href="/logout">Logout</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            ) : (
+              <Nav.Link
+                onClick={() => handleShowModal("login")}
+                className="text-white me-3"
+              >
+                <FaUser  />
+              </Nav.Link>
+            )}
+            <Nav.Link href="/cart" className="text-white nav-link">
               <FaShoppingCart />
             </Nav.Link>
           </div>
@@ -69,52 +107,10 @@ export default function AppNavbar() {
                   <FaHome className="me-2" /> Home
                 </Nav.Link>
                 <Nav.Link
-                  href="/profile"
-                  className="text-dark d-flex align-items-center"
-                >
-                  <FaUser className="me-2" /> Profile
-                </Nav.Link>
-                <Nav.Link
-                  href="/orders"
-                  className="text-dark d-flex align-items-center"
-                >
-                  <FaGift className="me-2" /> Orders
-                </Nav.Link>
-                <Nav.Link
-                  href="/address"
-                  className="text-dark d-flex align-items-center"
-                >
-                  <FaMapMarkerAlt className="me-2" /> Address
-                </Nav.Link>
-                <Nav.Link
-                  href="/language"
-                  className="text-dark d-flex align-items-center"
-                >
-                  <FaGlobe className="me-2" /> Language
-                </Nav.Link>
-                <Nav.Link
                   href="/contact"
                   className="text-dark d-flex align-items-center"
                 >
                   <FaEnvelope className="me-2" /> Contact Us
-                </Nav.Link>
-                <Nav.Link
-                  href="/about"
-                  className="text-dark d-flex align-items-center"
-                >
-                  <FaInfoCircle className="me-2" /> About
-                </Nav.Link>
-                <Nav.Link
-                  href="/faqs"
-                  className="text-dark d-flex align-items-center"
-                >
-                  <FaQuestionCircle className="me-2" /> FAQs
-                </Nav.Link>
-                <Nav.Link
-                  href="/help"
-                  className="text-dark d-flex align-items-center"
-                >
-                  <FaQuestionCircle className="me-2" /> Help
                 </Nav.Link>
               </Nav>
             </Offcanvas.Body>
@@ -140,7 +136,6 @@ export default function AppNavbar() {
               <Dropdown className="me-3">
                 <Dropdown.Toggle
                   style={{ backgroundColor: "#7fad39", border: "none" }}
-                  id="dropdown-basic"
                 >
                   English
                 </Dropdown.Toggle>
@@ -152,9 +147,27 @@ export default function AppNavbar() {
                 </Dropdown.Menu>
               </Dropdown>
 
-              <Nav.Link className="text-white me-3 d-flex align-items-center">
-                <FaUser className="me-1" /> Login / Register
-              </Nav.Link>
+              {isAuthenticated ? (
+                <Dropdown>
+                  <Dropdown.Toggle
+                    style={{ backgroundColor: "#7fad39", border: "none" }}
+                  >
+                    {userName}
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                    <Dropdown.Item href="/orders">Orders</Dropdown.Item>
+                    <Dropdown.Item href="/logout">Logout</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              ) : (
+                <Nav.Link
+                  onClick={() => handleShowModal("login")}
+                  className="text-white me-3 d-flex align-items-center"
+                >
+                  <FaUser  className="me-1" /> Account
+                </Nav.Link>
+              )}
 
               <Nav.Link className="text-white d-flex align-items-center">
                 <FaShoppingCart className="me-1" /> Cart
@@ -163,9 +176,33 @@ export default function AppNavbar() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <Container fluid>
-        <ProductDropdown />
-      </Container>
+
+      {/* Modals */}
+      {activeModal === "login" && (
+        <Login
+          show={true}
+          handleClose={handleCloseModal}
+          handleLoginSuccess={handleLoginSuccess}
+          handleShowRegistration={() => handleShowModal("registration")}
+          handleShowForgotPassword={() => handleShowModal("forgotPassword")}
+        />
+      )}
+
+      {activeModal === "registration" && (
+        <Registration
+          show={true}
+          handleClose={handleCloseModal}
+          handleShowLogin={() => handleShowModal("login")}
+        />
+      )}
+
+      {activeModal === "forgotPassword" && (
+        <ForgotPassword
+          show={true}
+          handleClose={handleCloseModal}
+          handleShowLogin={() => handleShowModal("login")}
+        />
+      )}
     </>
   );
 }

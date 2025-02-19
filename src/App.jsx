@@ -14,16 +14,10 @@ import ProfileAddress from './components/SettingProfile/ProfilePages/ProfileAddr
 export const App = () => {
   return (
     <>
-    {/* <AppRoutes /> */}
-    {/* <ProductDropdown/> */}
-    {/* <ProfileDetails/> */}
-    {/* <ProfileSidebar/> */}
-    {/* <ProfileOrder/> */}
-    <ProfileAddress/>
-    {/* <Addresslocation/> */}
-    {/* <Orderhistory/> */}
+      <AppRoutes />
+      {/* <ProfileAddressBar/> */}
     </>
-  )
+  );
 }
 
 export default App;

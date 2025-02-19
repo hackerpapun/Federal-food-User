@@ -1,62 +1,112 @@
 import React from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { Button, Modal, Form, Row, Col } from "react-bootstrap";
 import "./Login.css";
-import { Modal, Col, Form, Button, Row } from "react-bootstrap";
 
-const Login = () => {
+// Zod Schema for validation
+const schema = z.object({
+  email: z.string().email("Invalid email address"),
+  password: z.string().min(6, "Password must be at least 6 characters"),
+});
+
+const Login = ({
+  show,
+  handleClose,
+  handleShowRegistration,
+  handleShowForgotPassword,
+}) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(schema),
+  });
+
+  const onSubmit = (data) => {
+    console.log("Login Data:", data);
+  };
+
   return (
-    <Modal show={Login} onHide={Login} className="loginpage">
-      <Modal.Header>
-        <Modal.Title className="w-100 text-center">
-          <h3 className="heading">Login</h3>
-        </Modal.Title>
+    <Modal show={show} onHide={handleClose} centered className="loginpage">
+      <Modal.Header closeButton>
+        <Modal.Title className="tlogin">Login</Modal.Title>
       </Modal.Header>
-
-      <Modal.Body className="h-100">
-        <Form className="formbody">
-          <Row className="mb-3">
-            <Col sm={12}>
-              <Form.Control
-                className="emailplaceholder"
-                type="email"
-                placeholder="Email"
-              />
-            </Col>
-          </Row>
-
-          <Row className="mb-3">
-            <Col sm={12}>
-              <Form.Control
-                className="passwordplaceholder"
-                type="password"
-                placeholder="Password"
-              />
-            </Col>
-          </Row>
-          <Row className="text-center">
+    
+      <Modal.Body>
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <Row>
             <Col>
-              <a href="#" className="text3 ">
-                <span style={{ color: "#212529" }}>Forgot Password?</span>
+              <Form.Group>
+                <Form.Control
+                  type="email"
+                  placeholder="Email"
+                  className={`form-input ${errors.email ? "is-invalid" : ""}`}
+                  {...register("email")}
+                />
+                {errors.email && (
+                  <div className="error-message">{errors.email.message}</div>
+                )}
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Form.Group>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  className={`form-input ${
+                    errors.password ? "is-invalid" : ""
+                  }`}
+                  {...register("password")}
+                />
+                {errors.password && (
+                  <div className="error-message">{errors.password.message}</div>
+                )}
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <a
+                href="#"
+                className="forgot-password"
+                onClick={handleShowForgotPassword}
+              >
+                Forgot Password?
               </a>
             </Col>
           </Row>
-
-          <Row className="text-center ">
+          <Row>
             <Col>
-              <a href="#" className="text4 ">
-                or <span style={{ color: "red" }}>Create an Account</span>
+              <a
+                href="#"
+                className="create-account"
+                onClick={handleShowRegistration}
+              >
+                <span style={{ color: "#212529" }}>or</span> Create an account
               </a>
+            </Col>
+          </Row>
+          <Row className="text-center" style={{
+            borderBottom: "1px solid #ced4da",
+            justifyContent: "center",
+            display: "flex"
+          }}></Row>
+          <Row>
+            <Col>
+              <Button className="login-btn" type="submit">
+                Login
+              </Button>
             </Col>
           </Row>
         </Form>
       </Modal.Body>
-      <Modal.Footer
-        className="text-center"
-        style={{ borderBottom: "1px solid #ced4da ",justifyContent:'center', display:'flex' }}>
-        <Button className="loginbtn" type="submit">
-          Login
-        </Button>
-      </Modal.Footer>
     </Modal>
   );
 };
+
 export default Login;

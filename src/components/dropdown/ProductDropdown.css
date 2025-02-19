@@ -1,14 +1,14 @@
 .dropdown-container {
     background-color: #F3F3F3!important;
     justify-content: space-between;
-    height: 9vh;
+    height: 5vh;
     width: 100%;
     column-gap: 40px;
-    padding: 10px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    display: flex;
-    flex-wrap: wrap;
-}
+    /* padding: 10px; */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;}
+
+    
+
 
 .top-dropdown {
     color: #333333!important;

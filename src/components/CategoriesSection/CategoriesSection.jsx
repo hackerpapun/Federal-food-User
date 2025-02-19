@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import "./CategoriesSection.css";
 
 const CategoryCard = ({ category }) => {
@@ -20,6 +20,15 @@ CategoryCard.propTypes = {
 };
 
 const CategorySection = ({ title, categories }) => {
+  if (!Array.isArray(categories) || categories.length === 0) {
+    return (
+      <Container fluid className="category-section">
+        <h2 className="section-title">{title}</h2>
+        <p>No categories available.</p>
+      </Container>
+    );
+  }
+
   return (
     <Container fluid className="category-section">
       <h2 className="section-title">{title}</h2>
