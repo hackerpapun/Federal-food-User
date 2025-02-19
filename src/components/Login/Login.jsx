@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Button, Modal, Form, Row, Col } from "react-bootstrap";
+import { Button, Modal, Form, Row, Col, Spinner } from "react-bootstrap";
 import "./Login.css";
 
 // Zod Schema for validation
@@ -24,8 +24,11 @@ const Login = ({
   } = useForm({
     resolver: zodResolver(schema),
   });
+  
+  const [loading, setLoading]=useState(false);
 
   const onSubmit = (data) => {
+    setLoading (true);
     console.log("Login Data:", data);
   };
 
@@ -34,7 +37,7 @@ const Login = ({
       <Modal.Header closeButton>
         <Modal.Title className="tlogin">Login</Modal.Title>
       </Modal.Header>
-    
+
       <Modal.Body>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Row>
@@ -59,8 +62,7 @@ const Login = ({
                   type="password"
                   placeholder="Password"
                   className={`form-input ${
-                    errors.password ? "is-invalid" : ""
-                  }`}
+                    errors.password ? "is-invalid" : ""}`}
                   {...register("password")}
                 />
                 {errors.password && (
@@ -91,15 +93,18 @@ const Login = ({
               </a>
             </Col>
           </Row>
-          <Row className="text-center" style={{
-            borderBottom: "1px solid #ced4da",
-            justifyContent: "center",
-            display: "flex"
-          }}></Row>
+          <Row
+            className="text-center"
+            style={{
+              borderBottom: "1px solid #ced4da",
+              justifyContent: "center",
+              display: "flex",
+            }}
+          ></Row>
           <Row>
             <Col>
-              <Button className="login-btn" type="submit">
-                Login
+              <Button className="login-btn" type="submit" disabled={loading}>
+                {loading ? <Spinner animation="border" size="sm"/>: "Login"}
               </Button>
             </Col>
           </Row>
