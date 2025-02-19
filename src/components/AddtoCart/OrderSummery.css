@@ -1,0 +1,53 @@
+.your_cart{
+    font-size: 15px;
+}
+.your_cart span{
+    margin-left: 5px;
+}
+.addtocart-head {
+    display: flex;
+    justify-content: space-around;
+}
+.oneline {
+  width: 60px; 
+  height: 2px;
+  background-color: #ccc;
+  margin: 12px 0 0 10px;
+}
+.apply-coupon {
+    display: flex;
+    justify-content: space-between;
+}
+.enter-coupon {
+    padding: 10px;
+    border-bottom: 1px solid rgb(126, 126, 126);
+}
+.enter-coupon img {
+    height: 20px;
+    width: 20px;
+    margin-right: 4px;
+} 
+.input-feild {
+    width: 80%;
+    border: none !important;
+}
+.addtocart-walletbalance {
+    font-size: 17px;
+    font-weight: bold;
+}
+.available-balance {
+    color: #6C757D;
+    font-weight: 200;
+    margin-left: 10px;
+}
+
+.total-amaount-cart {
+   display: flex;
+    justify-content: space-between; 
+    font-weight: 500;
+}
+.addcart-lastbtn {
+    width: 220px;
+    background: #7fad39 !important;
+    color: #fff;
+}
