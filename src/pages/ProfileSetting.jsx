@@ -9,7 +9,7 @@ import Orderhistory from '../components/SettingProfile/ProfilePages/ProfileOrder
 const ProfileSetting = () => {
   return (
     <Router>
-      <div style={{ display: 'flex' }}>
+      <div >
         <ProfileDetails />
         <div style={{ width: "25%" }}>
           <ProfileSidebar />
