@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Button, Modal, Form, Row, Col } from "react-bootstrap";
+import { Button, Modal, Form, Row, Col, Spinner } from "react-bootstrap";
 import "./Reset.css";
 
 // Zod Schema for validation
@@ -18,8 +18,11 @@ const Reset = ({ show, handleClose, handleShowLogin }) => {
   } = useForm({
     resolver: zodResolver(schema),
   });
+  const [loading, setLoading]=
+    useState(false);
 
   const onSubmit = (data) => {
+    setLoading(true);
     console.log("Reset Data:", data);
   };
 
@@ -64,8 +67,8 @@ const Reset = ({ show, handleClose, handleShowLogin }) => {
           ></Row>
           <Row>
             <Col>
-              <Button className="submit-btn" type="submit">
-                SEND OTP
+              <Button className="submit-btn" type="submit" disabled={loading}>
+                {loading ? <Spinner animation="border" size="sm"/>: "SEND OTP"}
               </Button>
             </Col>
           </Row>

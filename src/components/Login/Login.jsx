@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -24,8 +24,11 @@ const Login = ({
   } = useForm({
     resolver: zodResolver(schema),
   });
+  
+  const [loading, setLoading]=useState(false);
 
   const onSubmit = (data) => {
+    setLoading (true);
     console.log("Login Data:", data);
   };
 
@@ -59,8 +62,7 @@ const Login = ({
                   type="password"
                   placeholder="Password"
                   className={`form-input ${
-                    errors.password ? "is-invalid" : ""
-                  }`}
+                    errors.password ? "is-invalid" : ""}`}
                   {...register("password")}
                 />
                 {errors.password && (
@@ -101,11 +103,8 @@ const Login = ({
           ></Row>
           <Row>
             <Col>
-              <Button className="login-btn" type="submit">
-                <Spinner animation="border" role="status">
-                  {" "}
-                  <span className="visually-hidden">Loading</span>
-                </Spinner>
+              <Button className="login-btn" type="submit" disabled={loading}>
+                {loading ? <Spinner animation="border" size="sm"/>: "Login"}
               </Button>
             </Col>
           </Row>
