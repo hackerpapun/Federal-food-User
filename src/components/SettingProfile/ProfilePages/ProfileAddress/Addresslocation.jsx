@@ -8,6 +8,7 @@ export const Addresslocation = ({ show, handleClose }) => {
     "9R7P+PPW, Nandan Vihar ,Patia , Bhubaneswar, 751024, India"
   );
   const [isConfirmed, setIsConfirmed] = useState(false);
+  const [showAddAddressButton, setShowAddAddressButton] = useState(false);
 
   const handleChangeAddress = () => {
     alert("change location");
@@ -15,6 +16,7 @@ export const Addresslocation = ({ show, handleClose }) => {
 
   const handleConfirm = () => {
     setIsConfirmed(true);
+    setShowAddAddressButton(true); 
   };
   console.log("first");
 
@@ -80,6 +82,11 @@ export const Addresslocation = ({ show, handleClose }) => {
               </div>
             </div>
           )}
+          {showAddAddressButton && (
+            <Button className="add-address-button" variant="success">
+              ADD ADDRESS
+            </Button>
+          )}
         </Modal.Body>{" "}
         <Modal.Footer className="footer-buttons">
           <Button
@@ -98,8 +105,7 @@ export const Addresslocation = ({ show, handleClose }) => {
           </Button>
         </Modal.Footer>
       </Modal>
-
-       </>
+    </>
   );
 };
 
