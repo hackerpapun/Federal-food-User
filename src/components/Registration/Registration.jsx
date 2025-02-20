@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Button, Modal, Form, Row, Col, FormCheck } from "react-bootstrap";
+import { Button, Modal, Form, Row, Col, FormCheck, Spinner } from "react-bootstrap";
 import "./Registration.css";
 
 // Zod schema for validation
@@ -27,8 +27,13 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
     resolver: zodResolver(schema),
   });
 
+  const [loading, setLoading]=useState(false);
+
   const onSubmit = (data) => {
+    setLoading(true);
     console.log("Registration Data:", data);
+
+      setLoading(false);
   };
 
   return (
@@ -174,8 +179,8 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
           ></Row>
           <Row>
             <Col>
-              <Button className="login-btn" type="submit">
-                SIGNUP
+              <Button className="login-btn" type="submit" disabled={loading}>
+                {loading ?<Spinner animation="border" size="sm" />: "SIGNUP"}
               </Button>
             </Col>
           </Row>
