@@ -2,6 +2,9 @@ import React from "react";
 import { Container, Row, Col, FormControl, FormGroup, Form, Button } from "react-bootstrap";
 import "./Contactus.css"
 import { IoMdHome } from "react-icons/io";
+import { MdEmail } from "react-icons/md";
+import { FaPhone } from "react-icons/fa";
+import { FaPrint } from "react-icons/fa6";
 
 const Contactus = () => {
   return (
@@ -46,9 +49,25 @@ const Contactus = () => {
           </Row>
           <Col md={6} className="iconadd">
             <p>
-              <IoMdHome />
+              <IoMdHome style={{ color: "#7fad39" }} />
               Akshya Nagar 1st Block 1st Cross, Rammurthy nagar,
               Bangalore-560016
+            </p>
+            <p>
+              <IoMdHome style={{ color: "#7fad39" }} />
+              Bangalore - India - 560016
+            </p>
+            <p>
+              <MdEmail style={{ color: "#7fad39" }} />
+              info@initappz.com
+            </p>
+            <p>
+              <FaPhone style={{ color: "#7fad39" }} />
+              9426585554
+            </p>
+            <p>
+              <FaPrint style={{ color: "#7fad39" }} />
+              info@initappz.com
             </p>
           </Col>
         </Col>
