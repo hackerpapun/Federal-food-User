@@ -4,7 +4,7 @@
 }
 
 .order-history-main-div{
-    width: 100%;
+    
     box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
     border-radius: 10px;
     padding: 15px;
@@ -30,12 +30,6 @@
 
 }
 
-.orderhistory-line2{
-    height: 1px;
-    border: 1px dashed #CACACA;
-}
-
-
 .orderhistory-heading1{
     color: #d3d3d3;
     font-size: 16px;
@@ -48,6 +42,7 @@
 font-size: 15px;
 color: #212529;
 letter-spacing: 1px;
+margin-top: 10px;
 }
 
 .orderhistory-heading3{
@@ -56,6 +51,7 @@ letter-spacing: 1px;
     color: #212529;
     margin-top: 10px;
     margin-bottom: 20px;
+    border-bottom: 1px dashed #CACACA;
 
 }
 
@@ -68,13 +64,17 @@ letter-spacing: 1px;
 
 }
 
-.orderhistory-line3{
-    height: .5px;
-    margin-top: 8px;
-    background-color: #CACACA;
-    margin-bottom: 12px;
+.orderhistory-heading6{
+    margin-bottom: 1rem;
+}
+
+.orderhistory-line2{
+border-bottom: 1px solid #CACACA;
 }
 
 .pagination-div{
     border: none !important;
+    /* display: flex;
+  justify-content: center;  
+  flex-wrap: nowrap;  */
 }

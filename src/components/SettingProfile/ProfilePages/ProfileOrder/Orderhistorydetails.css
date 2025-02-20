@@ -1,5 +1,13 @@
 .historydetails-container{
 width: 100%;
+/* padding: 16px; */
+}
+
+.previous-element{
+    display: flex ;
+        flex-direction: row;
+        justify-content: flex-start;
+        cursor: pointer;
 }
 
 .details-heading{
@@ -53,7 +61,7 @@ width: 100%;
 .details-location-div{
     margin-top: 10px;
     color: #212529;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 12px;
     gap: 5px;
 }
@@ -89,4 +97,34 @@ font-size: 15px;
     line-height: 1.5;
     color: #212529;
     margin-top: 30px;
+}
+
+.store-icon{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+}
+
+.store-elements{
+    display: flex;
+    column-gap: 25px;
+    padding: 40px;
+}
+
+.store-image{
+    display: flex;
+    align-items: center;
+}
+
+.store-details1{
+    margin-bottom: 1rem;
+    font-family: "semi-bold";
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.store-details2{
+    margin-bottom: 1rem;
+    color: #808080;
 }

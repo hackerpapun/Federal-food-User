@@ -2,11 +2,15 @@ import React from "react";
 import "./Orderhistorydetails.css";
 import { Col, Container, Row } from "react-bootstrap";
 import { FaLocationDot } from "react-icons/fa6";
+import { IoArrowBackOutline } from "react-icons/io5";
 
 const Orderhistorydetails = () => {
   return (
-    <Container className="historydetails-container">
+    <Container className="historydetails-container ">
       <Row>
+        <div className="previous-element">
+          <IoArrowBackOutline />
+        </div>
         <Col>
           <div className="details-heading">Order</div>
           <div className="details-heading1">
@@ -47,6 +51,27 @@ const Orderhistorydetails = () => {
           <div className="details-heading7">Driver Informations</div>
           <div className="details-heading7">Stores Informations</div>
 
+          <Col className="store-elements">
+            <div className="store-image">
+              <img
+                className="store-icon"
+                src="https://ultimate-grocery-api-capacitor.initappz.com/public/storage/images/shop.jpg"
+                alt="Store Icon"
+              />
+            </div>
+
+            <div className="store-details">
+              <div className="store-details1">Walmart</div>
+              <div className="store-details2">
+                <FaLocationDot />
+                vishal@initappz.com
+              </div>
+              <div className="store-details2">
+                <FaLocationDot />
+                9874563210
+              </div>
+            </div>
+          </Col>
         </Col>
       </Row>
     </Container>
