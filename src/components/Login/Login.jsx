@@ -24,7 +24,7 @@ const Login = ({
   } = useForm({
     resolver: zodResolver(schema),
   });
-  
+
   const [loading, setLoading]=useState(false);
 
   const onSubmit = async (data) => {

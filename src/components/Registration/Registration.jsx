@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -34,6 +35,8 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
   } = useForm({
     resolver: zodResolver(schema),
   });
+
+  const [loading, setLoading]=useState(false);
 
   const [loading, setLoading] = useState(false);
 
