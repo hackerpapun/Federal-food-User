@@ -5,39 +5,32 @@ import { IoIosAddCircle } from "react-icons/io";
 import Addresslocation from "../../../../components/SettingProfile/ProfilePages/ProfileAddress/Addresslocation";
 
 export const ProfileAddress = () => {
-  const [showLocation,setShowLocation] = useState(false)
+  const [showLocation, setShowLocation] = useState(false);
 
-  const handleClose = () =>
-    setShowLocation(false);
-  const handleOpen = () =>
-    setShowLocation(true);
+  const handleClose = () => setShowLocation(false);
+  const handleOpen = () => setShowLocation(true);
   return (
     <>
-    <Container>
-      <Row md={12}>
-        <Col className="add-heading">
-          My Addresses
-        </Col>
-        <Row>
-          <Col className="add-heading2" md={4}>
-          <div className="icons-div" onClick={handleOpen}>
-            <IoIosAddCircle className="add-icon"  />
-            <div className="add-heading3">
-                Add New
-            </div>
-            </div>
-          </Col>
+      <Container>
+        <Row md={12}>
+          <Col className="add-heading">My Addresses</Col>
+          <Row>
+            <Col className="add-heading2" md={4}>
+              <div className="icons-div" onClick={handleOpen}>
+                <IoIosAddCircle className="add-icon" />
+                <div className="add-heading3">Add New</div>
+              </div>
+            </Col>
 
-          <Col md={4}></Col>
-          <Col md={4}></Col>
-
+            <Col md={4}></Col>
+            <Col md={4}></Col>
+          </Row>
         </Row>
-      </Row>
-    </Container>
-    <Addresslocation
-    show = {handleOpen}
-    handleClose = {handleClose}
-    />
+      </Container>
+      {
+        showLocation && 
+      <Addresslocation show={showLocation} handleClose={handleClose} />
+      }
     </>
   );
 };

@@ -3,32 +3,25 @@ import "./Addresslocation.css";
 import { Col, Modal, Row, Button } from "react-bootstrap";
 import mapimage from "../../../../assets/map.jpg";
 
-export const Addresslocation = () => {
-  function LocationModal() {
-    const [show, setShow] = useState(true);
-    const [address, setAddress] = useState(
-      "9R7P+PPW, Nandan Vihar ,Patia , Bhubaneswar, 751024, India"
-    );
-    const [isConfirmed, setIsConfirmed] = useState(false);
+export const Addresslocation = ({ show, handleClose }) => {
+  const [address, setAddress] = useState(
+    "9R7P+PPW, Nandan Vihar ,Patia , Bhubaneswar, 751024, India"
+  );
+  const [isConfirmed, setIsConfirmed] = useState(false);
 
-    const handleClose = () => setShow(false);
-    const handleChangeAddress = () => {
-      alert("change location");
-    };
+  const handleChangeAddress = () => {
+    alert("change location");
+  };
 
-    const handleConfirm = () => {
-      setIsConfirmed(true);
-    };
+  const handleConfirm = () => {
+    setIsConfirmed(true);
+  };
+  console.log("first");
 
-    return (
-      <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-        className="location-modal-container"
-      >
-        <Modal.Header></Modal.Header>
+  return (
+    <>
+      {/* <h1>Radhe radhe</h1> */}
+      <Modal show={show} onHide={handleClose}>
         <Modal.Body>
           <Row>
             <Col>
@@ -79,11 +72,6 @@ export const Addresslocation = () => {
                 />
               </div>
               <div className="address-home">
-                {/* <input
-                  className="address-home1"
-                  placeholder="HOME"
-                  type="text"
-                /> */}
                 <select id="addressType">
                   <option value="HOME">HOME</option>
                   <option value="WORK">WORK</option>
@@ -92,8 +80,7 @@ export const Addresslocation = () => {
               </div>
             </div>
           )}
-        </Modal.Body>
-
+        </Modal.Body>{" "}
         <Modal.Footer className="footer-buttons">
           <Button
             className="confirm-button"
@@ -111,13 +98,8 @@ export const Addresslocation = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-    );
-  }
 
-  return (
-    <div>
-      <LocationModal />
-    </div>
+       </>
   );
 };
 
