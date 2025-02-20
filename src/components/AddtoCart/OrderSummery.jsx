@@ -6,15 +6,26 @@ import {
   FaCreditCard,
   FaMapMarker,
 } from "react-icons/fa";
-import "./PaymentDetails.css";
+import "./OrderSummery.css";
+import Applycoupon from "../Applycoupon/Applycoupon";
+import PaymentDetails from "./PaymentDetails";
 
 const OrderSummery = ({ totalPrice }) => {
   const [showStores, setShowStores] = useState(false);
   const [show, setShow] = useState(false);
+    const [popup, setPopUp] = useState(false);
+
   const target = useRef(null);
+  const handlePopup = () => {
+    handlePopup(true);
+  };
+  const handleClose = () => {
+    handleClose(null);
+  };
 
   return (
-    <Col>
+    <>
+    <Col className="p-3">
       <Row>
         <Col>
           <div className="mt-3 addtocart-head">
@@ -41,7 +52,7 @@ const OrderSummery = ({ totalPrice }) => {
             <div className="apply-coupon">
               <div>Apply Coupon</div>
               <div>
-                <a href="#view details">View Details</a>
+                <a href="#view details" className="cart-apply-coupon" onClick={handlePopup}>View Details</a>
               </div>
             </div>
             <div className="enter-coupon mt-2">
@@ -54,7 +65,7 @@ const OrderSummery = ({ totalPrice }) => {
                 placeholder="Enter Coupon Code"
                 className="input-feild"
               />
-              <button>Apply</button>
+              <button className="add-apply-btn">Apply</button>
             </div>
           </div>
         </Col>
@@ -71,37 +82,9 @@ const OrderSummery = ({ totalPrice }) => {
         </Col>
       </Row>
       <Row>
-        <Col className="mt-4">
-          <div>
-            Payment Details
-            <div className="mt-3 itemtotal-addtocart">
-              Item Total<span>{totalPrice} $</span>
-            </div>
-          </div>
-        </Col>
+        <Col><PaymentDetails/></Col>
       </Row>
-      <Row>
-        <Col className="mt-4">
-          <div className="mt-3 itemtotal-addtocart">
-            Item Total<span>0 $</span>
-          </div>
-        </Col>
-      </Row>
-      <Row>
-        <Col className="mt-4">
-          <div className="mt-3 itemtotal-addtocart">
-            Item Total<span>0 $</span>
-          </div>
-        </Col>
-      </Row>
-      <Row>
-        <Col className="mt-3">
-          <div className="total-amaount-cart">
-            Total Amount<span>1230 $</span>
-          </div>
-        </Col>
-      </Row>
-      <Row>
+    <Row>
         <Col className="mt-5">
           <div>
             Delivery Options
@@ -190,6 +173,11 @@ const OrderSummery = ({ totalPrice }) => {
         </Col>
       </Row>
     </Col>
+    <Applycoupon
+    show={handlePopup}
+    handleClose={handleClose}
+    />
+    </>
   );
 };
 
