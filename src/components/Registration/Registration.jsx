@@ -36,8 +36,6 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
     resolver: zodResolver(schema),
   });
 
-  const [loading, setLoading]=useState(false);
-
   const [loading, setLoading] = useState(false);
 
   const onSubmit = async (data) => {
