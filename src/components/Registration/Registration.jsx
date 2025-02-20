@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Button, Modal, Form, Row, Col, FormCheck } from "react-bootstrap";
+import {
+  Button,
+  Modal,
+  Form,
+  Row,
+  Col,
+  FormCheck,
+  Spinner,
+} from "react-bootstrap";
 import "./Registration.css";
 
 // Zod schema for validation
@@ -27,8 +35,15 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
     resolver: zodResolver(schema),
   });
 
-  const onSubmit = (data) => {
+  const [loading, setLoading] = useState(false);
+
+  const onSubmit = async (data) => {
+    setLoading(true); 
     console.log("Registration Data:", data);
+
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    setLoading(false); 
   };
 
   return (
@@ -118,7 +133,7 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
             </Col>
           </Row>
           <Row>
-             <Col>
+            <Col>
               <Form.Group>
                 <Form.Control
                   type="text"
@@ -174,8 +189,24 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
           ></Row>
           <Row>
             <Col>
-              <Button className="login-btn" type="submit">
-                SIGNUP
+              <Button className="login-btn" type="submit" disabled={loading}>
+                {loading ? (
+                  <>
+                    <Spinner
+                      animation="border"
+                      size="sm"
+                      role="status"
+                      style={{
+                        marginRight: "5px",
+                        width: "1.5rem",
+                        height: "1.5rem",
+                      }}
+                    />
+                    
+                  </>
+                ) : (
+                  "SIGNUP"
+                )}
               </Button>
             </Col>
           </Row>

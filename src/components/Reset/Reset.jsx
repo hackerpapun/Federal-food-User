@@ -21,9 +21,11 @@ const Reset = ({ show, handleClose, handleShowLogin }) => {
   const [loading, setLoading]=
     useState(false);
 
-  const onSubmit = (data) => {
-    setLoading(true);
+  const onSubmit = async (data) => {
+    setLoading(true); 
     console.log("Reset Data:", data);
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    setLoading(false); 
   };
 
   return (
@@ -68,7 +70,21 @@ const Reset = ({ show, handleClose, handleShowLogin }) => {
           <Row>
             <Col>
               <Button className="submit-btn" type="submit" disabled={loading}>
-                {loading ? <Spinner animation="border" size="sm"/>: "SEND OTP"}
+                {loading ? (
+                  <>
+                    <Spinner
+                      animation="border"
+                      size="sm"
+                      style={{
+                        marginRight: "5px",
+                        width: "1.5rem",
+                        height: "1.5rem",
+                      }} 
+                    />
+                  </>
+                ) : (
+                  "SEND OTP"
+                )}
               </Button>
             </Col>
           </Row>

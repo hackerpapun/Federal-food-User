@@ -27,9 +27,11 @@ const Login = ({
   
   const [loading, setLoading]=useState(false);
 
-  const onSubmit = (data) => {
-    setLoading (true);
+  const onSubmit = async (data) => {
+    setLoading(true);
     console.log("Login Data:", data);
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    setLoading(false);
   };
 
   return (
@@ -62,7 +64,8 @@ const Login = ({
                   type="password"
                   placeholder="Password"
                   className={`form-input ${
-                    errors.password ? "is-invalid" : ""}`}
+                    errors.password ? "is-invalid" : ""
+                  }`}
                   {...register("password")}
                 />
                 {errors.password && (
@@ -104,7 +107,21 @@ const Login = ({
           <Row>
             <Col>
               <Button className="login-btn" type="submit" disabled={loading}>
-                {loading ? <Spinner animation="border" size="sm"/>: "Login"}
+                {loading ? (
+                  <>
+                    <Spinner
+                      animation="border"
+                      size="sm"
+                      style={{
+                        marginRight: "5px",
+                        width: "1rem",
+                        height: "1rem",
+                      }} 
+                    />
+                  </>
+                ) : (
+                  "Login"
+                )}
               </Button>
             </Col>
           </Row>
