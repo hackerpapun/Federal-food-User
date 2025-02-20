@@ -33,9 +33,13 @@ const Footer = () => {
   ];
 
   return (
-    <Container fluid style={{ backgroundColor: "#DEE2E6" }}>
-      <Row id="footer-container">
-        <Col className="mt-5">
+    <Container
+      fluid
+      id="footer-container"
+      style={{ backgroundColor: "#DEE2E6" }}
+    >
+      <Row>
+        <Col className="mt-3">
           <div id="footer_coloumn1">
             <img
               src="https://ultimate-grocery-capacitor.initappz.com/assets/imgs/logo.png"
@@ -52,7 +56,7 @@ const Footer = () => {
             </div>
           </div>
         </Col>
-        <Col className="mt-5">
+        <Col className="mt-3">
           <div id="footer_coloumn2">
             Useful Links
             {usefulLinks1.map((link, index) => (
@@ -62,7 +66,7 @@ const Footer = () => {
             ))}
           </div>
         </Col>
-        <Col className="mt-5">
+        <Col className="mt-3">
           <div id="footer_coloumn3">
             Useful links
             {usefulLinks2.map((link, index) => (
@@ -72,7 +76,7 @@ const Footer = () => {
             ))}
           </div>
         </Col>
-        <Col className="mt-5">
+        <Col className="mt-3">
           <div id="footer_coloumn4">
             Join Our Newsletter Now
             <div style={{ color: "#4f4f4f" }}>
@@ -96,7 +100,7 @@ const Footer = () => {
           </div>
           <div id="footer_icons">
             {socialIcons.map((social, index) => (
-              <div key={index}  id="icons">
+              <div key={index} id="icons">
                 {social.icon}
               </div>
             ))}

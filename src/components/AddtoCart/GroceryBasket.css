@@ -48,6 +48,12 @@
     font-size: 24px;
     margin: 22px;
 }
+.grocery-signs{
+    size: 5px;
+    display: flex;
+    justify-content: center;
+    margin-left: 6px;
+}
 
 .your_cart {
     font-size: 15px;

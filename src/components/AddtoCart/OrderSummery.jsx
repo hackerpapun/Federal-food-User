@@ -173,10 +173,10 @@ const OrderSummery = ({ totalPrice }) => {
         </Col>
       </Row>
     </Col>
-    <Applycoupon
+    {/* <Applycoupon
     show={handlePopup}
     handleClose={handleClose}
-    />
+    /> */}
     </>
   );
 };
