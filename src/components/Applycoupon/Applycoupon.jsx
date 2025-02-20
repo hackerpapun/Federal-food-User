@@ -1,28 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Applycoupon.css";
-import {
-  Button,
-  Col,
-  Modal,
-  ModalHeader,
-  Row,
-  ModalBody,
-  ModalTitle,
-  ModalFooter,
-} from "react-bootstrap";
+import { Button, Col, Modal, Row } from "react-bootstrap";
 
-const Applycoupon = () => {
-  const [setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+const Applycoupon = ({ show, handleClose }) => {
   return (
-    <Modal show={handleShow} centered className="couponpage">
-      <ModalHeader className="hcoupon">
-        <ModalTitle className="tcoupon">Apply Coupon</ModalTitle>
-      </ModalHeader>
-      <ModalBody className="bcoupon"></ModalBody>
-      <ModalFooter>
+    <Modal show={show} onHide={handleClose} centered className="couponpage">
+      <Modal.Header closeButton className="hcoupon">
+        <Modal.Title className="tcoupon">Apply Coupon</Modal.Title>
+      </Modal.Header>
+      <Modal.Body className="bcoupon">{/* Add any content here */}</Modal.Body>
+      <Modal.Footer>
         <Row
           className="text-center"
           style={{
@@ -30,22 +17,17 @@ const Applycoupon = () => {
             justifyContent: "center",
             display: "flex",
           }}
-        />
-        <Row>
+        >
           <Col
             className="text-center"
-            style={{
-              display: "flex",
-              justifyItems: "center",
-              justifyContent: "center",
-            }}
+            style={{ display: "flex", justifyContent: "center" }}
           >
             <Button className="cancelbtn" type="button" onClick={handleClose}>
               Cancel
             </Button>
           </Col>
         </Row>
-      </ModalFooter>
+      </Modal.Footer>
     </Modal>
   );
 };
