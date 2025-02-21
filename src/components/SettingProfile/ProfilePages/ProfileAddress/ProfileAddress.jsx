@@ -15,28 +15,69 @@ export const ProfileAddress = () => {
     setAddresses([...addresses, newAddress]);
   };
 
+  const addressdata = [
+    {
+      title: "Home",
+      details:
+        "sxsc scdv 9R5C+73J Kalinga Inst of Industrial Technology, Chandaka Industrial Estate, Patia, Bhubaneswar, Odisha 751024, India",
+    },
+    {
+      title: "Work",
+      details:
+        "vghderaqes m mnbjhvfgxtes 9R7P+PPW, Nandan Vihar, Patia, Bhubaneswar, Odisha 751024, India",
+    },
+    {
+      title: "Other",
+      details:
+        "bhgfwsexfghujikopl,. nnnnb v cxxsv 9R7P+PPW, Nandan Vihar, Patia, Bhubaneswar, Odisha 751024, India",
+    },
+    {
+      title: "Home",
+      details:
+        "sxsc scdv 9R5C+73J Kalinga Inst of Industrial Technology, Chandaka Industrial Estate, Patia, Bhubaneswar, Odisha 751024, India",
+    },
+    {
+      title: "Work",
+      details:
+        "vghderaqes m mnbjhvfgxtes 9R7P+PPW, Nandan Vihar, Patia, Bhubaneswar, Odisha 751024, India",
+    },
+    {
+      title: "Other",
+      details:
+        "bhgfwsexfghujikopl,. nnnnb v cxxsv 9R7P+PPW, Nandan Vihar, Patia, Bhubaneswar, Odisha 751024, India",
+    },
+  ];
+
   return (
     <>
       <Container>
-        <Row md={12}>
-          <Col className="add-heading">My Addresses</Col>
-          <Row>
-            <Col className="add-heading2" md={4}>
-              <div className="icons-div" onClick={handleOpen}>
-                <IoIosAddCircle className="add-icon" />
-                <div className="add-heading3">Add New</div>
-              </div>
-            </Col>
-          </Row>
-        </Row>
         <Row>
-          {addresses.map((address, index) => (
-            <Col key={index} className="address-item">
-              {address}
+          <Col className="add-heading">My Addresses</Col>
+        </Row>
+
+        <Row className="g-4 d-flex flex-wrap">
+          <Col md={3} className="button-column d-flex justify-content-center">
+            <div className="icons-div add-card" onClick={handleOpen}>
+              <IoIosAddCircle className="add-icon" />
+              <div className="add-heading3">Add New</div>
+            </div>
+          </Col>
+
+          {addressdata.map((address, index) => (
+            <Col md={3} key={index} className="address-column">
+              <div className="address-card">
+                <h5 className="address-title">{address.title}</h5>
+                <p className="address-details">{address.details}</p>
+                <div className="button-group">
+                  <button className="edit-btn">Edit</button>
+                  <button className="profadd-delete-btn">Delete</button>
+                </div>
+              </div>
             </Col>
           ))}
         </Row>
       </Container>
+
       {showLocation && (
         <Addresslocation
           show={showLocation}
