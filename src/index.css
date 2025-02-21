@@ -1,6 +1,7 @@
 /* .accordion-button::after {
   display: none !important;
 }
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 .accordion-button:not(.collapsed) {
   background-color: transparent !important;
   box-shadow: none !important;
@@ -31,3 +32,19 @@
     --bs-accordion-active-color: var(--bs-primary-text-emphasis);
     --bs-accordion-active-bg: var(--bs-primary-bg-subtle);
 } */
+ /* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+ body{
+  font-family: "Montserrat", serif;
+ } */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+  background-color: #FFFFFF;
+  color: #000000;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+}
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
