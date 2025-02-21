@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Applycoupon from "./components/Applycoupon/Applycoupon";
 import OrderSummery from "./components/AddtoCart/OrderSummery.jsx";
 import AddCart from "./components/AddtoCart/Addcart.jsx";
+import AppRoutes from "./components/AppRouters.jsx";
 function App() {
   return (
     <>
@@ -11,7 +12,7 @@ function App() {
       <AppRoutes />
       {/* <ProfileAddressBar/> */}
       {/* <Applycoupon /> */}
-      <ProfileAddress/>
+      {/* <ProfileAddress/> */}
       {/* <Orderhistorydetails/> */}
       {/* <OrderTracking/> */}
       {/* <Orderhistory/> */}
