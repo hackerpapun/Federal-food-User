@@ -8,7 +8,7 @@ import { FaPrint } from "react-icons/fa6";
 
 const Contactus = () => {
   return (
-    <Container>
+    <Container fluid>
       <Row className="justify-content-md-center">
         <Col md={6} sm={12} className="heading">
           <h4>Contact US</h4>
