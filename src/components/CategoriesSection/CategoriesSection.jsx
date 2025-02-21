@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Container, Row, Col } from "react-bootstrap";
 import "./CategoriesSection.css";
 import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const CategoryCard = ({ category }) => {
   const navigate = useNavigate();
@@ -37,7 +38,13 @@ const CategorySection = ({ title, categories }) => {
       <h2 className="section-title">{title}</h2>
       <Row className="category-row">
         {categories.map((category, index) => (
-          <Col key={index} xs={6} sm={4} md={3} lg={2} className="category-col">
+          <Col
+            key={index}
+            xs={6}
+            sm={4}
+            md={3}
+            lg={2}
+            className="category-col" >
             <CategoryCard category={category} />
           </Col>
         ))}

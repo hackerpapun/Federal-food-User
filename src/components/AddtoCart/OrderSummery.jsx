@@ -9,8 +9,10 @@ import {
 import "./OrderSummery.css";
 import Applycoupon from "../Applycoupon/Applycoupon";
 import PaymentDetails from "./PaymentDetails";
+import { useNavigate } from "react-router-dom";
 
 const OrderSummery = ({ totalPrice }) => {
+  const navigate =useNavigate();
   const [showStores, setShowStores] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
   const [showCouponModal, setShowCouponModal] = useState(false);
@@ -180,26 +182,31 @@ const OrderSummery = ({ totalPrice }) => {
           </Col>
         </Row>
 
-      {showStores && (
-        <div className="mt-3">
-          Stores
-          <div className="ml-3">
-            <FaMapMarker />
-            G-mart
-            <div className="mt-2 addcart-address">
-              TP Road, near Ring Road Circle, Ambli, Ahmedabad, Gujarat 380058
+        {showStores && (
+          <div className="mt-3">
+            Stores
+            <div className="ml-3">
+              <FaMapMarker />
+              G-mart
+              <div className="mt-2 addcart-address">
+                TP Road, near Ring Road Circle, Ambli, Ahmedabad, Gujarat 380058
+              </div>
             </div>
           </div>
-        </div>
-      )}
-      <Row className="mt-4">
-        <Col md={6}></Col>
-        <Col md={6}>
-          <Button className="addcart-lastbtn">Place Order</Button>
-        </Col>
-      </Row>
-    </Col>
-    {/* <Applycoupon
+        )}
+        <Row className="mt-4">
+          <Col md={6}></Col>
+          <Col md={6}>
+            <Button
+              className="addcart-lastbtn"
+              onClick={() => navigate("/ConfirmOrder")}
+            >
+              Place Order
+            </Button>
+          </Col>
+        </Row>
+      </Col>
+      {/* <Applycoupon
     show={handlePopup}
     handleClose={handleClose}
     /> */}
