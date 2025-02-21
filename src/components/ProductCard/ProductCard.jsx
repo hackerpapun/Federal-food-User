@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Dropdown, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 import "./ProductCard.css";
 import vegIcon from "../../assets/th (2).jpg";
 import nonVegIcon from "../../assets/th (3).jpg";
@@ -13,6 +14,7 @@ const ProductCard = ({ product }) => {
     product.options?.length > 0 ? product.options[0] : null
   );
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate(); 
 
   const increaseCount = () => setCount(count + 1);
   const decreaseCount = () => setCount(count > 0 ? count - 1 : 0);
@@ -22,7 +24,7 @@ const ProductCard = ({ product }) => {
       className="product-card-unq"
       onMouseEnter={() => count !== 1 && setIsHovered(true)}
       onMouseLeave={() => count === 1 && setIsHovered(false)}
-      style={{ marginRight: "12px !important",height:'48vh' }}
+      style={{ marginRight: "12px !important", height: "48vh" }}
     >
       <div className="food-icon">
         <img
@@ -38,7 +40,13 @@ const ProductCard = ({ product }) => {
         </span>
       )}
 
-      <img src={product.image} alt={product.name} className="product-image" />
+      <img
+        src={product.image}
+        alt={product.name}
+        className="product-image"
+        onClick={() => navigate(`/product/${product.id}`)} 
+        style={{ cursor: "pointer" }} 
+      />
 
       <div className="product-details">
         <h4 className="product-name">{product.name}</h4>

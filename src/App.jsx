@@ -11,10 +11,10 @@ function App() {
   return (
     <>
     {/* <AddCart/> */}
-      <AppRoutes />
+      {/* <AppRoutes /> */}
       {/* <ProfileAddressBar/> */}
       {/* <Applycoupon /> */}
-      {/* <ProfileAddress/> */}
+      <ProfileAddress/>
       {/* <Orderhistorydetails/> */}
       {/* <OrderTracking/> */}
       {/* <Orderhistory/> */}

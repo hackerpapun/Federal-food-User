@@ -8,7 +8,7 @@ const Applycoupon = ({ show, handleClose }) => {
       <Modal.Header closeButton className="hcoupon">
         <Modal.Title className="tcoupon">Apply Coupon</Modal.Title>
       </Modal.Header>
-      <Modal.Body className="bcoupon">{/* Add any content here */}</Modal.Body>
+      <Modal.Body className="bcoupon"></Modal.Body>
       <Modal.Footer>
         <Row
           className="text-center"

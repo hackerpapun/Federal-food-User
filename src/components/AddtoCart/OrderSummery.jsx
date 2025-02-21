@@ -17,6 +17,9 @@ const OrderSummery = ({ totalPrice }) => {
   const [showOverlay, setShowOverlay] = useState(false);
   const [showCouponModal, setShowCouponModal] = useState(false);
 
+  const handleShowCouponModal = () => setShowCouponModal(true);
+  const handleCloseCouponModal = () => setShowCouponModal(false);
+
   const target = useRef(null);
 
   return (
@@ -206,10 +209,10 @@ const OrderSummery = ({ totalPrice }) => {
           </Col>
         </Row>
       </Col>
-      {/* <Applycoupon
-    show={handlePopup}
-    handleClose={handleClose}
-    /> */}
+      <Applycoupon
+        show={showCouponModal} 
+        handleClose={handleCloseCouponModal}
+      />
     </>
   );
 };

@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { Container, Row, Col } from "react-bootstrap";
 import "./CategoriesSection.css";
 import { useNavigate } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 const CategoryCard = ({ category }) => {
   const navigate = useNavigate();
