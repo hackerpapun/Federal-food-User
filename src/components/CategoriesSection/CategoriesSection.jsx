@@ -2,10 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Container, Row, Col } from "react-bootstrap";
 import "./CategoriesSection.css";
+import { useNavigate } from "react-router-dom";
 
 const CategoryCard = ({ category }) => {
+  const navigate = useNavigate();
   return (
-    <div className="category-card">
+    <div className="category-card" style={{ cursor: "pointer" }}
+    onClick={() => navigate(`/category?category=${encodeURIComponent(category.name)}`)}>
       <img src={category.image} alt={category.name} className="category-icon" />
       <p className="category-name">{category.name}</p>
     </div>

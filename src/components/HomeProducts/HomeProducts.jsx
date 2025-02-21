@@ -204,7 +204,7 @@ export const HomeProducts = () => {
   return (
     <div>
       {categoriesData.map((section, index) => (
-        <div key={index} style={{ marginBottom: "20px" ,cursor:"pointer"}}>
+        <div key={index} style={{ marginBottom: "20px" }}>
           <h2
             style={{
               backgroundColor: "#F3F3F3",

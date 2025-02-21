@@ -2,13 +2,19 @@ import React, { useState } from "react";
 import "./ProfileAddress.css";
 import { Col, Container, Row } from "react-bootstrap";
 import { IoIosAddCircle } from "react-icons/io";
-import Addresslocation from "../../../../components/SettingProfile/ProfilePages/ProfileAddress/Addresslocation";
+import Addresslocation from "../ProfileAddress/Addresslocation";
 
 export const ProfileAddress = () => {
   const [showLocation, setShowLocation] = useState(false);
+  const [addresses, setAddresses] = useState([]);
 
   const handleClose = () => setShowLocation(false);
   const handleOpen = () => setShowLocation(true);
+
+  const handleAddressAdd = (newAddress) => {
+    setAddresses([...addresses, newAddress]);
+  };
+
   return (
     <>
       <Container>
@@ -21,16 +27,23 @@ export const ProfileAddress = () => {
                 <div className="add-heading3">Add New</div>
               </div>
             </Col>
-
-            <Col md={4}></Col>
-            <Col md={4}></Col>
           </Row>
         </Row>
+        <Row>
+          {addresses.map((address, index) => (
+            <Col key={index} className="address-item">
+              {address}
+            </Col>
+          ))}
+        </Row>
       </Container>
-      {
-        showLocation && 
-      <Addresslocation show={showLocation} handleClose={handleClose} />
-      }
+      {showLocation && (
+        <Addresslocation
+          show={showLocation}
+          handleClose={handleClose}
+          onAddressAdd={handleAddressAdd}
+        />
+      )}
     </>
   );
 };

@@ -31,7 +31,7 @@ export const HomeCarasole = () => {
     {
       id: 3,
       name: "Banana",
-      image: Sunflower,
+      image: rose,
       price: "$8.00",
       originalPrice: "$12.00",
       discount: 33,

@@ -25,11 +25,13 @@ import "../NavBar/NavBar.css";
 import Login from "../Login/Login";
 import Registration from "../Registration/Registration";
 import ForgotPassword from "../Reset/Reset"; // Assuming this is the correct import for the reset password modal
+import { useNavigate } from "react-router-dom";
 
 export default function AppNavbar() {
   const [activeModal, setActiveModal] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userName, setUserName] = useState("");
+  const navigate = useNavigate();
 
   const handleShowModal = (modal) => {
     setActiveModal(modal);
@@ -169,7 +171,8 @@ export default function AppNavbar() {
                 </Nav.Link>
               )}
 
-              <Nav.Link className="text-white d-flex align-items-center">
+              <Nav.Link className="text-white d-flex align-items-center"
+              onClick={() => navigate("/cart")}>
                 <FaShoppingCart className="me-1" /> Cart
               </Nav.Link>
             </Nav>
