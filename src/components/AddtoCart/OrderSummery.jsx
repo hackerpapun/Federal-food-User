@@ -180,32 +180,29 @@ const OrderSummery = ({ totalPrice }) => {
           </Col>
         </Row>
 
-        {/* Store Details (if Pickup is Selected) */}
-        {showStores && (
-          <div className="mt-3">
-            <strong>Stores</strong>
-            <div className="ml-3">
-              <FaMapMarker />
-              G-mart
-              <div className="mt-2 addcart-address">
-                TP Road, near Ring Road Circle, Ambli, Ahmedabad, Gujarat 380058
-              </div>
+      {showStores && (
+        <div className="mt-3">
+          Stores
+          <div className="ml-3">
+            <FaMapMarker />
+            G-mart
+            <div className="mt-2 addcart-address">
+              TP Road, near Ring Road Circle, Ambli, Ahmedabad, Gujarat 380058
             </div>
           </div>
-        )}
-
-        <Row className="mt-4">
-          <Col md={6}></Col>
-          <Col md={6}>
-            <Button className="addcart-lastbtn">Place Order</Button>
-          </Col>
-        </Row>
-      </Col>
-
-      <Applycoupon
-        show={showCouponModal}
-        handleClose={() => setShowCouponModal(false)}
-      />
+        </div>
+      )}
+      <Row className="mt-4">
+        <Col md={6}></Col>
+        <Col md={6}>
+          <Button className="addcart-lastbtn">Place Order</Button>
+        </Col>
+      </Row>
+    </Col>
+    {/* <Applycoupon
+    show={handlePopup}
+    handleClose={handleClose}
+    /> */}
     </>
   );
 };
