@@ -1,0 +1,96 @@
+.chatmodal-container{
+    margin-top: 10px;
+}
+
+chat-modal-title{
+    font-size: 1.5rem;
+    /* font-weight: 700; */
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+}
+
+.chat-icon{
+    height: 50px;
+    width: 50px;
+}
+
+.chat-row-div{
+    display: flex;
+    background-color: none !important;
+}
+
+.chat-button-div{
+    background-color: #fff;
+    border: none;
+}
+
+.chat-support{
+    font-weight: 600;
+    margin-left: 20px;
+    display: flex;
+    margin-top: 10px;
+}
+
+.super-admin{
+    font-weight: 600;
+    margin-left: 20px;
+    margin-top: 8px;
+
+}
+
+.Admin-col{
+    display: flex;
+}
+
+.admin-div{
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+}
+
+.Admin-msg-div{
+    display: flex ;
+    justify-content: end;
+
+}
+
+.admin-msg-span{
+    background-color: #45C261;
+    color: white;
+    align-items: center;
+    margin-top: 40px;
+    border-radius: 20px;
+}
+
+.footer-close-btn{
+    border: none;
+    background-color: #a6c !important;
+    color: #fff;
+    box-shadow: 0 2px 5px #00000029, 0 2px 10px #0000001f;
+    border-radius: 2px;
+    height: 45px;
+    width: 110px;
+}
+
+.footer-sm-btn{
+    height: 45px;
+    width: 150px;
+    border: none;
+    color: #fff;
+    border-radius: 2px;
+    background-color: #4285f4 !important;
+    box-shadow: 0 2px 5px #00000029, 0 2px 10px #0000001f;
+
+}
+
+.chatmodal-body{
+    width: 100%;
+}
+
+.chat-form-control{
+    border: none;
+    width: 100%;
+    margin-bottom: 1px solid #CAD2DB;
+}
