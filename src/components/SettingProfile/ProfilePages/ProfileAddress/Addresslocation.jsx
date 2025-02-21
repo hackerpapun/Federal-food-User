@@ -16,8 +16,11 @@ export const Addresslocation = ({ show, handleClose }) => {
 
   const handleConfirm = () => {
     setIsConfirmed(true);
-    setShowAddAddressButton(true); 
   };
+    const handleAddAddress = () => {
+    alert("Address added!");
+    };
+
   console.log("first");
 
   return (
@@ -82,20 +85,25 @@ export const Addresslocation = ({ show, handleClose }) => {
               </div>
             </div>
           )}
-          {showAddAddressButton && (
-            <Button className="add-address-button" variant="success">
-              ADD ADDRESS
-            </Button>
-          )}
         </Modal.Body>{" "}
         <Modal.Footer className="footer-buttons">
-          <Button
-            className="confirm-button"
-            variant="primary"
-            onClick={handleConfirm}
-          >
-            CONFIRM AND PROCEED
-          </Button>
+          {isConfirmed ? (
+            <Button
+              className="add-address-button"
+              variant="danger"
+              onClick={handleAddAddress}
+            >
+              ADD ADDRESS
+            </Button>
+          ) : (
+            <Button
+              className="confirm-button"
+              variant="primary"
+              onClick={handleConfirm}
+            >
+              CONFIRM AND PROCEED
+            </Button>
+          )}
           <Button
             className="cancel-button"
             variant="secondary"
