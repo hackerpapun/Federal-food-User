@@ -1,0 +1,38 @@
+.deletepage{
+     /* box-shadow: 0 2px 5px #00000029, 0 2px 10px #0000001f; */
+     /* background: none !important; */
+}
+.icon-circle{
+    width: 50px;
+    height: 50px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+.question-mark{
+    font-size: 35px;
+    /* font-weight: bold; */
+    color: #87B0CE;
+}
+.btnpart{
+
+}
+.yesbtn{
+    border: 0;
+    border-radius: .25em;
+    background: initial;
+    background-color: #7066e0;
+    color: #fff;
+    font-size: 1em;
+}
+.cancelbtn{
+    border: 0;
+    border-radius: .25em;
+    background: initial;
+    background-color: #6e7881;
+    color: #fff;
+    font-size: 1em;
+}
