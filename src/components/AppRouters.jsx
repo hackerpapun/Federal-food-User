@@ -10,6 +10,8 @@ import { NotFound } from "../pages/NotFound";
 import { NavbarMain } from "./NavBar/NavbarMain";
 import ProductDetails from "./Product/Product";
 import CategoryPage from "./CategoryPage/CategoryPage";
+import PaymentPage from "./AddtoCart/PaymentPage";
+import ConfirmOrder from "./confirmOrder/ConfirmOrder";
 
 function AppRoutes() {
 
@@ -38,6 +40,8 @@ function AppRoutes() {
           <Route path="/category" element={<CategoryPage />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/payment" element={<PaymentPage />} />
+          <Route path="/ConfirmOrder" element={<ConfirmOrder />} />
         </Routes>
       </main>
       <Footer />

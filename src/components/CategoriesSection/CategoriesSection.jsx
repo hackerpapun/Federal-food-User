@@ -2,10 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Container, Row, Col } from "react-bootstrap";
 import "./CategoriesSection.css";
+import { useNavigate } from "react-router-dom";
 
 const CategoryCard = ({ category }) => {
+  const navigate=useNavigate();
   return (
-    <div className="category-card">
+    <div className="category-card" onClick={() => navigate = "/category"}>
       <img src={category.image} alt={category.name} className="category-icon" />
       <p className="category-name">{category.name}</p>
     </div>
@@ -34,7 +36,13 @@ const CategorySection = ({ title, categories }) => {
       <h2 className="section-title">{title}</h2>
       <Row className="category-row">
         {categories.map((category, index) => (
-          <Col key={index} xs={6} sm={4} md={3} lg={2} className="category-col">
+          <Col
+            key={index}
+            xs={6}
+            sm={4}
+            md={3}
+            lg={2}
+            className="category-col" >
             <CategoryCard category={category} />
           </Col>
         ))}

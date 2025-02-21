@@ -1,8 +1,10 @@
 import React from "react";
 import { Row, Col, Button } from "react-bootstrap";
 import "./PaymentDetails.css";
+import { useNavigate } from "react-router-dom";
 
 const PaymentDetails = ({ totalPrice }) => {
+  const navigate=useNavigate();
   return (
     <Row>
       <Row>
@@ -38,10 +40,17 @@ const PaymentDetails = ({ totalPrice }) => {
       </Row>
       <Row className="mt-3 p-4">
         <Col md={6} className="d-flex justify-content-end ml-3">
-          <Button className="paymentdt-btn">Back</Button>
+          <Button className="paymentdt-btn" onClick={() => navigate(-1)}>
+            Back
+          </Button>
         </Col>
         <Col md={6} className="d-flex justify-content-start">
-          <Button className="paymentdt-btn">Create Payment</Button>
+          <Button
+            className="paymentdt-btn"
+            onClick={() => navigate("/payment")}
+          >
+            Create Payment
+          </Button>
         </Col>
       </Row>
     </Row>

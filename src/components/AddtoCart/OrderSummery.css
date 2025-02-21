@@ -53,18 +53,18 @@
     border-bottom: #fff;
 }
 .addcart-cal-btn{
-    background-color: #FFFFFF;
-    color: #808090;
-    height: 200;
-    width: fit-content;
-    border-radius: 0%;
-    border-color: #fff;
+    background-color: #FFFFFF !important;
+    color: #808090 !important;
+    height: 2001 !important;
+    width: fit-content !important;
+    border-radius: 0% !important;
+    border-color: #fff !important;
 
 }
 .addcart-cal-btn:hover{
-   background-color: #FFFFFF;
-   color: #808090;
-   border-color: #fff;
+   background-color: #FFFFFF !important;
+   color: #808090 !important;
+   border-color: #fff !important;
 }
 .addcart-lastbtn{
     width: 220px;
