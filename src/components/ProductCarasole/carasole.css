@@ -83,3 +83,6 @@
 .product-card:hover .add-btn {
   display: block;
 }
+.carasole-container{
+    /* height: 65vh; */
+}

@@ -12,10 +12,22 @@ import ProductDetails from "./Product/Product";
 import CategoryPage from "./CategoryPage/CategoryPage";
 
 function AppRoutes() {
+
+    const getMargin = () => {
+      const width = window.innerWidth;
+      if (width >= 1200) {
+        return { margin: "0px 200px" }; 
+      } else if (width >= 768) {
+        return { margin: "0px 100px" }; 
+      } else {
+        return { margin: "0px 50px" }; 
+      }
+    };
+
   return (
     <BrowserRouter>
       <NavbarMain />
-      <main className="content-area" style={{ margin: "0px 200px 0px  200px" }}>
+      <main className="content-area" style={getMargin()}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />

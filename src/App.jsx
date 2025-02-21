@@ -7,8 +7,8 @@ import AddCart from "./components/AddtoCart/Addcart.jsx";
 function App() {
   return (
     <>
-    <AddCart/>
-      {/* <AppRoutes /> */}
+    {/* <AddCart/> */}
+      <AppRoutes />
       {/* <ProfileAddressBar/> */}
       {/* <Applycoupon /> */}
     </>

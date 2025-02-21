@@ -22,7 +22,7 @@ const ProductCard = ({ product }) => {
       className="product-card-unq"
       onMouseEnter={() => count !== 1 && setIsHovered(true)}
       onMouseLeave={() => count === 1 && setIsHovered(false)}
-      style={{marginRight:'12px !important'}}
+      style={{ marginRight: "12px !important",height:'48vh' }}
     >
       <div className="food-icon">
         <img
@@ -33,7 +33,9 @@ const ProductCard = ({ product }) => {
       </div>
 
       {product.discount && (
-        <span className="discount-badge">{product.discount}%</span>
+        <span className="discount-badge" style={{ backgroundColor: "#F6601F" }}>
+          {product.discount}%
+        </span>
       )}
 
       <img src={product.image} alt={product.name} className="product-image" />
