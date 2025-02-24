@@ -12,6 +12,7 @@ import ProductDetails from "./Product/Product";
 import CategoryPage from "./CategoryPage/CategoryPage";
 import PaymentPage from "./AddtoCart/PaymentPage";
 import ConfirmOrder from "./confirmOrder/ConfirmOrder";
+import Contactus from "./Contactus/Contactus";
 
 function AppRoutes() {
 
@@ -39,6 +40,7 @@ function AppRoutes() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/category" element={<CategoryPage />} />
           <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/contact" element={<Contactus />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/ConfirmOrder" element={<ConfirmOrder />} />
