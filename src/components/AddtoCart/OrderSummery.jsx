@@ -25,7 +25,6 @@ const OrderSummery = ({ totalPrice }) => {
   return (
     <>
       <Col className="p-3">
-        {/* Progress Steps */}
         <Row>
           <Col>
             <div className="mt-3 addtocart-head">
