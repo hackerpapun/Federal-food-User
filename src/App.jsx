@@ -7,14 +7,16 @@ import AddCart from "./components/AddtoCart/Addcart.jsx";
 import Orderhistory from "./components/SettingProfile/ProfilePages/ProfileOrder/Orderhistory.jsx";
 import Orderhistorydetails from "./components/SettingProfile/ProfilePages/ProfileOrder/Orderhistorydetails.jsx";
 import AppRoutes from "./components/AppRouters.jsx";
+import Payment from "./components/AddtoCart/Payment.jsx";
+import PaymentPage from "./components/AddtoCart/PaymentPage.jsx";
 function App() {
   return (
     <>
     {/* <AddCart/> */}
-      {/* <AppRoutes /> */}
+      <AppRoutes />
       {/* <ProfileAddressBar/> */}
       {/* <Applycoupon /> */}
-      <ProfileAddress/>
+      {/* <ProfileAddress/> */}
       {/* <Orderhistorydetails/> */}
       {/* <OrderTracking/> */}
       {/* <Orderhistory/> */}

@@ -22,7 +22,7 @@ const Payment = () => {
         <div
           key={index}
           className="payment-option"
-          onChange={() => setSelectedMethod(method)}
+          onClick={() => setSelectedMethod(method)}
         >
           <input
             type="radio"

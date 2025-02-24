@@ -7,10 +7,10 @@ const PaymentPage = () => {
   return (
     <Container>
         <Row>
-            <Col md={6}>
+            <Col md={7}>
             <Payment/>
             </Col>
-            <Col md={6}>
+            <Col md={5}>
             <PaymentDetails/>
             </Col>
         </Row>
