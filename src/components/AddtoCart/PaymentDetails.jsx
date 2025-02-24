@@ -38,7 +38,7 @@ const PaymentDetails = ({ totalPrice }) => {
           </div>
         </Col>
       </Row>
-      <Row className="mt-3 p-4">
+      {/* <Row className="mt-3 p-4">
         <Col md={6} className="d-flex justify-content-end ml-3">
           <Button className="paymentdt-btn" onClick={() => navigate(-1)}>
             Back
@@ -52,7 +52,7 @@ const PaymentDetails = ({ totalPrice }) => {
             Create Payment
           </Button>
         </Col>
-      </Row>
+      </Row> */}
     </Row>
   );
 };

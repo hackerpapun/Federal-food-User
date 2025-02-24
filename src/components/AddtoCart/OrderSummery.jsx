@@ -12,15 +12,18 @@ import PaymentDetails from "./PaymentDetails";
 import { useNavigate } from "react-router-dom";
 
 const OrderSummery = ({ totalPrice }) => {
-  const navigate =useNavigate();
+  const navigate = useNavigate();
+  const [showButtons, setShowButtons] = useState(false);
   const [showStores, setShowStores] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
   const [showCouponModal, setShowCouponModal] = useState(false);
-
-  const handleShowCouponModal = () => setShowCouponModal(true);
   const handleCloseCouponModal = () => setShowCouponModal(false);
-
   const target = useRef(null);
+
+  const handlePlaceOrder = () => {
+    // Navigate to ConfirmOrder page with state
+    navigate("/ConfirmOrder", { state: { orderPlaced: true } });
+  };
 
   return (
     <>
@@ -104,48 +107,46 @@ const OrderSummery = ({ totalPrice }) => {
           <Col className="mt-5">
             <div>
               Delivery Options
-              <div>
-                <Form>
-                  <Form.Group className="mt-3" controlId="formGroupEmail">
-                    <Form.Check
-                      onClick={() => setShowStores(false)}
-                      type="radio"
-                      label={
-                        <div>
-                          At Home{" "}
-                          <span className="addtocart-homeimg">
-                            <img
-                              src="https://ultimate-grocery-capacitor.initappz.com/assets/imgs/home.png"
-                              style={{ width: "20px", height: "20px" }}
-                              alt="Home Delivery"
-                            />
-                          </span>
-                        </div>
-                      }
-                      name="formGroup"
-                    />
-                  </Form.Group>
-                  <Form.Group className="mb-3" controlId="formGroupPassword">
-                    <Form.Check
-                      onClick={() => setShowStores(true)}
-                      type="radio"
-                      label={
-                        <div>
-                          Self Pickup
-                          <span>
-                            <img
-                              src="https://ultimate-grocery-capacitor.initappz.com/assets/imgs/store.png"
-                              style={{ width: "20px", height: "20px" }}
-                              alt="Store Pickup"
-                            />
-                          </span>
-                        </div>
-                      }
-                      name="formGroup"
-                    />
-                  </Form.Group>
-                </Form>
-              </div>
+              <Form>
+                <Form.Group className="mt-3">
+                  <Form.Check
+                    onClick={() => setShowStores(false)}
+                    type="radio"
+                    label={
+                      <div>
+                        At Home{" "}
+                        <span className="addtocart-homeimg">
+                          <img
+                            src="https://ultimate-grocery-capacitor.initappz.com/assets/imgs/home.png"
+                            style={{ width: "20px", height: "20px" }}
+                            alt="Home Delivery"
+                          />
+                        </span>
+                      </div>
+                    }
+                    name="deliveryOption"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Check
+                    onClick={() => setShowStores(true)}
+                    type="radio"
+                    label={
+                      <div>
+                        Self Pickup
+                        <span>
+                          <img
+                            src="https://ultimate-grocery-capacitor.initappz.com/assets/imgs/store.png"
+                            style={{ width: "20px", height: "20px" }}
+                            alt="Store Pickup"
+                          />
+                        </span>
+                      </div>
+                    }
+                    name="deliveryOption"
+                  />
+                </Form.Group>
+              </Form>
             </div>
           </Col>
         </Row>
@@ -197,20 +198,20 @@ const OrderSummery = ({ totalPrice }) => {
             </div>
           </div>
         )}
+
+        {/* Place Order Button */}
         <Row className="mt-4">
           <Col md={6}></Col>
           <Col md={6}>
-            <Button
-              className="addcart-lastbtn"
-              onClick={() => navigate("/ConfirmOrder")}
-            >
+            <Button className="addcart-lastbtn" onClick={handlePlaceOrder}>
               Place Order
             </Button>
           </Col>
         </Row>
       </Col>
+
       <Applycoupon
-        show={showCouponModal} 
+        show={showCouponModal}
         handleClose={handleCloseCouponModal}
       />
     </>
