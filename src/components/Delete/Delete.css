@@ -1,0 +1,70 @@
+/* .deletepage {
+  box-shadow: 0 2px 5px #00000029, 0 2px 10px #0000001f;
+  background: none !important;
+} */
+.icon-circle {
+  width: 60px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  
+}
+.bdelete{
+  height: 210px;
+  width: 70% !important;
+  padding: 0 0 1.25em;
+}
+.question-mark {
+  font-size: 0.75em;
+  color: #87b0ce;
+  box-sizing: content-box;
+  width: 5em;
+  height: 5em;
+  margin: 1.5em auto 0.6em;
+  border: 0.25em solid transparent;
+  border-radius: 50%;
+  border-color: #87b0ce;
+  font-family: inherit;
+  line-height: 5em;
+  /* cursor: default; */
+}
+.btnpart {
+  z-index: 1;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  margin: -0.75em auto 0;
+  padding: 0;
+  transition: box-shadow 0.1s;
+  box-shadow: 0 0 0 3px transparent;
+  font-weight: 500;
+}
+.yesbtn {
+  border: 0;
+  border-radius: 0.25em;
+  background: initial;
+  background-color: #7066e0;
+  color: #fff;
+  font-size: 0.8em;
+  margin: 2px;
+  margin-right: -15px;
+}
+.cancelbtn2 {
+  border: 0;
+  border-radius: 0.25em;
+  background: initial;
+  background-color: #6e7881;
+  color: #ffffff;
+  font-size: 0.8em;
+  margin: 2px;
+  margin-right: -15px;
+}
+.textdelete{
+  padding: 15px;
+  margin-top: 5px;
+}
