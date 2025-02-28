@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import {useState} from 'react'
 import { Modal, Row, Col, Button } from 'react-bootstrap'
 import { FaQuestion } from "react-icons/fa6";
 import './Delete.css';
@@ -14,13 +14,13 @@ const Delete = () => {
             <Col xs={12} className="mb-3">
               <div className="icon-circle">
                 <span className="question-mark">
-                  <FaQuestion style={{fontSize:"30px"}}/>
+                  <FaQuestion style={{fontSize:"50px"}}/>
                 </span>
               </div>
             </Col>
             <Col xs={12} className="textdelete">
-              <h4>Are you sure ?</h4>
-              <p>to delete this address</p>
+              <h4 className='heading5'>Are you sure ?</h4>
+              <p className='paragraph5'>to delete this address</p>
             </Col>
             <Row className="btnpart">
               <Col>

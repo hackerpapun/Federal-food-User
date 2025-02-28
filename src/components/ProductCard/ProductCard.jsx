@@ -127,7 +127,7 @@ const ProductCard = ({ product, cartItems, setCartItems }) => {
             <Button
               onClick={increaseCount}
               style={{
-                backgroundColor: "#7FAD 39",
+                backgroundColor: "#7FAD39",
                 border: "none",
                 padding: "8px 15px",
                 fontSize: "16px",

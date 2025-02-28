@@ -116,7 +116,7 @@
 }
 
 .add-btn {
-  background-color: #79b530;
+  background-color: #79b530!important;
   color: white;
   border: none;
   padding: 8px 15px;
