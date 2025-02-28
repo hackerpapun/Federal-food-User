@@ -123,7 +123,7 @@ export const Addresslocation = ({ show, handleClose, onAddressAdd }) => {
             variant="primary"
             onClick={handleConfirm}
           >
-            CONF IRM AND PROCEED
+            CONFIRM AND PROCEED
           </Button>
         )}
         <Button

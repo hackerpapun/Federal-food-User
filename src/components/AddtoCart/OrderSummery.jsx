@@ -24,7 +24,6 @@ const OrderSummery = ({ totalPrice }) => {
   return (
     <>
       <Col className="p-3">
-        {/* Progress Steps */}
         <Row>
           <Col>
             <ProgressSteps currentStep={1} /> 
