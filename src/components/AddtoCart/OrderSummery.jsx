@@ -21,7 +21,6 @@ const OrderSummery = ({ totalPrice }) => {
   const target = useRef(null);
 
   const handlePlaceOrder = () => {
-    // Navigate to ConfirmOrder page with state
     navigate("/ConfirmOrder", { state: { orderPlaced: true } });
   };
 

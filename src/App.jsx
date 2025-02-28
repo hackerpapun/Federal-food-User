@@ -9,17 +9,19 @@ import Orderhistorydetails from "./components/SettingProfile/ProfilePages/Profil
 import AppRoutes from "./components/AppRouters.jsx";
 import Payment from "./components/AddtoCart/Payment.jsx";
 import PaymentPage from "./components/AddtoCart/PaymentPage.jsx";
+import ConfirmOrder from "./components/confirmOrder/ConfirmOrder.jsx";
 function App() {
   return (
     <>
     {/* <AddCart/> */}
-      {/* <AppRoutes /> */}
+      <AppRoutes />
       {/* <ProfileAddressBar/> */}
       {/* <Applycoupon /> */}
-      <ProfileAddress/>
+      {/* <ProfileAddress/> */}
       {/* <Orderhistorydetails/> */}
       {/* <OrderTracking/> */}
       {/* <Orderhistory/> */}
+      {/* <ConfirmOrder/> */}
     </>
   );
 }

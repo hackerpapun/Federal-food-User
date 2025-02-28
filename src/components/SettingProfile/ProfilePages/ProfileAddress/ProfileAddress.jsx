@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import "./ProfileAddress.css";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Button } from "react-bootstrap";
 import { IoIosAddCircle } from "react-icons/io";
+import { FaCheckCircle } from "react-icons/fa"; // Importing check icon
 import Addresslocation from "../ProfileAddress/Addresslocation";
 import Delete from "../../../Delete/Delete";
 
-export const ProfileAddress = () => {
+export const ProfileAddress = ({ isConfirmPage = false }) => {
   const [showLocation, setShowLocation] = useState(false);
+  const [selectedAddress, setSelectedAddress] = useState(null);
+
   const [addresses, setAddresses] = useState([
     {
       title: "Home",
@@ -23,7 +26,6 @@ export const ProfileAddress = () => {
   ]);
 
   const [showDelete, setShowDelete] = useState(false);
-  const [selectedAddress, setSelectedAddress] = useState(null);
 
   const handleCloseLocation = () => setShowLocation(false);
   const handleOpenLocation = () => setShowLocation(true);
@@ -37,46 +39,71 @@ export const ProfileAddress = () => {
     setShowDelete(true);
   };
 
-  const handleConfirmDelete = () => {
-    if (selectedAddress !== null) {
-      setAddresses(addresses.filter((_, index) => index !== selectedAddress));
-    }
-    setShowDelete(false);
+  const handleSelectAddress = (index) => {
+    setSelectedAddress(index);
   };
 
   return (
     <>
       <Container>
-        <Row>
+        <Row className="d-flex align-items-center justify-content-between">
           <Col className="add-heading">My Addresses</Col>
         </Row>
 
         <Row className="g-4 d-flex flex-wrap">
-          <Col
-            md={5}
-            lg={4}
-            className="button-column d-flex justify-content-center"
-          >
-            <div className="icons-div add-card" onClick={handleOpenLocation}>
-              <IoIosAddCircle className="add-icon" />
-              <div className="add-heading3">Add New</div>
-            </div>
-          </Col>
+            <Col
+              md={5}
+              lg={4}
+              className="button-column d-flex justify-content-center"
+            >
+              <div className="icons-div add-card" onClick={handleOpenLocation}>
+                <IoIosAddCircle className="add-icon" />
+                <div className="add-heading3">Add New</div>
+              </div>
+            </Col>
 
           {addresses.map((address, index) => (
             <Col md={5} lg={4} key={index} className="address-column">
-              <div className="address-card">
-                <h5 className="address-title">{address.title}</h5>
-                <p className="address-details">{address.details}</p>
-                <div className="button-group">
-                  <button className="edit-btn">Edit</button>
-                  <button
-                    className="profadd-delete-btn"
-                    onClick={() => handleDeleteClick(index)}
-                  >
-                    Delete
-                  </button>
+              <div
+              style={{cursor:'pointer'}}
+                className={`address-card ${
+                  isConfirmPage ? "clickable-card" : ""
+                }`}
+                onClick={
+                  isConfirmPage ? () => handleSelectAddress(index) : undefined
+                }
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <h5 className="address-title">{address.title}</h5>
+
+                  {isConfirmPage && selectedAddress === index && (
+                    <FaCheckCircle
+                      className="check-icon"
+                      color="green"
+                      size={20}
+                    />
+                  )}
                 </div>
+
+                <p className="address-details">{address.details}</p>
+
+                {!isConfirmPage && (
+                  <div className="button-group">
+                    <button className="edit-btn">Edit</button>
+                    <button
+                      className="profadd-delete-btn"
+                      onClick={() => handleDeleteClick(index)}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                )}
               </div>
             </Col>
           ))}
@@ -95,7 +122,12 @@ export const ProfileAddress = () => {
         <Delete
           show={showDelete}
           handleClose={() => setShowDelete(false)}
-          onConfirmDelete={handleConfirmDelete}
+          onConfirmDelete={() => {
+            setAddresses(
+              addresses.filter((_, index) => index !== selectedAddress)
+            );
+            setShowDelete(false);
+          }}
         />
       )}
     </>
