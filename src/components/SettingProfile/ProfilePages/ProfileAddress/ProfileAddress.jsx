@@ -3,50 +3,46 @@ import "./ProfileAddress.css";
 import { Col, Container, Row } from "react-bootstrap";
 import { IoIosAddCircle } from "react-icons/io";
 import Addresslocation from "../ProfileAddress/Addresslocation";
+import Delete from "../../../Delete/Delete";
 
 export const ProfileAddress = () => {
   const [showLocation, setShowLocation] = useState(false);
-  const [addresses, setAddresses] = useState([]);
+  const [addresses, setAddresses] = useState([
+    {
+      title: "Home",
+      details: "Kalinga Inst of Industrial Technology, Bhubaneswar, India",
+    },
+    {
+      title: "Work",
+      details: "Nandan Vihar, Patia, Bhubaneswar, India",
+    },
+    {
+      title: "Other",
+      details: "Some other address in Bhubaneswar, India",
+    },
+  ]);
 
-  const handleClose = () => setShowLocation(false);
-  const handleOpen = () => setShowLocation(true);
+  const [showDelete, setShowDelete] = useState(false);
+  const [selectedAddress, setSelectedAddress] = useState(null);
+
+  const handleCloseLocation = () => setShowLocation(false);
+  const handleOpenLocation = () => setShowLocation(true);
 
   const handleAddressAdd = (newAddress) => {
     setAddresses([...addresses, newAddress]);
   };
 
-  const addressdata = [
-    {
-      title: "Home",
-      details:
-        "sxsc scdv 9R5C+73J Kalinga Inst of Industrial Technology, Chandaka Industrial Estate, Patia, Bhubaneswar, Odisha 751024, India",
-    },
-    {
-      title: "Work",
-      details:
-        "vghderaqes m mnbjhvfgxtes 9R7P+PPW, Nandan Vihar, Patia, Bhubaneswar, Odisha 751024, India",
-    },
-    {
-      title: "Other",
-      details:
-        "bhgfwsexfghujikopl,. nnnnb v cxxsv 9R7P+PPW, Nandan Vihar, Patia, Bhubaneswar, Odisha 751024, India",
-    },
-    {
-      title: "Home",
-      details:
-        "sxsc scdv 9R5C+73J Kalinga Inst of Industrial Technology, Chandaka Industrial Estate, Patia, Bhubaneswar, Odisha 751024, India",
-    },
-    {
-      title: "Work",
-      details:
-        "vghderaqes m mnbjhvfgxtes 9R7P+PPW, Nandan Vihar, Patia, Bhubaneswar, Odisha 751024, India",
-    },
-    {
-      title: "Other",
-      details:
-        "bhgfwsexfghujikopl,. nnnnb v cxxsv 9R7P+PPW, Nandan Vihar, Patia, Bhubaneswar, Odisha 751024, India",
-    },
-  ];
+  const handleDeleteClick = (index) => {
+    setSelectedAddress(index);
+    setShowDelete(true);
+  };
+
+  const handleConfirmDelete = () => {
+    if (selectedAddress !== null) {
+      setAddresses(addresses.filter((_, index) => index !== selectedAddress));
+    }
+    setShowDelete(false);
+  };
 
   return (
     <>
@@ -61,20 +57,25 @@ export const ProfileAddress = () => {
             lg={4}
             className="button-column d-flex justify-content-center"
           >
-            <div className="icons-div add-card" onClick={handleOpen}>
+            <div className="icons-div add-card" onClick={handleOpenLocation}>
               <IoIosAddCircle className="add-icon" />
               <div className="add-heading3">Add New</div>
             </div>
           </Col>
 
-          {addressdata.map((address, index) => (
+          {addresses.map((address, index) => (
             <Col md={5} lg={4} key={index} className="address-column">
               <div className="address-card">
                 <h5 className="address-title">{address.title}</h5>
                 <p className="address-details">{address.details}</p>
                 <div className="button-group">
                   <button className="edit-btn">Edit</button>
-                  <button className="profadd-delete-btn">Delete</button>
+                  <button
+                    className="profadd-delete-btn"
+                    onClick={() => handleDeleteClick(index)}
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
             </Col>
@@ -85,8 +86,16 @@ export const ProfileAddress = () => {
       {showLocation && (
         <Addresslocation
           show={showLocation}
-          handleClose={handleClose}
+          handleClose={handleCloseLocation}
           onAddressAdd={handleAddressAdd}
+        />
+      )}
+
+      {showDelete && (
+        <Delete
+          show={showDelete}
+          handleClose={() => setShowDelete(false)}
+          onConfirmDelete={handleConfirmDelete}
         />
       )}
     </>
