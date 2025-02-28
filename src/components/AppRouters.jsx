@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter, matchRoutes } from "react-router-dom";
 import { Home } from "../pages/Home";
 import { Login } from "../pages/Login";
 import { Register } from "../pages/Register";
@@ -19,11 +19,12 @@ function AppRoutes() {
     const getMargin = () => {
       const width = window.innerWidth;
       if (width >= 1200) {
-        return { margin: "0px 200px" }; 
+        return { margin: "10px 200px",
+         }; 
       } else if (width >= 768) {
-        return { margin: "0px 100px" }; 
+        return { margin: "30px 100px" }; 
       } else {
-        return { margin: "0px 50px" }; 
+        return { margin: "10px 50px" }; 
       }
     };
 

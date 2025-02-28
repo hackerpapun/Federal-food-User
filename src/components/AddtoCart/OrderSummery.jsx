@@ -1,15 +1,12 @@
+// OrderSummery.js
 import React, { useState, useRef } from "react";
 import { Col, Row, Form, Button, Overlay } from "react-bootstrap";
-import {
-  FaShoppingCart,
-  FaClipboardCheck,
-  FaCreditCard,
-  FaMapMarker,
-} from "react-icons/fa";
 import "./OrderSummery.css";
 import Applycoupon from "../Applycoupon/Applycoupon";
 import PaymentDetails from "./PaymentDetails";
 import { useNavigate } from "react-router-dom";
+import ProgressSteps from "./ProgressSteps"; // Import the new component
+import { FaMapMarker } from "react-icons/fa";
 
 const OrderSummery = ({ totalPrice }) => {
   const navigate = useNavigate();
@@ -21,7 +18,6 @@ const OrderSummery = ({ totalPrice }) => {
   const target = useRef(null);
 
   const handlePlaceOrder = () => {
-    // Navigate to ConfirmOrder page with state
     navigate("/ConfirmOrder", { state: { orderPlaced: true } });
   };
 
@@ -31,22 +27,7 @@ const OrderSummery = ({ totalPrice }) => {
         {/* Progress Steps */}
         <Row>
           <Col>
-            <div className="mt-3 addtocart-head">
-              <div className="your_cart">
-                <FaShoppingCart style={{ color: "green" }} />
-                <span>Your Cart</span>
-              </div>
-              <div className="oneline"></div>
-              <div className="your_cart">
-                <FaClipboardCheck style={{ color: "#D3D3D3" }} />
-                <span>Confirm Order</span>
-              </div>
-              <div className="oneline"></div>
-              <div className="your_cart">
-                <FaCreditCard style={{ color: "#D3D3D3" }} />
-                <span>Payment</span>
-              </div>
-            </div>
+            <ProgressSteps currentStep={1} /> 
           </Col>
         </Row>
 
@@ -151,7 +132,6 @@ const OrderSummery = ({ totalPrice }) => {
           </Col>
         </Row>
 
-        {/* Delivery Date Selection */}
         <Row>
           <Col>
             <div>

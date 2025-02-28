@@ -3,6 +3,7 @@ import { Col, Container, Row, Button } from "react-bootstrap";
 import GroceryBasket from "../AddtoCart/GroceryBasket";
 import { useNavigate } from "react-router-dom";
 import PaymentDetails from "../AddtoCart/PaymentDetails";
+import ProgressSteps from "../AddtoCart/ProgressSteps";
 
 const ConfirmOrder = () => {
   const [cartItems, setCartItems] = useState([
@@ -85,24 +86,29 @@ const ConfirmOrder = () => {
       <h2>Confirm Your Order</h2>
       <p>Today is {formattedDate}</p>
       <Row>
-        <Col md={6}>
+        <Col md={7}>
           <GroceryBasket
             cartItems={cartItems}
             setCartItems={setCartItems}
             isConfirmPage={true}
           />
         </Col>
-        <Col md={6}>
+        <Col md={5}>
+          <Row>
+            <Col>
+              <ProgressSteps currentStep={2} />
+            </Col>
+          </Row>
           <PaymentDetails totalPrice={totalPrice} />
           <Row className="mt-4">
             <Col md={6}>
-                    <Button
-                      className="addcart-lastbtn"
-                      variant="secondary"
-                      onClick={handleBack}
-                    >
-                      Back
-                    </Button>
+              <Button
+                className="addcart-lastbtn"
+                variant="secondary"
+                onClick={handleBack}
+              >
+                Back
+              </Button>
             </Col>
             <Col md={6}>
               <Button

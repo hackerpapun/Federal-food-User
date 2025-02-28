@@ -3,6 +3,7 @@ import { Col, Container, Row, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import Payment from "./Payment";
 import PaymentDetails from "./PaymentDetails";
+import ProgressSteps from "./ProgressSteps";
 
 const PaymentPage = () => {
   const navigate = useNavigate(); // Initialize useNavigate
@@ -19,10 +20,15 @@ const PaymentPage = () => {
   return (
     <Container>
       <Row>
-        <Col md={6}>
+        <Col md={7}>
           <Payment />
         </Col>
-        <Col md={6}>
+        <Col md={5}>
+          <Row>
+            <Col >
+              <ProgressSteps currentStep={3} />
+            </Col>
+          </Row>
           <PaymentDetails />
           {/* Create Payment and Back Buttons below PaymentDetails */}
           <Row className="mt-4">
@@ -48,3 +54,5 @@ const PaymentPage = () => {
 };
 
 export default PaymentPage;
+
+

@@ -8,10 +8,10 @@ const PaymentDetails = ({ totalPrice }) => {
   return (
     <Row>
       <Row>
-        <Col className="mt-4">
+        <Col md={7} className="mt-4">
           <div className="ml-4">
             Payment Details
-            <div className="mt-3 itemtotal-addtocart">
+            <div className="mt-3 itemtotal-addtocart"style={{width:"400px"}}>
               Item Total<span>{totalPrice} $</span>
             </div>
           </div>

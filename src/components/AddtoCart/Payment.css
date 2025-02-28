@@ -2,8 +2,7 @@
   padding: 20px;
   background: #f9f9f9;
   border-radius: 8px;
-  width: 300px;
-}
+  width: 100%;}
 
 .payment-option {
   display: flex;

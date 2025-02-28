@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Payment.css"; // Import the CSS file
+import "./Payment.css"; 
 
 const Payment = () => {
   const [selectedMethod, setSelectedMethod] = useState(null);
@@ -22,7 +22,7 @@ const Payment = () => {
         <div
           key={index}
           className="payment-option"
-          onChange={() => setSelectedMethod(method)}
+          onClick={() => setSelectedMethod(method)}
         >
           <input
             type="radio"
@@ -30,6 +30,8 @@ const Payment = () => {
             value={method}
             id={method}
             className="hidden-radio"
+            checked={selectedMethod === method}
+            readOnly 
           />
           <label htmlFor={method} className="custom-radio-label">
             <span className="custom-radio">
