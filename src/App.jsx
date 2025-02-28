@@ -7,6 +7,9 @@ import Delete from "./components/Delete/Delete.jsx";
 // import AddCart from "./components/AddtoCart/Addcart.jsx";
 
 import Contactus from "./components/Contactus/Contactus.jsx";
+// import ViewAll from "./components/ViewAll/ViewAll.jsx";
+// import SearchLocation from "./components/SearchLocation/SearchLocation.jsx";
+import { ProfileAddress } from "./components/SettingProfile/ProfilePages/ProfileAddress/ProfileAddress";
 function App() {
   return (
     <>
@@ -15,7 +18,10 @@ function App() {
       {/* <ProfileAddressBar/> */}
       {/* <Applycoupon /> */}
       {/* <Contactus/> */}
-      <Delete />
+      {/* <Delete /> */}
+      {/* <SearchLocation /> */}
+      {/* <ViewAll /> */}
+      <ProfileAddress/>
       
     </>
   );
