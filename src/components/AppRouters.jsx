@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter, matchRoutes } from "react-router-dom";
 import { Home } from "../pages/Home";
 import { Login } from "../pages/Login";
 import { Register } from "../pages/Register";
@@ -10,12 +10,28 @@ import { NotFound } from "../pages/NotFound";
 import { NavbarMain } from "./NavBar/NavbarMain";
 import ProductDetails from "./Product/Product";
 import CategoryPage from "./CategoryPage/CategoryPage";
+import PaymentPage from "./AddtoCart/PaymentPage";
+import ConfirmOrder from "./confirmOrder/ConfirmOrder";
+import Contactus from "./Contactus/Contactus";
 
 function AppRoutes() {
+
+    const getMargin = () => {
+      const width = window.innerWidth;
+      if (width >= 1200) {
+        return { margin: "10px 200px",
+         }; 
+      } else if (width >= 768) {
+        return { margin: "30px 100px" }; 
+      } else {
+        return { margin: "10px 50px" }; 
+      }
+    };
+
   return (
     <BrowserRouter>
       <NavbarMain />
-      <main className="content-area" style={{ margin: "0px 200px 0px  200px" }}>
+      <main className="content-area" style={getMargin()}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -25,7 +41,10 @@ function AppRoutes() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/category" element={<CategoryPage />} />
           <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/contact" element={<Contactus />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/payment" element={<PaymentPage />} />
+          <Route path="/ConfirmOrder" element={<ConfirmOrder />} />
         </Routes>
       </main>
       <Footer />

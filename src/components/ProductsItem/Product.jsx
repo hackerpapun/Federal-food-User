@@ -26,13 +26,12 @@ const Product = ({ product = {} }) => {
   } = product || {};
 
   return (
-    <Container fluid style={{ padding: "20px", backgroundColor: "#f8f9fa" }}>
+    <Container style={{ padding: "20px", backgroundColor: "#f8f9fa" }}>
       <Container
         style={{
           backgroundColor: "white",
           padding: "20px",
           borderRadius: "10px",
-          boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
         }}
       >
         <Row>
@@ -48,6 +47,7 @@ const Product = ({ product = {} }) => {
                   alt={`View ${index + 1}`}
                   style={{
                     width: "80px",
+                    height: "80px",
                     borderRadius: "5px",
                     border: "1px solid #ddd",
                     padding: "5px",
@@ -70,7 +70,7 @@ const Product = ({ product = {} }) => {
                     variant="top"
                     src={image}
                     alt={title}
-                    style={{ width: "100%", borderRadius: "5px" }}
+                    style={{ width: "100%", borderRadius: "5px",height:'100%',minHeight:'60vh' }}
                   />
                 ) : (
                   <p>No main image available</p>

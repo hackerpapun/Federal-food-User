@@ -17,6 +17,8 @@ const ProductCarousel = ({ products, title, subtitle, viewAllLink, type }) => {
     slidesToShow: 5,
     slidesToScroll: 1,
     arrows: true,
+    autoplay: true, 
+    autoplaySpeed: 3000, 
     responsive: [
       { breakpoint: 1200, settings: { slidesToShow: 4 } },
       { breakpoint: 992, settings: { slidesToShow: 3 } },
@@ -26,7 +28,7 @@ const ProductCarousel = ({ products, title, subtitle, viewAllLink, type }) => {
   };
 
   return (
-    <div className="container mt-4">
+    <div className="carasole-container mt-4">
       <h2 className="ProductCarouselh2 text-center">{title}</h2>
       <p className="text-center">{subtitle}</p>
       <p className="text-center text-danger">

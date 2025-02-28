@@ -2,8 +2,7 @@
   padding: 20px;
   background: #f9f9f9;
   border-radius: 8px;
-  width: 300px;
-}
+  width: 100%;}
 
 .payment-option {
   display: flex;
@@ -40,12 +39,101 @@
   margin-right: 10px;
   
 }
+.radio-dot {
+  width: 10px;
+  height: 10px;
+  background: #000000;
+  border-radius: 50%;
+}
 
 
+
+.payment-container {
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px; /* Limit max width for larger screens */
+  margin: 0 auto; /* Center the container */
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.payment-option:hover {
+  background-color: rgb(238, 236, 236);
+}
+
+.hidden-radio {
+  display: none;
+}
+
+.custom-radio-label {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+}
+
+.custom-radio {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
 
 .radio-dot {
   width: 10px;
   height: 10px;
   background: #000000;
   border-radius: 50%;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .payment-container {
+    padding: 15px; /* Reduce padding on smaller screens */
+  }
+
+  .payment-option {
+    height: 35px; /* Slightly reduce height */
+  }
+
+  .custom-radio-label {
+    font-size: 14px; 
+  }
+}
+
+@media (max-width: 480px) {
+  .payment-container {
+    padding: 10px; 
+  }
+
+  .payment-option {
+    height: 30px; 
+  }
+
+  .custom-radio-label {
+    font-size: 12px; 
+  }
+
+  .custom-radio {
+    width: 18px;
+    height: 18px;
+  }
+
+  .radio-dot {
+    width: 8px; 
+    height: 8px; 
+  }
 }

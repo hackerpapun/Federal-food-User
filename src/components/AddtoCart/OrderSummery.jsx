@@ -1,44 +1,32 @@
+// OrderSummery.js
 import React, { useState, useRef } from "react";
 import { Col, Row, Form, Button, Overlay } from "react-bootstrap";
-import {
-  FaShoppingCart,
-  FaClipboardCheck,
-  FaCreditCard,
-  FaMapMarker,
-} from "react-icons/fa";
 import "./OrderSummery.css";
 import Applycoupon from "../Applycoupon/Applycoupon";
 import PaymentDetails from "./PaymentDetails";
+import { useNavigate } from "react-router-dom";
+import ProgressSteps from "./ProgressSteps"; // Import the new component
+import { FaMapMarker } from "react-icons/fa";
 
 const OrderSummery = ({ totalPrice }) => {
+  const navigate = useNavigate();
+  const [showButtons, setShowButtons] = useState(false);
   const [showStores, setShowStores] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
   const [showCouponModal, setShowCouponModal] = useState(false);
-
+  const handleCloseCouponModal = () => setShowCouponModal(false);
   const target = useRef(null);
+
+  const handlePlaceOrder = () => {
+    navigate("/ConfirmOrder", { state: { orderPlaced: true } });
+  };
 
   return (
     <>
       <Col className="p-3">
-        {/* Progress Steps */}
         <Row>
           <Col>
-            <div className="mt-3 addtocart-head">
-              <div className="your_cart">
-                <FaShoppingCart style={{ color: "green" }} />
-                <span>Your Cart</span>
-              </div>
-              <div className="oneline"></div>
-              <div className="your_cart">
-                <FaClipboardCheck style={{ color: "#D3D3D3" }} />
-                <span>Confirm Order</span>
-              </div>
-              <div className="oneline"></div>
-              <div className="your_cart">
-                <FaCreditCard style={{ color: "#D3D3D3" }} />
-                <span>Payment</span>
-              </div>
-            </div>
+            <ProgressSteps currentStep={1} /> 
           </Col>
         </Row>
 
@@ -99,53 +87,50 @@ const OrderSummery = ({ totalPrice }) => {
           <Col className="mt-5">
             <div>
               Delivery Options
-              <div>
-                <Form>
-                  <Form.Group className="mt-3" controlId="formGroupEmail">
-                    <Form.Check
-                      onClick={() => setShowStores(false)}
-                      type="radio"
-                      label={
-                        <div>
-                          At Home{" "}
-                          <span className="addtocart-homeimg">
-                            <img
-                              src="https://ultimate-grocery-capacitor.initappz.com/assets/imgs/home.png"
-                              style={{ width: "20px", height: "20px" }}
-                              alt="Home Delivery"
-                            />
-                          </span>
-                        </div>
-                      }
-                      name="formGroup"
-                    />
-                  </Form.Group>
-                  <Form.Group className="mb-3" controlId="formGroupPassword">
-                    <Form.Check
-                      onClick={() => setShowStores(true)}
-                      type="radio"
-                      label={
-                        <div>
-                          Self Pickup
-                          <span>
-                            <img
-                              src="https://ultimate-grocery-capacitor.initappz.com/assets/imgs/store.png"
-                              style={{ width: "20px", height: "20px" }}
-                              alt="Store Pickup"
-                            />
-                          </span>
-                        </div>
-                      }
-                      name="formGroup"
-                    />
-                  </Form.Group>
-                </Form>
-              </div>
+              <Form>
+                <Form.Group className="mt-3">
+                  <Form.Check
+                    onClick={() => setShowStores(false)}
+                    type="radio"
+                    label={
+                      <div>
+                        At Home{" "}
+                        <span className="addtocart-homeimg">
+                          <img
+                            src="https://ultimate-grocery-capacitor.initappz.com/assets/imgs/home.png"
+                            style={{ width: "20px", height: "20px" }}
+                            alt="Home Delivery"
+                          />
+                        </span>
+                      </div>
+                    }
+                    name="deliveryOption"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Check
+                    onClick={() => setShowStores(true)}
+                    type="radio"
+                    label={
+                      <div>
+                        Self Pickup
+                        <span>
+                          <img
+                            src="https://ultimate-grocery-capacitor.initappz.com/assets/imgs/store.png"
+                            style={{ width: "20px", height: "20px" }}
+                            alt="Store Pickup"
+                          />
+                        </span>
+                      </div>
+                    }
+                    name="deliveryOption"
+                  />
+                </Form.Group>
+              </Form>
             </div>
           </Col>
         </Row>
 
-        {/* Delivery Date Selection */}
         <Row>
           <Col>
             <div>
@@ -180,10 +165,9 @@ const OrderSummery = ({ totalPrice }) => {
           </Col>
         </Row>
 
-        {/* Store Details (if Pickup is Selected) */}
         {showStores && (
           <div className="mt-3">
-            <strong>Stores</strong>
+            Stores
             <div className="ml-3">
               <FaMapMarker />
               G-mart
@@ -194,17 +178,20 @@ const OrderSummery = ({ totalPrice }) => {
           </div>
         )}
 
+        {/* Place Order Button */}
         <Row className="mt-4">
           <Col md={6}></Col>
           <Col md={6}>
-            <Button className="addcart-lastbtn">Place Order</Button>
+            <Button className="addcart-lastbtn" onClick={handlePlaceOrder}>
+              Place Order
+            </Button>
           </Col>
         </Row>
       </Col>
 
       <Applycoupon
         show={showCouponModal}
-        handleClose={() => setShowCouponModal(false)}
+        handleClose={handleCloseCouponModal}
       />
     </>
   );

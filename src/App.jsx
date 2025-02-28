@@ -1,7 +1,7 @@
 import { BrowserRouter as Router } from "react-router-dom";
-import AppRoutes from "./components/AppRouters.jsx";
-// import ProfileAddressBar from "./pages/ProfileAddressBar.jsx";
+// import AppRoutes from "./components/AppRouters.jsx";
 import Applycoupon from "./components/Applycoupon/Applycoupon";
+import ProfileAddress from "./components/SettingProfile/ProfilePages/ProfileAddress/ProfileAddress.jsx";
 import OrderSummery from "./components/AddtoCart/OrderSummery.jsx";
 import Delete from "./components/Delete/Delete.jsx";
 // import AddCart from "./components/AddtoCart/Addcart.jsx";
@@ -13,7 +13,7 @@ import { ProfileAddress } from "./components/SettingProfile/ProfilePages/Profile
 function App() {
   return (
     <>
-      {/* <AddCart/> */}
+    {/* <AddCart/> */}
       {/* <AppRoutes /> */}
       {/* <ProfileAddressBar/> */}
       {/* <Applycoupon /> */}
