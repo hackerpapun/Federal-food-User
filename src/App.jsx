@@ -1,5 +1,5 @@
 import { BrowserRouter as Router } from "react-router-dom";
-// import AppRoutes from "./components/AppRouters.jsx";
+import AppRoutes from "./components/AppRouters.jsx";
 import Applycoupon from "./components/Applycoupon/Applycoupon";
 import ProfileAddress from "./components/SettingProfile/ProfilePages/ProfileAddress/ProfileAddress.jsx";
 import OrderSummery from "./components/AddtoCart/OrderSummery.jsx";
@@ -8,8 +8,9 @@ import Delete from "./components/Delete/Delete.jsx";
 
 import Contactus from "./components/Contactus/Contactus.jsx";
 // import ViewAll from "./components/ViewAll/ViewAll.jsx";
-// import SearchLocation from "./components/SearchLocation/SearchLocation.jsx";
-import { ProfileAddress } from "./components/SettingProfile/ProfilePages/ProfileAddress/ProfileAddress";
+import SearchLocation from "./components/SearchLocation/SearchLocation.jsx"
+
+
 function App() {
   return (
     <>
@@ -19,9 +20,10 @@ function App() {
       {/* <Applycoupon /> */}
       {/* <Contactus/> */}
       {/* <Delete /> */}
-      {/* <SearchLocation /> */}
       {/* <ViewAll /> */}
-      <ProfileAddress/>
+      {/* <ProfileAddress/> */}
+      <SearchLocation />
+     
       
     </>
   );

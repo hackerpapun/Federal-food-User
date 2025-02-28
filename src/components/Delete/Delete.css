@@ -11,11 +11,15 @@
   justify-content: center;
   margin: auto;
   
+  
 }
 .bdelete{
   height: 210px;
-  width: 70% !important;
+  width: 50% !important;
   padding: 0 0 1.25em;
+  border: 1px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+  border
 }
 .question-mark {
   font-size: 0.75em;
