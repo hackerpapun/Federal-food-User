@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Col, Container, Row, Button } from "react-bootstrap";
 import GroceryBasket from "../AddtoCart/GroceryBasket";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import PaymentDetails from "../AddtoCart/PaymentDetails";
+import ProfileAddress from "../SettingProfile/ProfilePages/ProfileAddress/ProfileAddress";
 import ProgressSteps from "../AddtoCart/ProgressSteps";
 
 const ConfirmOrder = () => {
@@ -63,7 +64,7 @@ const ConfirmOrder = () => {
     },
   ]);
     const handleBack = () => {
-      navigate(-1); 
+      Navigate(-1); 
     };
 
   const totalPrice = cartItems.reduce(
@@ -83,10 +84,9 @@ const ConfirmOrder = () => {
 
   return (
     <Container>
-      <h2>Confirm Your Order</h2>
-      <p>Today is {formattedDate}</p>
       <Row>
-        <Col md={7}>
+        <Col md={6} className="mt-4">
+          <ProfileAddress isConfirmPage={true} />
           <GroceryBasket
             cartItems={cartItems}
             setCartItems={setCartItems}
