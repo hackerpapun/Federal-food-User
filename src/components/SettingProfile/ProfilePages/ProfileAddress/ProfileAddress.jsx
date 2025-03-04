@@ -1,37 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ProfileAddress.css";
-import { Col, Container, Row, Button } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { IoIosAddCircle } from "react-icons/io";
-import { FaCheckCircle } from "react-icons/fa"; // Importing check icon
+import { FaCheckCircle } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchAddresses,
+  addAddress,
+  deleteAddress,
+} from "../../../../redux/slices/addressSlice";
 import Addresslocation from "../ProfileAddress/Addresslocation";
 import Delete from "../../../Delete/Delete";
 
-export const ProfileAddress = ({ isConfirmPage = false }) => {
+export const ProfileAddress = ({ isConfirmPage = false, onAddressSelect }) => {
+  const dispatch = useDispatch();
+  const addresses = useSelector((state) => state.addresses.addressList);
+  const loading = useSelector((state) => state.addresses.loading);
+  const error = useSelector((state) => state.addresses.error);
+
   const [showLocation, setShowLocation] = useState(false);
   const [selectedAddress, setSelectedAddress] = useState(null);
-
-  const [addresses, setAddresses] = useState([
-    {
-      title: "Home",
-      details: "Kalinga Inst of Industrial Technology, Bhubaneswar, India",
-    },
-    {
-      title: "Work",
-      details: "Nandan Vihar, Patia, Bhubaneswar, India",
-    },
-    {
-      title: "Other",
-      details: "Some other address in Bhubaneswar, India",
-    },
-  ]);
-
   const [showDelete, setShowDelete] = useState(false);
+
+  useEffect(() => {
+    dispatch(fetchAddresses());
+  }, [dispatch]);
 
   const handleCloseLocation = () => setShowLocation(false);
   const handleOpenLocation = () => setShowLocation(true);
 
   const handleAddressAdd = (newAddress) => {
-    setAddresses([...addresses, newAddress]);
+    dispatch(addAddress(newAddress));
   };
 
   const handleDeleteClick = (index) => {
@@ -41,6 +40,9 @@ export const ProfileAddress = ({ isConfirmPage = false }) => {
 
   const handleSelectAddress = (index) => {
     setSelectedAddress(index);
+    if (onAddressSelect) {
+      onAddressSelect(index);
+    }
   };
 
   return (
@@ -50,22 +52,25 @@ export const ProfileAddress = ({ isConfirmPage = false }) => {
           <Col className="add-heading">My Addresses</Col>
         </Row>
 
+        {loading && <p>Loading addresses...</p>}
+        {error && <p className="error-text">{error}</p>}
+
         <Row className="g-4 d-flex flex-wrap">
-            <Col
-              md={5}
-              lg={4}
-              className="button-column d-flex justify-content-center"
-            >
-              <div className="icons-div add-card" onClick={handleOpenLocation}>
-                <IoIosAddCircle className="add-icon" />
-                <div className="add-heading3">Add New</div>
-              </div>
-            </Col>
+          <Col
+            md={5}
+            lg={4}
+            className="button-column d-flex justify-content-center"
+          >
+            <div className="icons-div add-card" onClick={handleOpenLocation}>
+              <IoIosAddCircle className="add-icon" />
+              <div className="add-heading3">Add New</div>
+            </div>
+          </Col>
 
           {addresses.map((address, index) => (
             <Col md={5} lg={4} key={index} className="address-column">
               <div
-              style={{cursor:'pointer'}}
+                style={{ cursor: "pointer" }}
                 className={`address-card ${
                   isConfirmPage ? "clickable-card" : ""
                 }`}
@@ -85,8 +90,8 @@ export const ProfileAddress = ({ isConfirmPage = false }) => {
                   {isConfirmPage && selectedAddress === index && (
                     <FaCheckCircle
                       className="check-icon"
-                      color="green"
-                      size={20}
+                      color="#7FAD39"
+                      size={16}
                     />
                   )}
                 </div>
@@ -98,7 +103,7 @@ export const ProfileAddress = ({ isConfirmPage = false }) => {
                     <button className="edit-btn">Edit</button>
                     <button
                       className="profadd-delete-btn"
-                      onClick={() => handleDeleteClick(index)}
+                      onClick={() => handleDeleteClick(address.id)}
                     >
                       Delete
                     </button>
@@ -123,9 +128,7 @@ export const ProfileAddress = ({ isConfirmPage = false }) => {
           show={showDelete}
           handleClose={() => setShowDelete(false)}
           onConfirmDelete={() => {
-            setAddresses(
-              addresses.filter((_, index) => index !== selectedAddress)
-            );
+            dispatch(deleteAddress(selectedAddress));
             setShowDelete(false);
           }}
         />

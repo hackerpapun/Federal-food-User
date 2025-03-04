@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
+import PropTypes from "prop-types"; // Import PropTypes
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Button, Modal, Form, Row, Col, Spinner } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "../../redux/slices/authSlice"; // Corrected import
 import "./Login.css";
 
-// Zod Schema for validation
 const schema = z.object({
   email: z.string().email("Invalid email address"),
   password: z.string().min(6, "Password must be at least 6 characters"),
@@ -25,22 +27,31 @@ const Login = ({
     resolver: zodResolver(schema),
   });
 
-  const [loading, setLoading]=useState(false);
+  const dispatch = useDispatch();
+  const { loading, error, user } = useSelector((state) => state.auth);
 
   const onSubmit = async (data) => {
-    setLoading(true);
-    console.log("Login Data:", data);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setLoading(false);
+    try {
+      const resultAction = await dispatch(loginUser(data));
+      if (loginUser.fulfilled.match(resultAction)) {
+        console.log("✅ Login successful:", resultAction.payload);
+        handleClose();
+      } else {
+        console.error("❌ Login failed:", resultAction.payload);
+      }
+    } catch (err) {
+      console.error("⚠️ Unexpected error:", err);
+    }
   };
 
   return (
-    <Modal show={show} onHide={handleClose} centered className="loginpage">
+    <Modal show={show} onHide={handleClose} centered>
       <Modal.Header closeButton>
-        <Modal.Title className="tlogin">Login</Modal.Title>
+        <Modal.Title>Login</Modal.Title>
       </Modal.Header>
-
       <Modal.Body>
+        {error && <div className="error-message">{error}</div>}
+        {user && <div className="success-message">Welcome, {user.name}!</div>}
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Row>
             <Col>
@@ -79,7 +90,10 @@ const Login = ({
               <a
                 href="#"
                 className="forgot-password"
-                onClick={handleShowForgotPassword}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleShowForgotPassword();
+                }}
               >
                 Forgot Password?
               </a>
@@ -90,38 +104,19 @@ const Login = ({
               <a
                 href="#"
                 className="create-account"
-                onClick={handleShowRegistration}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleShowRegistration();
+                }}
               >
-                <span style={{ color: "#212529" }}>or</span> Create an account
+                Create an account
               </a>
             </Col>
           </Row>
-          <Row
-            className="text-center"
-            style={{
-              borderBottom: "1px solid #ced4da",
-              justifyContent: "center",
-              display: "flex",
-            }}
-          ></Row>
           <Row>
             <Col>
               <Button className="login-btn" type="submit" disabled={loading}>
-                {loading ? (
-                  <>
-                    <Spinner
-                      animation="border"
-                      size="sm"
-                      style={{
-                        marginRight: "5px",
-                        width: "1rem",
-                        height: "1rem",
-                      }} 
-                    />
-                  </>
-                ) : (
-                  "Login"
-                )}
+                {loading ? <Spinner animation="border" size="sm" /> : "Login"}
               </Button>
             </Col>
           </Row>
@@ -129,6 +124,13 @@ const Login = ({
       </Modal.Body>
     </Modal>
   );
+};
+
+Login.propTypes = {
+  show: PropTypes.bool.isRequired,
+  handleClose: PropTypes.func.isRequired,
+  handleShowRegistration: PropTypes.func.isRequired,
+  handleShowForgotPassword: PropTypes.func.isRequired,
 };
 
 export default Login;

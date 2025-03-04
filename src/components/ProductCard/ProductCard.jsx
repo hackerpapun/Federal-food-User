@@ -2,78 +2,55 @@ import React, { useState } from "react";
 import { Dropdown, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, removeFromCart } from "../../redux/slices/cartSlice";
 import "./ProductCard.css";
 import vegIcon from "../../assets/th (2).jpg";
 import nonVegIcon from "../../assets/th (3).jpg";
 import { IoBag } from "react-icons/io5";
 import { FaPlus, FaMinus } from "react-icons/fa";
 
-const ProductCard = ({ product, cartItems, setCartItems }) => {
-  const [count, setCount] = useState(0);
-  const [selectedOption, setSelectedOption] = useState(
-    product.options?.length > 0 ? product.options[0] : null
-  );
-  const [isHovered, setIsHovered] = useState(false);
+const ProductCard = ({ product }) => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [isHovered, setIsHovered] = useState(false); 
 
-  const updateCart = (newCount) => {
-    if (!setCartItems || typeof setCartItems !== "function") {
-      console.error("setCartItems is missing or not a function");
-      return;
-    }
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const selectedItem = cartItems.find(
+    (item) =>
+      item.id === product.id && item.option === (product.options?.[0] || null)
+  );
+  const count = selectedItem ? selectedItem.quantity : 0;
 
-    setCartItems((prevCart) => {
-      const existingItem = prevCart.find(
-        (item) => item.id === product.id && item.option === selectedOption
-      );
+  const handleIncrease = () => {
+    dispatch(
+      addToCart({
+        id: product.id,
+        name: product.name,
+        image: product.image,
+        price: product.price,
+        option: product.options?.[0] || null,
+      })
+    );
+  };
 
-      if (newCount > 0) {
-        const newItem = {
+  const handleDecrease = () => {
+    if (count > 0) {
+      dispatch(
+        removeFromCart({
           id: product.id,
-          name: product.name,
-          image: product.image,
-          price: product.price,
-          quantity: newCount,
-          option: selectedOption,
-        };
-
-        return existingItem
-          ? prevCart.map((item) =>
-              item.id === product.id && item.option === selectedOption
-                ? { ...item, quantity: newCount }
-                : item
-            )
-          : [...prevCart, newItem];
-      } else {
-        return prevCart.filter(
-          (item) => !(item.id === product.id && item.option === selectedOption)
-        );
-      }
-    });
-  };
-
-  const increaseCount = () => {
-    setCount((prev) => {
-      const newCount = prev + 1;
-      updateCart(newCount);
-      return newCount;
-    });
-  };
-
-  const decreaseCount = () => {
-    setCount((prev) => {
-      const newCount = prev > 1 ? prev - 1 : 0;
-      updateCart(newCount);
-      return newCount;
-    });
+          option: product.options?.[0] || null,
+        })
+      );
+    }
   };
 
   return (
     <div
       className="product-card-unq"
       style={{ marginRight: "12px !important", height: "48vh" }}
-      onMouseEnter={() => !count && setIsHovered(true)}
-      onMouseLeave={() => !count && setIsHovered(false)}
+      onMouseEnter={() => setIsHovered(true)} 
+      onMouseLeave={() => setIsHovered(false)} 
     >
       <div className="food-icon">
         <img
@@ -108,9 +85,9 @@ const ProductCard = ({ product, cartItems, setCartItems }) => {
         </div>
 
         {product.options && product.options.length > 0 && (
-          <Dropdown onSelect={(e) => setSelectedOption(e)}>
+          <Dropdown>
             <Dropdown.Toggle variant="outline-dark" size="sm">
-              {selectedOption}
+              {product.options[0]}
             </Dropdown.Toggle>
             <Dropdown.Menu>
               {product.options.map((option, index) => (
@@ -122,61 +99,65 @@ const ProductCard = ({ product, cartItems, setCartItems }) => {
           </Dropdown>
         )}
 
-        <div className={`button-container ${count > 0 ? "show-button" : ""}`}>
-          {count === 0 ? (
-            <Button
-              onClick={increaseCount}
-              style={{
-                backgroundColor: "#7FAD39",
-                border: "none",
-                padding: "8px 15px",
-                fontSize: "16px",
-                display: isHovered ? "flex" : "none",
-                alignItems: "center",
-                gap: "8px",
-                borderRadius: "5px",
-                width: "100px",
-                justifyContent: "center",
-              }}
-            >
-              <IoBag size={18} />
-              ADD
-            </Button>
-          ) : (
-            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              <Button
-                variant="outline-success"
-                onClick={decreaseCount}
-                style={{
-                  border: "none",
-                  fontSize: "18px",
-                  borderRadius: "50%",
-                  paddingBottom: "7px",
-                  backgroundColor: "#7FAD39",
-                  color: "white",
-                }}
-              >
-                <FaMinus />
-              </Button>
-              <span style={{ fontSize: "18px", fontWeight: "bold" }}>
-                {count}
-              </span>
-              <Button
-                variant="outline-success"
-                onClick={increaseCount}
-                style={{
-                  border: "none",
-                  fontSize: "18px",
-                  borderRadius: "50%",
-                  paddingBottom: "7px",
-                  backgroundColor: "#7FAD39",
-                  color: "white",
-                }}
-              >
-                <FaPlus />
-              </Button>
-            </div>
-          )}
+        <div className="button-container">
+          {count === 0
+            ? isHovered && (
+                <Button
+                  onClick={handleIncrease}
+                  style={{
+                    backgroundColor: "#7FAD39",
+                    border: "none",
+                    padding: "8px 15px",
+                    fontSize: "16px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    borderRadius: "5px",
+                    width: "100px",
+                    justifyContent: "center",
+                  }}
+                >
+                  <IoBag size={18} />
+                  ADD
+                </Button>
+              )
+            : isHovered && ( 
+                <div
+                  style={{ display: "flex", alignItems: "center", gap: "10px" }}
+                >
+                  <Button
+                    variant="outline-success"
+                    onClick={handleDecrease}
+                    style={{
+                      border: "none",
+                      fontSize: "18px",
+                      borderRadius: "50%",
+                      paddingBottom: "7px",
+                      backgroundColor: "#7FAD39",
+                      color: "white",
+                    }}
+                  >
+                    <FaMinus />
+                  </Button>
+                  <span style={{ fontSize: "18px", fontWeight: "bold" }}>
+                    {count}
+                  </span>
+                  <Button
+                    variant="outline-success"
+                    onClick={handleIncrease}
+                    style={{
+                      border: "none",
+                      fontSize: "18px",
+                      borderRadius: "50%",
+                      paddingBottom: "7px",
+                      backgroundColor: "#7FAD39",
+                      color: "white",
+                    }}
+                  >
+                    <FaPlus />
+                  </Button>
+                </div>
+              )}
         </div>
       </div>
     </div>
@@ -184,19 +165,7 @@ const ProductCard = ({ product, cartItems, setCartItems }) => {
 };
 
 ProductCard.propTypes = {
-  product: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    quantity: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    originalPrice: PropTypes.number,
-    discount: PropTypes.number,
-    options: PropTypes.arrayOf(PropTypes.string),
-    isVegetarian: PropTypes.bool.isRequired,
-  }).isRequired,
-  cartItems: PropTypes.array.isRequired,
-  setCartItems: PropTypes.func.isRequired,
+  product: PropTypes.object.isRequired,
 };
 
 export default ProductCard;

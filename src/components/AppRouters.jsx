@@ -1,6 +1,7 @@
-import { Routes, Route, BrowserRouter, matchRoutes } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { Home } from "../pages/Home";
-import { Login } from "../pages/Login";
+import Login from "../components/Login/Login";
 import { Register } from "../pages/Register";
 import { Profile } from "../pages/Profile";
 import { Cart } from "../pages/Cart";
@@ -15,24 +16,31 @@ import ConfirmOrder from "./confirmOrder/ConfirmOrder";
 import Contactus from "./Contactus/Contactus";
 
 function AppRoutes() {
+  const location = useLocation();
+  const [margin, setMargin] = useState(getInitialMargin());
 
-    const getMargin = () => {
-      const width = window.innerWidth;
-      if (width >= 1200) {
-        return { margin: "10px 200px",
-         }; 
-      } else if (width >= 768) {
-        return { margin: "30px 100px" }; 
-      } else {
-        return { margin: "10px 50px" }; 
-      }
+  function getInitialMargin() {
+    const width = window.innerWidth;
+    return width >= 1200
+      ? { margin: "10px 200px" }
+      : width >= 768
+      ? { margin: "30px 100px" }
+      : { margin: "10px 50px" };
+  }
+
+  useEffect(() => {
+    const handleResize = () => {
+      setMargin(getInitialMargin());
     };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
-    <BrowserRouter>
+    <>
       <NavbarMain />
-      <main className="content-area" style={getMargin()}>
-        <Routes>
+      <main className="content-area" style={margin}>
+        <Routes location={location}>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
@@ -42,13 +50,13 @@ function AppRoutes() {
           <Route path="/category" element={<CategoryPage />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/contact" element={<Contactus />} />
-          <Route path="*" element={<NotFound />} />
           <Route path="/payment" element={<PaymentPage />} />
-          <Route path="/ConfirmOrder" element={<ConfirmOrder />} />
+          <Route path="/confirm-order" element={<ConfirmOrder />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />
-    </BrowserRouter>
+    </>
   );
 }
 

@@ -9,42 +9,35 @@ import {
   Offcanvas,
 } from "react-bootstrap";
 import {
-  FaUser ,
+  FaUser,
   FaShoppingCart,
   FaBars,
   FaHome,
-  FaGift,
-  FaMapMarkerAlt,
-  FaGlobe,
   FaEnvelope,
-  FaInfoCircle,
-  FaQuestionCircle,
 } from "react-icons/fa";
 import logo1 from "../../assets/logo.png";
 import "../NavBar/NavBar.css";
 import Login from "../Login/Login";
 import Registration from "../Registration/Registration";
-import ForgotPassword from "../Reset/Reset"; // Assuming this is the correct import for the reset password modal
+import ForgotPassword from "../Reset/Reset";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser, logoutUser } from "../../redux/slices/authSlice";
 
 export default function AppNavbar() {
   const [activeModal, setActiveModal] = useState(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [userName, setUserName] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { isAuthenticated, userName } = useSelector((state) => state.auth);
 
-  const handleShowModal = (modal) => {
-    setActiveModal(modal);
-  };
-
-  const handleCloseModal = () => {
-    setActiveModal(null);
-  };
-
+  const handleShowModal = (modal) => setActiveModal(modal);
+  const handleCloseModal = () => setActiveModal(null);
   const handleLoginSuccess = (name) => {
-    setIsAuthenticated(true);
-    setUserName(name);
+    dispatch(loginUser(name));
     handleCloseModal();
+  };
+  const handleLogout = () => {
+    dispatch(logoutUser());
   };
 
   return (
@@ -56,17 +49,18 @@ export default function AppNavbar() {
         variant="dark"
       >
         <Container fluid="xl" className="px-lg-5">
+          {/* Toggle Button & Logo for Mobile */}
           <Navbar.Toggle
             aria-controls="offcanvasNavbar"
             className="border-0 text-white d-lg-none"
           >
             <FaBars />
           </Navbar.Toggle>
-
           <Navbar.Brand href="/" className="mx-auto d-lg-none">
             <img src={logo1} alt="Logo" height="25" />
           </Navbar.Brand>
 
+          {/* Right Section (Mobile) */}
           <div className="d-flex align-items-center d-lg-none">
             {isAuthenticated ? (
               <Dropdown>
@@ -76,9 +70,23 @@ export default function AppNavbar() {
                   {userName}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                  <Dropdown.Item href="/profile">Profile</Dropdown.Item>
-                  <Dropdown.Item href="/orders">Orders</Dropdown.Item>
-                  <Dropdown.Item href="/logout">Logout</Dropdown.Item>
+                  <Dropdown.Item onClick={() => navigate("/settings")}>
+                    Settings
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => navigate("/orders")}>
+                    Orders
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => navigate("/address")}>
+                    Address
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => navigate("/help")}>
+                    Help
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => navigate("/chats")}>
+                    Chats
+                  </Dropdown.Item>
+                  <Dropdown.Divider />
+                  <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             ) : (
@@ -86,7 +94,7 @@ export default function AppNavbar() {
                 onClick={() => handleShowModal("login")}
                 className="text-white me-3"
               >
-                <FaUser  />
+                <FaUser />
               </Nav.Link>
             )}
             <Nav.Link href="/cart" className="text-white nav-link">
@@ -94,6 +102,7 @@ export default function AppNavbar() {
             </Nav.Link>
           </div>
 
+          {/* Sidebar Menu (Mobile) */}
           <Navbar.Offcanvas
             id="offcanvasNavbar"
             placement="start"
@@ -118,14 +127,17 @@ export default function AppNavbar() {
             </Offcanvas.Body>
           </Navbar.Offcanvas>
 
+          {/* Full Navbar for Larger Screens */}
           <Navbar.Collapse
             id="basic-navbar-nav"
             className="d-none d-lg-flex justify-content-between w-100"
           >
+            {/* Logo */}
             <Navbar.Brand href="/" className="me-3 d-none d-lg-block">
               <img src={logo1} alt="Logo" height="30" />
             </Navbar.Brand>
 
+            {/* Search Bar */}
             <Form className="d-flex mx-2 w-50">
               <FormControl
                 type="search"
@@ -134,21 +146,28 @@ export default function AppNavbar() {
               />
             </Form>
 
-            <Nav className="d-flex align-items-center flex-nowrap">
-              <Dropdown className="me-3">
-                <Dropdown.Toggle
-                  style={{ backgroundColor: "#7fad39", border: "none" }}
-                >
+            {/* Language Dropdown */}
+            <Dropdown className="ms-3">
+              <Dropdown.Toggle
+                style={{ backgroundColor: "#7fad39", border: "none" }}
+              >
+                Language
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item onClick={() => console.log("English selected")}>
                   English
-                </Dropdown.Toggle>
-                <Dropdown.Menu>
-                  <Dropdown.Item href="#">English</Dropdown.Item>
-                  <Dropdown.Item href="#">Arabic</Dropdown.Item>
-                  <Dropdown.Item href="#">Spanish</Dropdown.Item>
-                  <Dropdown.Item href="#">Hindi</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
+                </Dropdown.Item>
+                <Dropdown.Item onClick={() => console.log("Spanish selected")}>
+                  Spanish
+                </Dropdown.Item>
+                <Dropdown.Item onClick={() => console.log("French selected")}>
+                  French
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
 
+            {/* User & Cart Section */}
+            <Nav className="d-flex align-items-center flex-nowrap">
               {isAuthenticated ? (
                 <Dropdown>
                   <Dropdown.Toggle
@@ -157,9 +176,23 @@ export default function AppNavbar() {
                     {userName}
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
-                    <Dropdown.Item href="/profile">Profile</Dropdown.Item>
-                    <Dropdown.Item href="/orders">Orders</Dropdown.Item>
-                    <Dropdown.Item href="/logout">Logout</Dropdown.Item>
+                    <Dropdown.Item onClick={() => navigate("/settings")}>
+                      Settings
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={() => navigate("/orders")}>
+                      Orders
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={() => navigate("/address")}>
+                      Address
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={() => navigate("/help")}>
+                      Help
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={() => navigate("/chats")}>
+                      Chats
+                    </Dropdown.Item>
+                    <Dropdown.Divider />
+                    <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               ) : (
@@ -167,12 +200,13 @@ export default function AppNavbar() {
                   onClick={() => handleShowModal("login")}
                   className="text-white me-3 d-flex align-items-center"
                 >
-                  <FaUser  className="me-1" /> Account
+                  <FaUser className="me-1" /> Account
                 </Nav.Link>
               )}
-
-              <Nav.Link className="text-white d-flex align-items-center"
-              onClick={() => navigate("/cart")}>
+              <Nav.Link
+                className="text-white d-flex align-items-center"
+                onClick={() => navigate("/cart")}
+              >
                 <FaShoppingCart className="me-1" /> Cart
               </Nav.Link>
             </Nav>
@@ -190,7 +224,6 @@ export default function AppNavbar() {
           handleShowForgotPassword={() => handleShowModal("forgotPassword")}
         />
       )}
-
       {activeModal === "registration" && (
         <Registration
           show={true}
@@ -198,7 +231,6 @@ export default function AppNavbar() {
           handleShowLogin={() => handleShowModal("login")}
         />
       )}
-
       {activeModal === "forgotPassword" && (
         <ForgotPassword
           show={true}
