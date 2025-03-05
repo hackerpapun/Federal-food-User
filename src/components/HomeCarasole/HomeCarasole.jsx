@@ -15,7 +15,7 @@ export const HomeCarasole = () => {
     {
       id: 1,
       name: "Apple",
-      image: 	"https://ultimate-grocery-capacitor.initappz.com/assets/placeholder.png",
+      image: rose,
       price: "$10.00",
       originalPrice: "$15.00",
       discount: 33,
@@ -23,7 +23,7 @@ export const HomeCarasole = () => {
     {
       id: 2,
       name: "Kashmiri Cherry",
-      image: "https://ultimate-grocery-api-capacitor.initappz.com/public/storage/images/5f04076d2310b.jpg",
+      image: rose,
       price: "$12.00",
       originalPrice: "$18.00",
       discount: 33,
@@ -31,7 +31,7 @@ export const HomeCarasole = () => {
     {
       id: 3,
       name: "Banana",
-      image: Sunflower,
+      image: rose,
       price: "$8.00",
       originalPrice: "$12.00",
       discount: 33,
@@ -47,7 +47,7 @@ export const HomeCarasole = () => {
     {
       id: 5,
       name: "Bisleri",
-      image: Tulip,
+      image: rose,
       price: "$12.00",
       originalPrice: "$18.00",
       discount: 33,
@@ -55,7 +55,7 @@ export const HomeCarasole = () => {
     {
       id: 6,
       name: "Fresho Ginger",
-      image: Sunflower,
+      image: rose,
       price: "$8.00",
       originalPrice: "$12.00",
       discount: 33,
@@ -71,7 +71,7 @@ export const HomeCarasole = () => {
     {
       id: 8,
       name: "Red Chill",
-      image: Tulip,
+      image: rose,
       price: "$12.00",
       originalPrice: "$18.00",
       discount: 33,
@@ -79,7 +79,7 @@ export const HomeCarasole = () => {
     {
       id: 3,
       name: "Cut Red Roses",
-      image: Sunflower,
+      image: rose,
       price: "$8.00",
       originalPrice: "$12.00",
       discount: 33,

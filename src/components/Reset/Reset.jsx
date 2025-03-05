@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Button, Modal, Form, Row, Col, Spinner } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import  forgotPassword  from "../../redux/slices/authSlice";
 import "./Reset.css";
 
-// Zod Schema for validation
 const schema = z.object({
   email: z.string().email("Invalid email address"),
 });
 
 const Reset = ({ show, handleClose, handleShowLogin }) => {
+  const dispatch = useDispatch();
+  const { loading, error, success } = useSelector((state) => state.auth);
+
   const {
     register,
     handleSubmit,
@@ -18,12 +22,15 @@ const Reset = ({ show, handleClose, handleShowLogin }) => {
   } = useForm({
     resolver: zodResolver(schema),
   });
-  const [loading, setLoading]=
-    useState(false);
+
+  useEffect(() => {
+    if (success) {
+      handleClose();
+    }
+  }, [success, handleClose]);
 
   const onSubmit = (data) => {
-    setLoading(true);
-    console.log("Reset Data:", data);
+    dispatch(forgotPassword(data.email));
   };
 
   return (
@@ -31,8 +38,8 @@ const Reset = ({ show, handleClose, handleShowLogin }) => {
       <Modal.Header closeButton>
         <Modal.Title className="reset">Reset Password</Modal.Title>
       </Modal.Header>
-
       <Modal.Body>
+        {error && <p className="error-message">{error}</p>}
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Row>
             <Col>
@@ -40,7 +47,7 @@ const Reset = ({ show, handleClose, handleShowLogin }) => {
                 <Form.Control
                   type="email"
                   placeholder="Email"
-                  className={`text1 ${errors.email ? "is-invalid" : ""}`}
+                  className={errors.email ? "is-invalid" : ""}
                   {...register("email")}
                 />
                 {errors.email && (
@@ -51,24 +58,12 @@ const Reset = ({ show, handleClose, handleShowLogin }) => {
           </Row>
           <Row>
             <Col>
-              <a href="#" className="note1" onClick={handleShowLogin}>
-                <span style={{ color: " #212529" }}>or</span> login to your
-                account
-              </a>
-            </Col>
-          </Row>
-          <Row
-            className="text-center"
-            style={{
-              borderBottom: "1px solid #ced4da",
-              justifyContent: "center",
-              display: "flex",
-            }}
-          ></Row>
-          <Row>
-            <Col>
               <Button className="submit-btn" type="submit" disabled={loading}>
-                {loading ? <Spinner animation="border" size="sm"/>: "SEND OTP"}
+                {loading ? (
+                  <Spinner animation="border" size="sm" />
+                ) : (
+                  "SEND OTP"
+                )}
               </Button>
             </Col>
           </Row>

@@ -1,8 +1,12 @@
-import React, { useState } from "react";
-import "./Payment.css"; // Import the CSS file
+import React, { useEffect } from "react";
+import "./Payment.css";
+import { FaCheckCircle } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { setPaymentMethod } from "../../redux/slices/paymentSlice";
 
 const Payment = () => {
-  const [selectedMethod, setSelectedMethod] = useState(null);
+  const dispatch = useDispatch();
+  const selectedMethod = useSelector((state) => state.payment.selectedMethod);
 
   const paymentMethods = [
     "Proceed with COD",
@@ -15,6 +19,10 @@ const Payment = () => {
     "Proceed with Flutterwave",
   ];
 
+  const handlePaymentSelect = (method) => {
+    dispatch(setPaymentMethod(method));
+  };
+
   return (
     <div className="payment-container">
       <h3>Payment</h3>
@@ -22,7 +30,7 @@ const Payment = () => {
         <div
           key={index}
           className="payment-option"
-          onChange={() => setSelectedMethod(method)}
+          onClick={() => handlePaymentSelect(method)}
         >
           <input
             type="radio"
@@ -30,10 +38,12 @@ const Payment = () => {
             value={method}
             id={method}
             className="hidden-radio"
+            checked={selectedMethod === method}
+            readOnly
           />
           <label htmlFor={method} className="custom-radio-label">
             <span className="custom-radio">
-              {selectedMethod === method && <span className="radio-dot"></span>}
+              {selectedMethod === method && <FaCheckCircle size={14} />}
             </span>
             {method}
           </label>

@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Button, Modal, Form, Row, Col, FormCheck } from "react-bootstrap";
+import {
+  Button,
+  Modal,
+  Form,
+  Row,
+  Col,
+  FormCheck,
+  Spinner,
+} from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import  registerUser  from "../../redux/slices/authSlice"; 
 import "./Registration.css";
 
-// Zod schema for validation
 const schema = z.object({
   email: z.string().email("Invalid email address"),
   password: z.string().min(6, "Password must be at least 6 characters"),
@@ -27,8 +36,21 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
     resolver: zodResolver(schema),
   });
 
-  const onSubmit = (data) => {
+  const dispatch = useDispatch(); 
+  const [loading, setLoading] = useState(false);
+
+  const onSubmit = async (data) => {
+    setLoading(true);
     console.log("Registration Data:", data);
+
+    try {
+      await dispatch(registerUser(data)).unwrap(); 
+      handleClose(); 
+    } catch (error) {
+      console.error("Registration failed:", error); 
+    } finally {
+      setLoading(false); 
+    }
   };
 
   return (
@@ -118,7 +140,7 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
             </Col>
           </Row>
           <Row>
-             <Col>
+            <Col>
               <Form.Group>
                 <Form.Control
                   type="text"
@@ -174,8 +196,23 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
           ></Row>
           <Row>
             <Col>
-              <Button className="login-btn" type="submit">
-                SIGNUP
+              <Button className="login-btn" type="submit" disabled={loading}>
+                {loading ? (
+                  <>
+                    <Spinner
+                      animation="border"
+                      size="sm"
+                      role="status"
+                      style={{
+                        marginRight: "5px",
+                        width: "1.5rem",
+                        height: "1.5rem",
+                      }}
+                    />
+                  </>
+                ) : (
+                  "SIGNUP"
+                )}
               </Button>
             </Col>
           </Row>

@@ -16,51 +16,6 @@ const categoryData = {
     "Flower bouquets, Bunches",
     "Fresh Fruits",
   ],
-  Frurits: [
-    "Herbs & seasonings",
-    "Cherry",
-    "Exotic Foods & Veggies",
-    "Organic Foods & Vegetables",
-    "Cuts & Sprouts",
-    "Flower bouquets, Bunches",
-    "Fresh Fruits",
-  ],
-  Frurits: [
-    "Herbs & seasonings",
-    "Cherry",
-    "Exotic Foods & Veggies",
-    "Organic Foods & Vegetables",
-    "Cuts & Sprouts",
-    "Flower bouquets, Bunches",
-    "Fresh Fruits",
-  ],
-  Fruitrs: [
-    "Herbs & seasonings",
-    "Cherry",
-    "Exotic Foods & Veggies",
-    "Organic Foods & Vegetables",
-    "Cuts & Sprouts",
-    "Flower bouquets, Bunches",
-    "Fresh Fruits",
-  ],
-  Fruirts: [
-    "Herbs & seasonings",
-    "Cherry",
-    "Exotic Foods & Veggies",
-    "Organic Foods & Vegetables",
-    "Cuts & Sprouts",
-    "Flower bouquets, Bunches",
-    "Fresh Fruits",
-  ],
-  Fruitrs: [
-    "Herbs & seasonings",
-    "Cherry",
-    "Exotic Foods & Veggies",
-    "Organic Foods & Vegetables",
-    "Cuts & Sprouts",
-    "Flower bouquets, Bunches",
-    "Fresh Fruits",
-  ],
   Beverages: [
     "Water",
     "Tea",
@@ -103,13 +58,14 @@ export const ProductDropdown = () => {
 
   return (
     <Container fluid className="dropdown-container">
-      <Row className="align-items-center"style={{width:'100%'}}>
+      <Row
+        className="dropdown-row align-items-center justify-content-center"
+      >
         <Col xs={12} md={2} className="deliver-to-col">
           <Dropdown>
             <Dropdown.Toggle variant="success" className="top-dropdown">
               <FaLocationDot className="location-icon" />
-              Delevary to {" "}
-              {selectedLocation}
+              Delivery to {selectedLocation}
             </Dropdown.Toggle>
             <Dropdown.Menu id="dropdown-box">
               {locationData.map((location, index) => (
@@ -124,9 +80,9 @@ export const ProductDropdown = () => {
           </Dropdown>
         </Col>
         <Col xs={12} md={10} className="d-none d-md-block">
-          <Row className="g-2">
+          <Row className="g-2 justify-content-center">
             {Object.entries(categoryData).map(([category, items]) => (
-              <Col key={category}>
+              <Col key={category} xs={6} md={3} className="text-center">
                 <Dropdown>
                   <Dropdown.Toggle variant="success" className="top-dropdown">
                     {category}

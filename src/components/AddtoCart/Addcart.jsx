@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import GroceryBasket from "./GroceryBasket";
 import OrderSummery from "./OrderSummery";
-import PaymentDetails from "./PaymentDetails";
 import { Col, Container, Row } from "react-bootstrap";
+import ConfirmOrder from "../confirmOrder/ConfirmOrder";
+import PaymentPage from "./PaymentPage";
 
 const AddCart = () => {
     const [totalPrice, setTotalPrice] = useState(0);
@@ -78,7 +80,7 @@ const AddCart = () => {
         <Col md={7}>
           <GroceryBasket cartItems={cartItems} setCartItems={setCartItems} />
         </Col>
-        <Col ma={5}>
+        <Col md={5}>
           <OrderSummery
             totalPrice={cartItems.reduce(
               (total, item) => total + item.price * item.quantity,
@@ -91,5 +93,7 @@ const AddCart = () => {
     
   );
 };
+
+
 
 export default AddCart;

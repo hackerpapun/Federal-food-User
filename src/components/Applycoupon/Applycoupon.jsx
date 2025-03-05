@@ -1,14 +1,15 @@
 import React from "react";
 import "./Applycoupon.css";
-import { Button, Col, Modal, ModalHeader, Row, ModalBody, ModalTitle } from "react-bootstrap";
+import { Button, Col, Modal, Row } from "react-bootstrap";
 
-const Applycoupon = ({ show, onHide }) => {
+const Applycoupon = ({ show, handleClose }) => {
   return (
-    <Modal show={show} onHide={onHide} centered className="couponpage">
-      <ModalHeader>
-        <ModalTitle className="tcoupon">Apply Coupon</ModalTitle>
-      </ModalHeader>
-      <ModalBody>
+    <Modal show={show} onHide={handleClose} centered className="couponpage">
+      <Modal.Header closeButton className="hcoupon">
+        <Modal.Title className="tcoupon">Apply Coupon</Modal.Title>
+      </Modal.Header>
+      <Modal.Body className="bcoupon"></Modal.Body>
+      <Modal.Footer>
         <Row
           className="text-center"
           style={{
@@ -16,15 +17,17 @@ const Applycoupon = ({ show, onHide }) => {
             justifyContent: "center",
             display: "flex",
           }}
-        />
-        <Row>
-          <Col className="text-center">
-            <Button className="cancelbtn" type="button" onClick={onHide}>
+        >
+          <Col
+            className="text-center"
+            style={{ display: "flex", justifyContent: "center" }}
+          >
+            <Button className="cancelbtn" type="button" onClick={handleClose}>
               Cancel
             </Button>
           </Col>
         </Row>
-      </ModalBody>
+      </Modal.Footer>
     </Modal>
   );
 };
