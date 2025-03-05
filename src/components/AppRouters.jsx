@@ -1,5 +1,4 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
 import { Home } from "../pages/Home";
 import Login from "../components/Login/Login";
 import { Register } from "../pages/Register";
@@ -14,32 +13,17 @@ import CategoryPage from "./CategoryPage/CategoryPage";
 import PaymentPage from "./AddtoCart/PaymentPage";
 import ConfirmOrder from "./confirmOrder/ConfirmOrder";
 import Contactus from "./Contactus/Contactus";
+import "./Approutes.css";
 
 function AppRoutes() {
   const location = useLocation();
-  const [margin, setMargin] = useState(getInitialMargin());
-
-  function getInitialMargin() {
-    const width = window.innerWidth;
-    return width >= 1200
-      ? { margin: "10px 200px" }
-      : width >= 768
-      ? { margin: "30px 100px" }
-      : { margin: "10px 50px" };
-  }
-
-  useEffect(() => {
-    const handleResize = () => {
-      setMargin(getInitialMargin());
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   return (
     <>
       <NavbarMain />
-      <main className="content-area" style={margin}>
+      <div className="content-area">
+        {" "}
+        {/* You can add a margin class in your CSS file */}
         <Routes location={location}>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -54,7 +38,7 @@ function AppRoutes() {
           <Route path="/confirm-order" element={<ConfirmOrder />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </main>
+      </div>
       <Footer />
     </>
   );

@@ -7,6 +7,7 @@ import {
   Container,
   Dropdown,
   Offcanvas,
+  Button,
 } from "react-bootstrap";
 import {
   FaUser,
@@ -49,7 +50,6 @@ export default function AppNavbar() {
         variant="dark"
       >
         <Container fluid="xl" className="px-lg-5">
-          {/* Toggle Button & Logo for Mobile */}
           <Navbar.Toggle
             aria-controls="offcanvasNavbar"
             className="border-0 text-white d-lg-none"
@@ -60,49 +60,12 @@ export default function AppNavbar() {
             <img src={logo1} alt="Logo" height="25" />
           </Navbar.Brand>
 
-          {/* Right Section (Mobile) */}
           <div className="d-flex align-items-center d-lg-none">
-            {isAuthenticated ? (
-              <Dropdown>
-                <Dropdown.Toggle
-                  style={{ backgroundColor: "#7fad39", border: "none" }}
-                >
-                  {userName}
-                </Dropdown.Toggle>
-                <Dropdown.Menu>
-                  <Dropdown.Item onClick={() => navigate("/settings")}>
-                    Settings
-                  </Dropdown.Item>
-                  <Dropdown.Item onClick={() => navigate("/orders")}>
-                    Orders
-                  </Dropdown.Item>
-                  <Dropdown.Item onClick={() => navigate("/address")}>
-                    Address
-                  </Dropdown.Item>
-                  <Dropdown.Item onClick={() => navigate("/help")}>
-                    Help
-                  </Dropdown.Item>
-                  <Dropdown.Item onClick={() => navigate("/chats")}>
-                    Chats
-                  </Dropdown.Item>
-                  <Dropdown.Divider />
-                  <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            ) : (
-              <Nav.Link
-                onClick={() => handleShowModal("login")}
-                className="text-white me-3"
-              >
-                <FaUser />
-              </Nav.Link>
-            )}
             <Nav.Link href="/cart" className="text-white nav-link">
               <FaShoppingCart />
             </Nav.Link>
           </div>
 
-          {/* Sidebar Menu (Mobile) */}
           <Navbar.Offcanvas
             id="offcanvasNavbar"
             placement="start"
@@ -127,17 +90,14 @@ export default function AppNavbar() {
             </Offcanvas.Body>
           </Navbar.Offcanvas>
 
-          {/* Full Navbar for Larger Screens */}
           <Navbar.Collapse
             id="basic-navbar-nav"
             className="d-none d-lg-flex justify-content-between w-100"
           >
-            {/* Logo */}
             <Navbar.Brand href="/" className="me-3 d-none d-lg-block">
               <img src={logo1} alt="Logo" height="30" />
             </Navbar.Brand>
 
-            {/* Search Bar */}
             <Form className="d-flex mx-2 w-50">
               <FormControl
                 type="search"
@@ -146,7 +106,6 @@ export default function AppNavbar() {
               />
             </Form>
 
-            {/* Language Dropdown */}
             <Dropdown className="ms-3">
               <Dropdown.Toggle
                 style={{ backgroundColor: "#7fad39", border: "none" }}
@@ -166,14 +125,13 @@ export default function AppNavbar() {
               </Dropdown.Menu>
             </Dropdown>
 
-            {/* User & Cart Section */}
             <Nav className="d-flex align-items-center flex-nowrap">
               {isAuthenticated ? (
                 <Dropdown>
                   <Dropdown.Toggle
                     style={{ backgroundColor: "#7fad39", border: "none" }}
                   >
-                    {userName}
+                    <FaUser className="me-1" /> {userName || "Account"}
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
                     <Dropdown.Item onClick={() => navigate("/settings")}>
@@ -196,13 +154,14 @@ export default function AppNavbar() {
                   </Dropdown.Menu>
                 </Dropdown>
               ) : (
-                <Nav.Link
+                <Button
                   onClick={() => handleShowModal("login")}
-                  className="text-white me-3 d-flex align-items-center"
+                  style={{ backgroundColor: "#7fad39", border: "none" }}
                 >
-                  <FaUser className="me-1" /> Account
-                </Nav.Link>
+                  <FaUser/>Login / Register
+                </Button>
               )}
+
               <Nav.Link
                 className="text-white d-flex align-items-center"
                 onClick={() => navigate("/cart")}
@@ -214,7 +173,6 @@ export default function AppNavbar() {
         </Container>
       </Navbar>
 
-      {/* Modals */}
       {activeModal === "login" && (
         <Login
           show={true}
