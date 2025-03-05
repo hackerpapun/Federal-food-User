@@ -10,26 +10,15 @@ function ChatModal() {
   return (
     <>
       <Row className="chatmodal-container">
-        <Col
-          xs={6}
-          md={6}
-          style={{
-            display: "flex",
-          }}
-        >
-          <button
-            className="chat-button-div"
-            variant="primary"
-            onClick={handleShow}
-          >
+        
+        <Col xs={6} md={6} className="d-flex">
+          <button className="chat-button-div" onClick={handleShow}>
             <div className="chat-row-div">
-              <div>
-                <img
-                  className="chat-icon"
-                  src="https://static.vecteezy.com/system/resources/previews/003/206/628/non_2x/a-girl-in-headphones-at-a-laptop-customer-support-free-vector.jpg"
-                  alt="Image Description"
-                />
-              </div>
+              <img
+                className="chat-icon"
+                src="https://static.vecteezy.com/system/resources/previews/003/206/628/non_2x/a-girl-in-headphones-at-a-laptop-customer-support-free-vector.jpg"
+                alt="Support Icon"
+              />
               <div className="chat-support">Support</div>
             </div>
           </button>
@@ -40,53 +29,37 @@ function ChatModal() {
             </Modal.Header>
             <Modal.Body>
               <div className="Admin-msg-div">
-                {" "}
-                <span className="admin-msg-span">
-                  Hlo Admin
-                </span>{" "}
+                <span className="admin-msg-span">Hello Admin</span>
               </div>
               <div className="mb-3">
-                <label htmlFor="messageText" className="chat-form-label"></label>
                 <textarea
                   className="chat-form-control"
                   placeholder="Type Here..."
                   id="messageText"
                   rows={2}
-                ></textarea>{" "}
+                ></textarea>
               </div>
             </Modal.Body>
-            <Modal.Footer style={{ marginTop: "0px" }}>
-              <button className="footer-close-btn" variant="secondary" onClick={handleClose}>
+            <Modal.Footer className="footer-btn">
+              <Button className="footer-close-btn" variant="secondary" onClick={handleClose}>
                 Close
-              </button>
-              <button className="footer-sm-btn" variant="primary" onClick={handleClose}>
-                {" "}
+              </Button>
+              <Button className="footer-sm-btn" variant="primary">
                 Send Message
-              </button>
+              </Button>
             </Modal.Footer>
           </Modal>
         </Col>
 
-        <Col
-          xs={6}
-          md={6}
-          style={{
-            display: "flex",
-          }}
-        >
-          <button
-            className="chat-button-div"
-            variant="primary"
-            onClick={handleShow}
-          >
+        
+        <Col xs={6} md={6} className="d-flex">
+          <button className="chat-button-div" onClick={handleShow}>
             <div className="Admin-col">
-              <div>
-                <img
-                  className="chat-icon"
-                  src="https://ultimate-grocery-api-capacitor.initappz.com/public/storage/images/user7.png"
-                  alt="Image Description"
-                />
-              </div>
+              <img
+                className="chat-icon"
+                src="https://ultimate-grocery-api-capacitor.initappz.com/public/storage/images/user7.png"
+                alt="Super Admin Icon"
+              />
               <div className="super-admin">
                 Super Admin
                 <div className="admin-div">Admin</div>
@@ -94,6 +67,7 @@ function ChatModal() {
             </div>
           </button>
         </Col>
+
       </Row>
     </>
   );
