@@ -9,7 +9,9 @@ import { BrowserRouter as Router } from "react-router-dom";
 // import Payment from "./components/AddtoCart/Payment.jsx";
 // import PaymentPage from "./components/AddtoCart/PaymentPage.jsx";
 // import ConfirmOrder from "./components/confirmOrder/ConfirmOrder.jsx";
-import ChatModal from "./components/SettingProfile/ProfileChat/ChatModal.jsx";
+import ChatModal from "./components/SettingProfile/ProfileChat/ChatModalComponent.jsx";
+import Chat from "./pages/Chat.jsx";
+
 
 function App() {
   return (
@@ -23,7 +25,7 @@ function App() {
       {/* <OrderTracking/> */}
       {/* <Orderhistory/> */}
       {/* <ConfirmOrder/> */}
-      <ChatModal/>
+      <Chat/>
     </>
   );
 }
