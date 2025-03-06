@@ -12,7 +12,7 @@ import {
   Spinner,
 } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import  registerUser  from "../../redux/slices/authSlice"; 
+import registerUser from "../../config/redux/slices/authSlice"; 
 import "./Registration.css";
 
 const schema = z.object({
