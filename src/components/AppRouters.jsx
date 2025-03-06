@@ -1,6 +1,6 @@
-import { Routes, Route, BrowserRouter, matchRoutes } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { Home } from "../pages/Home";
-import { Login } from "../pages/Login";
+import Login from "../components/Login/Login";
 import { Register } from "../pages/Register";
 import { Profile } from "../pages/Profile";
 import { Cart } from "../pages/Cart";
@@ -13,26 +13,18 @@ import CategoryPage from "./CategoryPage/CategoryPage";
 import PaymentPage from "./AddtoCart/PaymentPage";
 import ConfirmOrder from "./confirmOrder/ConfirmOrder";
 import Contactus from "./Contactus/Contactus";
+import "./Approutes.css";
 
 function AppRoutes() {
-
-    const getMargin = () => {
-      const width = window.innerWidth;
-      if (width >= 1200) {
-        return { margin: "10px 200px",
-         }; 
-      } else if (width >= 768) {
-        return { margin: "30px 100px" }; 
-      } else {
-        return { margin: "10px 50px" }; 
-      }
-    };
+  const location = useLocation();
 
   return (
-    <BrowserRouter>
+    <>
       <NavbarMain />
-      <main className="content-area" style={getMargin()}>
-        <Routes>
+      <div className="content-area">
+        {" "}
+        {/* You can add a margin class in your CSS file */}
+        <Routes location={location}>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
@@ -42,14 +34,14 @@ function AppRoutes() {
           <Route path="/category" element={<CategoryPage />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/contact" element={<Contactus />} />
-          <Route path="*" element={<NotFound />} />
           <Route path="/payment" element={<PaymentPage />} />
-          <Route path="/ConfirmOrder" element={<ConfirmOrder />} />
+          <Route path="/confirm-order" element={<ConfirmOrder />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
-      </main>
+      </div>
       <Footer />
-    </BrowserRouter>
+    </>
   );
 }
 
-export default AppRoutes;
+// export default AppRoutes;

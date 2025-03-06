@@ -3,6 +3,7 @@ import { Col, Container, Row, Button } from "react-bootstrap";
 import GroceryBasket from "../AddtoCart/GroceryBasket";
 import { useNavigate } from "react-router-dom";
 import PaymentDetails from "../AddtoCart/PaymentDetails";
+import ProfileAddress from "../SettingProfile/ProfilePages/ProfileAddress/ProfileAddress";
 import ProgressSteps from "../AddtoCart/ProgressSteps";
 
 const ConfirmOrder = () => {
@@ -62,31 +63,28 @@ const ConfirmOrder = () => {
         "https://ultimate-grocery-api-capacitor.initappz.com/public/storage/images/5f002abb9280f.jpg",
     },
   ]);
-    const handleBack = () => {
-      navigate(-1); 
-    };
+
+  const [isAddressSelected, setIsAddressSelected] = useState(false); // State to track address selection
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate(-1);
+  };
 
   const totalPrice = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
   );
-    const navigate = useNavigate();
-
-  const today = new Date();
-  const options = {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  };
-  const formattedDate = today.toLocaleDateString("en-US", options);
 
   return (
     <Container>
-      <h2>Confirm Your Order</h2>
-      <p>Today is {formattedDate}</p>
+      <h3 style={{ fontWeight: "600" }}>Confirm Order</h3>
       <Row>
-        <Col md={7}>
+        <Col md={7} className="mt-4">
+          <ProfileAddress
+            isConfirmPage={true}
+            onAddressSelect={() => setIsAddressSelected(true)} // Callback to set address selection
+          />
           <GroceryBasket
             cartItems={cartItems}
             setCartItems={setCartItems}
@@ -114,6 +112,7 @@ const ConfirmOrder = () => {
               <Button
                 className="addcart-lastbtn"
                 onClick={() => navigate("/payment")}
+                disabled={!isAddressSelected} // Disable button if no address is selected
               >
                 Make Payment
               </Button>

@@ -3,7 +3,7 @@
   background: none !important;
 } */
 .icon-circle {
-  width: 60px;
+  width: 85px;
   height: 55px;
   border-radius: 50%;
   display: flex;
@@ -11,10 +11,9 @@
   justify-content: center;
   margin: auto;
   
-  
 }
-.bdelete{
-  height: 210px;
+.bdelete {
+  height: 100%;
   width: 50% !important;
   padding: 0 0 1.25em;
   border: 1px solid black;
@@ -22,15 +21,15 @@
   border
 }
 .question-mark {
-  font-size: 0.75em;
+  font-size: 1em;
   color: #87b0ce;
   box-sizing: content-box;
   width: 5em;
   height: 5em;
-  margin: 1.5em auto 0.6em;
+  margin: 1.50em auto 0.20em;
   border: 0.25em solid transparent;
   border-radius: 50%;
-  border-color: #87b0ce;
+  border-color: #c9dae1;
   font-family: inherit;
   line-height: 5em;
   /* cursor: default; */
@@ -41,11 +40,10 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  width: auto;
-  margin: -0.75em auto 0;
+  width: 230px!important;
+  margin: 1.25em auto 0;
   padding: 0;
   transition: box-shadow 0.1s;
-  box-shadow: 0 0 0 3px transparent;
   font-weight: 500;
 }
 .yesbtn {
@@ -54,21 +52,42 @@
   background: initial;
   background-color: #7066e0;
   color: #fff;
-  font-size: 0.8em;
-  margin: 2px;
-  margin-right: -15px;
+  font-size: 1em;
+  margin: 0.3125em;
+  padding: 0.625em 1.1em;
+  box-shadow: 0 0 0 3px transparent;
+  font-weight: 500;
 }
 .cancelbtn2 {
   border: 0;
   border-radius: 0.25em;
   background: initial;
-  background-color: #6e7881;
+  background-color: #6e7881 !important;
   color: #ffffff;
-  font-size: 0.8em;
-  margin: 2px;
-  margin-right: -15px;
+  border: none !important;
+  font-size: 1em;
+  margin: 0.3125em;
+  padding: 0.625em 1.1em;
+  box-shadow: 0 0 0 3px transparent;
 }
-.textdelete{
-  padding: 15px;
-  margin-top: 5px;
+.textdelete {
+  padding: 20px;
+}
+.heading5 {
+  font-size: 1.875em;
+  font-weight: 600;
+  text-align: center;
+  color: #545454;
+  margin: 0;
+  padding: 0.8em 1em 0;
+  max-width: 100%;
+}
+.paraghraph5 {
+  font-size: 1.125em;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+  color: #545454;
+  margin: 1em 1.6em 0.3em;
+  padding: 0;
 }

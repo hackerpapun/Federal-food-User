@@ -11,9 +11,10 @@ import {
   FormCheck,
   Spinner,
 } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import  registerUser  from "../../redux/slices/authSlice"; 
 import "./Registration.css";
 
-// Zod schema for validation
 const schema = z.object({
   email: z.string().email("Invalid email address"),
   password: z.string().min(6, "Password must be at least 6 characters"),
@@ -35,15 +36,21 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
     resolver: zodResolver(schema),
   });
 
+  const dispatch = useDispatch(); 
   const [loading, setLoading] = useState(false);
 
   const onSubmit = async (data) => {
-    setLoading(true); 
+    setLoading(true);
     console.log("Registration Data:", data);
 
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    setLoading(false); 
+    try {
+      await dispatch(registerUser(data)).unwrap(); 
+      handleClose(); 
+    } catch (error) {
+      console.error("Registration failed:", error); 
+    } finally {
+      setLoading(false); 
+    }
   };
 
   return (
@@ -202,7 +209,6 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
                         height: "1.5rem",
                       }}
                     />
-                    
                   </>
                 ) : (
                   "SIGNUP"
