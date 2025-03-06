@@ -39,10 +39,33 @@ export default App;
 
 // function App() {
 //   return (
-//     <BrowserRouter>
-//       <AppRoutes />
-//     </BrowserRouter>
+//     <>
+//     {/* <AddCart/> */}
+//       {/* <AppRoutes /> */}
+//       {/* <ProfileAddressBar/> */}
+//       {/* <Applycoupon /> */}
+//       {/* <ProfileAddress/> */}
+//       {/* <Orderhistorydetails/> */}
+//       {/* <OrderTracking/> */}
+//       {/* <Orderhistory/> */}
+//       {/* <ConfirmOrder/> */}
+//       <ChatModal/>
+//     </>
 //   );
 // }
 
 // export default App;
+
+
+
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./components/AppRouters"
+function App() {
+  return (
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  );
+}
+
+export default App;
