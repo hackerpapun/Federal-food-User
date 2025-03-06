@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./Payment.css";
 import { FaCheckCircle } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { setPaymentMethod } from "../../redux/slices/paymentSlice";
+import { setPaymentMethod } from "../../config/redux/slices/paymentSlice";
 
 const Payment = () => {
   const dispatch = useDispatch();

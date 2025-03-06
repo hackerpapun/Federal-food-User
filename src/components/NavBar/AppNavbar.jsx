@@ -23,7 +23,7 @@ import Registration from "../Registration/Registration";
 import ForgotPassword from "../Reset/Reset";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser, logoutUser } from "../../redux/slices/authSlice";
+import { loginUser, logoutUser } from "../../config/redux/slices/authSlice";
 
 export default function AppNavbar() {
   const [activeModal, setActiveModal] = useState(null);
@@ -61,6 +61,23 @@ export default function AppNavbar() {
           </Navbar.Brand>
 
           <div className="d-flex align-items-center d-lg-none">
+            {/* User icon for small screens */}
+            {isAuthenticated ? (
+              <Nav.Link
+                className="text-white nav-link me-2"
+                onClick={() => navigate("/settings")}
+              >
+                <FaUser />
+              </Nav.Link>
+            ) : (
+              <Nav.Link
+                className="text-white nav-link me-2"
+                onClick={() => handleShowModal("login")}
+              >
+                <FaUser />
+              </Nav.Link>
+            )}
+            {/* Cart icon for small screens */}
             <Nav.Link href="/cart" className="text-white nav-link">
               <FaShoppingCart />
             </Nav.Link>
@@ -86,6 +103,43 @@ export default function AppNavbar() {
                 >
                   <FaEnvelope className="me-2" /> Contact Us
                 </Nav.Link>
+                {isAuthenticated && (
+                  <>
+                    <Nav.Link
+                      onClick={() => navigate("/settings")}
+                      className="text-dark d-flex align-items-center"
+                    >
+                      <FaUser className="me-2" /> Account Settings
+                    </Nav.Link>
+                    <Nav.Link
+                      onClick={() => navigate("/orders")}
+                      className="text-dark"
+                    >
+                      Orders
+                    </Nav.Link>
+                    <Nav.Link
+                      onClick={() => navigate("/address")}
+                      className="text-dark"
+                    >
+                      Address
+                    </Nav.Link>
+                    <Nav.Link
+                      onClick={() => navigate("/help")}
+                      className="text-dark"
+                    >
+                      Help
+                    </Nav.Link>
+                    <Nav.Link
+                      onClick={() => navigate("/chats")}
+                      className="text-dark"
+                    >
+                      Chats
+                    </Nav.Link>
+                    <Nav.Link onClick={handleLogout} className="text-dark">
+                      Logout
+                    </Nav.Link>
+                  </>
+                )}
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
@@ -129,11 +183,19 @@ export default function AppNavbar() {
               {isAuthenticated ? (
                 <Dropdown>
                   <Dropdown.Toggle
+                    variant="success"
+                    id="account-dropdown"
                     style={{ backgroundColor: "#7fad39", border: "none" }}
+                    className="d-flex align-items-center"
                   >
-                    <FaUser className="me-1" /> {userName || "Account"}
+                    <FaUser className="me-2" />
+                    <span>Account</span>
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
+                    <Dropdown.Item className="text-center font-weight-bold">
+                      Hi, {userName || "User"}
+                    </Dropdown.Item>
+                    <Dropdown.Divider />
                     <Dropdown.Item onClick={() => navigate("/settings")}>
                       Settings
                     </Dropdown.Item>
@@ -157,13 +219,14 @@ export default function AppNavbar() {
                 <Button
                   onClick={() => handleShowModal("login")}
                   style={{ backgroundColor: "#7fad39", border: "none" }}
+                  className="d-flex align-items-center"
                 >
-                  <FaUser/>Login / Register
+                  <FaUser className="me-2" /> Login / Register
                 </Button>
               )}
 
               <Nav.Link
-                className="text-white d-flex align-items-center"
+                className="text-white d-flex align-items-center ms-3"
                 onClick={() => navigate("/cart")}
               >
                 <FaShoppingCart className="me-1" /> Cart

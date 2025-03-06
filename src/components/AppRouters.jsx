@@ -22,8 +22,6 @@ function AppRoutes() {
     <>
       <NavbarMain />
       <div className="content-area">
-        {" "}
-        {/* You can add a margin class in your CSS file */}
         <Routes location={location}>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -44,4 +42,4 @@ function AppRoutes() {
   );
 }
 
-// export default AppRoutes;
+export default AppRoutes;

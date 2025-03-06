@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Button, Modal, Form, Row, Col, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "../../redux/slices/authSlice"; 
+import { loginUser } from "../../config/redux/slices/authSlice"; 
 import "./Login.css";
 
 const schema = z.object({

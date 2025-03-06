@@ -23,6 +23,7 @@ const categoryData = {
     "Health Drink & Supplements",
     "Fruit Juices and Drinks",
   ],
+  
   "Foodgrains, Oils & Masalas": [
     "Atta, Flour & Sooji",
     "Dals & Pulses",
