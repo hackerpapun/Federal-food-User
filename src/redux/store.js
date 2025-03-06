@@ -1,4 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+import { combineReducers } from "redux"; // Import combineReducers
 import authReducer from "./slices/authSlice";
 import cartReducer from "./slices/cartSlice";
 import productReducer from "./slices/productSlice";
@@ -8,17 +11,28 @@ import paymentReducer from "./slices/paymentSlice";
 import couponReducer from "./slices/couponSlice";
 import addressReducer from "./slices/addressSlice";
 
-const store = configureStore({
-  reducer: {
-    auth: authReducer,
-    cart: cartReducer,
-    products: productReducer,
-    orders: orderReducer,
-    wishlist: wishlistReducer,
-    payment: paymentReducer,
-    coupons: couponReducer,
-    addresses: addressReducer,
-  },
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const rootReducer = combineReducers({
+  auth: authReducer,
+  cart: cartReducer,
+  products: productReducer,
+  orders: orderReducer,
+  wishlist: wishlistReducer,
+  payment: paymentReducer,
+  coupons: couponReducer,
+  addresses: addressReducer,
 });
 
-export default store;
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+const store = configureStore({
+  reducer: persistedReducer,
+});
+
+const persistor = persistStore(store);
+
+export { store, persistor };
