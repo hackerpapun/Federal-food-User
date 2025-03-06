@@ -22,6 +22,13 @@ export const getCategory = async (data) => {
     data,
   });
 };
+export const getProduct = async (data) => {
+  return HttpClient.apiCaller({
+    uri: "/products",
+    method: "GET",
+    data,
+  });
+};
 
 
 
@@ -29,7 +36,8 @@ const UserController = {
   // Auth
   loginUser,
   signupUser,
-  
+  getCategory,
+  getProduct
 };
 
 export default UserController;
