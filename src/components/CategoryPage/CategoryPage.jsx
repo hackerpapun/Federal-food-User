@@ -6,7 +6,41 @@ import { FaAngleDown, FaAngleRight } from "react-icons/fa";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./CategoryPage.css";
 
-const Sidebar = ({ categories, setSelectedCategory }) => {
+const categories = [
+  {
+    id: 1,
+    title: "Beverages",
+    links: ["Tea", "Coffee", "Soft Drinks", "Juices"],
+  },
+  {
+    id: 2,
+    title: "Snacks",
+    links: ["Chips", "Cookies", "Nuts", "Chocolates"],
+  },
+  {
+    id: 3,
+    title: "Dairy & Bakery",
+    links: ["Milk", "Cheese", "Butter", "Cakes"],
+  },
+  {
+    id: 4,
+    title: "Fruits & Vegetables",
+    links: ["Fresh Fruits", "Leafy Greens", "Root Vegetables"],
+  },
+];
+
+const products = [
+  { id: 1, name: "Nescafe Coffee", category: "Beverages", price: 200 },
+  { id: 2, name: "Levista Coffee", category: "Beverages", price: 180 },
+  { id: 3, name: "Pepsi", category: "Beverages", price: 50 },
+  { id: 4, name: "Oreo Cookies", category: "Snacks", price: 120 },
+  { id: 5, name: "Lay's Chips", category: "Snacks", price: 40 },
+  { id: 6, name: "Cheese Slice", category: "Dairy & Bakery", price: 250 },
+  { id: 7, name: "Fresh Apples", category: "Fruits & Vegetables", price: 300 },
+  { id: 8, name: "Butter", category: "Dairy & Bakery", price: 220 },
+];
+
+const Sidebar = ({ setSelectedCategory }) => {
   const [activeKey, setActiveKey] = useState(null);
 
   return (
@@ -68,7 +102,7 @@ function CustomToggle({ eventKey, activeKey, setActiveKey }) {
   );
 }
 
-const CategoryPage = ({ categories = [], products = [] }) => {
+const CategoryPage = () => {
   const [sortBy, setSortBy] = useState("popularity");
   const [selectedCategory, setSelectedCategory] = useState(null);
 
@@ -76,14 +110,13 @@ const CategoryPage = ({ categories = [], products = [] }) => {
     if (categories.length > 0) {
       setSelectedCategory(categories[0].title);
     }
-  }, [categories]);
+  }, []);
 
   const filteredProducts = useMemo(() => {
-    if (!Array.isArray(products)) return [];
     return selectedCategory
       ? products.filter((product) => product.category === selectedCategory)
       : products;
-  }, [selectedCategory, products]);
+  }, [selectedCategory]);
 
   const sortedProducts = useMemo(() => {
     let sorted = [...filteredProducts];
@@ -110,10 +143,7 @@ const CategoryPage = ({ categories = [], products = [] }) => {
     <Container fluid>
       <Row>
         <Col lg={3} className="sidebar-container d-none d-lg-block">
-          <Sidebar
-            categories={categories}
-            setSelectedCategory={setSelectedCategory}
-          />
+          <Sidebar setSelectedCategory={setSelectedCategory} />
         </Col>
         <Col lg={9} md={12}>
           <div className="sorting-container">
