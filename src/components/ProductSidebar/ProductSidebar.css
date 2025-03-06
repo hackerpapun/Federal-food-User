@@ -1,0 +1,71 @@
+.sidebar {
+  width: 100%;
+  max-width: 300px;
+  background: #fff;
+  height: 100vh;
+  /* Ensure it takes full height */
+}
+
+.category-title {
+  margin-bottom: 20px;
+  font-size: 17px;
+  font-weight: semi-bold;
+  padding-top: 20px;
+  padding-bottom: 8px;
+  color: #212529;
+}
+
+.subcategory-text.active {
+  color: #7fda39;
+  font-weight: bold;
+}
+
+.accordion-toggle-icon {
+  cursor: pointer;
+}
+
+.subcategory-text {
+  font-size: 16px;
+  font-weight: semi-bold;
+  font-family: Arial, Helvetica, sans-serif;
+  display: inline-block;
+  text-align: center;
+  margin: 0px 0px 0px 0px;
+  color: #000000;
+  text-align: left;
+}
+
+.subcategory-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.subcategory-list a {
+  padding: 5px ;
+  margin: 5px 0px;
+  color: #212529;
+  text-decoration: none;
+  display: flex;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  display: block;
+  width: 100%;
+}
+
+.subcategory-list a:hover {
+  color: #7fda39;
+}
+
+.subcategory-list .active-link {
+  color: #7fda39 !important;
+}
+
+.subcategory-list .disabled {
+  color: #ccc;
+}
+
+/* Hover Effects */
+.subcategory-text:hover {
+  color: #7fda39;
+  cursor: pointer;
+}

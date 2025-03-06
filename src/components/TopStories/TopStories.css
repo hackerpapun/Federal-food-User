@@ -1,0 +1,37 @@
+.top-stores-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.2s ease-in-out;
+}
+
+.top-stores-card:hover {
+    transform: scale(1.02);
+}
+
+.store-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.store-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.store-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.store-location {
+    font-size: 12px;
+    color: #777;
+}

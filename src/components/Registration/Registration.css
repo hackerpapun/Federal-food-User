@@ -1,0 +1,117 @@
+.tsignup {
+  color: #212529 !important;
+  font-weight: bold;
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-right: 0;
+  padding-right: 0;
+}
+/* .closebtn {
+  display: block;
+  justify-content: right;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: 0.5;
+  margin-right: auto;
+} */
+.closebtn:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+.loginpage {
+  height: 100%;
+  width: 100%;
+  border: 1px solid #d0d0d0;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  pointer-events: auto;
+  border-radius: 0.3rem;
+  outline: 0;
+  box-shadow: 0 5px 11px #0000002e, 0 4px 15px #00000026;
+}
+
+.open-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.text1 {
+  display: block;
+  height: calc(0.5em + 0.65rem + 1px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #495057;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  outline: 0;
+  margin: 12px;
+  width: 90%;
+  border: 1px solid #a9abb2;
+}
+.text1::placeholder {
+  color: #a9abb2;
+  font-weight: bold;
+}
+
+
+.note1 {
+  display: block;
+  margin: 0px 15px 16px;
+  padding: 0;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #212529;
+  text-decoration: none;
+  justify-content: right;
+  text-align: right;
+}
+
+.note1 {
+  color: red;
+}
+.note {
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 8px;
+  margin: 15px !important;
+  margin-top: -18px !important;
+  
+  
+}
+
+.login-btn {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  background-color: #2bbbad;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 0;
+  box-shadow: 0 2px 5px #00000029, 0 2px 10px #0000001f;
+  padding: 0.84rem 3.14rem;
+  font-size: 0.81rem;
+  margin: 0.375rem auto;
+  border-radius: 0.125rem;
+  font-weight: 400;
+}
+
+.login-btn:hover {
+  background-color: darkblue;
+}

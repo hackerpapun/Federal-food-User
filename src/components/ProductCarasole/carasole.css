@@ -1,0 +1,88 @@
+.product-carousel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  /* background-clip: border-box; */
+  /* border: 1px solid rgba(0, 0, 0, 0.125); */
+  border-radius: 0.25re;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.food-icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.food-symbol {
+  width: 20px;
+  height: 20px;
+}
+
+.discount-badge {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background: red;
+  color: white;
+  padding: 5px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.product-image {
+  width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+}
+
+.product-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.product-quantity {
+  font-size: 14px;
+  color: #666;
+}
+
+.price-container {
+  margin-top: 5px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #999;
+  margin-right: 5px;
+}
+
+.new-price {
+  font-weight: bold;
+  color: green;
+}
+
+.add-btn {
+  background-color: #79b530;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 5px;
+  display: none;
+}
+
+.product-card:hover .add-btn {
+  display: block;
+}
+.carasole-container{
+    /* height: 65vh; */
+}

@@ -1,0 +1,80 @@
+.order-icon{
+    height: 40px;
+    width: 50px;
+}
+
+.order-history-main-div{
+    
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: .5px solid lightgray;
+    /* margin-top: 5px; */
+}
+
+.order-history-heading{
+    font-size: 20px;
+    font-family: "semi-bold";
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 1rem;
+    margin-top: 5px;
+
+}
+
+.orderhistory-line1{
+    height: 1.5px;
+    margin-top: 7px;
+    background-color: #CACACA;
+
+}
+
+.orderhistory-heading1{
+    color: #d3d3d3;
+    font-size: 16px;
+    margin-top: 10px;
+    display: block;
+    margin-bottom: 0;
+}
+
+.orderhistory-heading2{
+font-size: 15px;
+color: #212529;
+letter-spacing: 1px;
+margin-top: 10px;
+}
+
+.orderhistory-heading3{
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #CACACA;
+
+}
+
+.orderhistory-heading5{
+    font-size: 16px;
+    font-family: "semi-bold";
+    display: block;
+    line-height: 1.5;
+    font-weight: 600;
+
+}
+
+.orderhistory-heading6{
+    margin-bottom: 1rem;
+}
+
+.orderhistory-line2{
+border-bottom: 1px solid #CACACA;
+}
+
+.pagination-div{
+    border: none !important;
+    /* display: flex;
+  justify-content: center;  
+  flex-wrap: nowrap;  */
+}
