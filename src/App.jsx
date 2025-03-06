@@ -58,14 +58,14 @@ export default App;
 
 
 
-import { BrowserRouter } from "react-router-dom";
-import AppRoutes from "./components/AppRouters"
-function App() {
-  return (
-    <BrowserRouter>
-      <AppRoutes />
-    </BrowserRouter>
-  );
-}
+// import { BrowserRouter } from "react-router-dom";
+// import AppRoutes from "./components/AppRouters"
+// function App() {
+//   return (
+//     <BrowserRouter>
+//       <AppRoutes />
+//     </BrowserRouter>
+//   );
+// }
 
-export default App;
+// export default App;
