@@ -6,7 +6,7 @@
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   background-color: rgb(255, 255, 255);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
   overflow: hidden;
   max-height: 40vh;
   margin-right: 12px;
@@ -31,23 +31,25 @@
   right: 5px;
   z-index: 1;
 }
-
 .food-symbol {
-  width: 20px;
-  height: 20px;
+  height: 15px;
+  width: 15px;
+  position: absolute;
+  right: 26px;
+  top: 18px;
+  background-color: #fff;
 }
 
 .discount-badge {
   position: absolute;
-  top: 5px;
-  left: 5px;
-  background-color: #F6601F;
-  color: white;
-  padding: 5px 8px;
-  font-size: 12px;
-  font-weight: bold;
-  border-radius: 3px;
-  z-index: 1;
+  left: 26px !important;
+  color: #fff;
+  background-color: #f6601f;
+  padding: 4px !important;
+  border-radius: 5px !important;
+  font-size: 10px !important;
+  line-height: 10px !important;
+  top: 22px !important;
 }
 
 .product-details {
@@ -64,7 +66,7 @@
 
 .product-name {
   font-size: 18px;
-  font-weight: bold;
+  
   color: #6c757d;
   margin-bottom: 5px;
 }
@@ -82,26 +84,27 @@
 
 .old-price {
   text-decoration: line-through;
-  color: #999;
+  color: #212529 !important;
   margin-right: 5px;
 }
 
 .new-price {
   font-weight: bold;
-  color: green;
+  color: #212529 !important;
 }
 
 .button-container {
-  position: absolute;
+  position: absolute ;
   bottom: -42px; /* Should match the negative value in product-details transform */
   left: 0;
   width: 100%;
   background-color: white;
-  padding: 5px 10px 10px;
+  padding: 5px 10px 10px ;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease ;
+  box-shadow: rgba(25, 25, 25, 0.04) 0 0 1px 0 !important;
 }
 
 .button-container.show-button {
@@ -116,7 +119,7 @@
 }
 
 .add-btn {
-  background-color: #79b530!important;
+  background-color: #79b530 !important;
   color: white;
   border: none;
   padding: 8px 15px;
@@ -124,6 +127,7 @@
   cursor: pointer;
   width: 100%;
   border-radius: 5px;
+  line-height: 1;
 }
 
 /* Responsive Styles */
@@ -131,11 +135,11 @@
   .product-card-unq {
     margin-right: 8px;
   }
-  
+
   .product-card-unq:hover .product-details {
     transform: translateY(-40px);
   }
-  
+
   .button-container {
     bottom: -40px;
   }
@@ -145,11 +149,11 @@
   .product-card-unq {
     margin-right: 6px;
   }
-  
+
   .product-card-unq:hover .product-details {
     transform: translateY(-38px);
   }
-  
+
   .button-container {
     bottom: -38px;
   }
@@ -159,19 +163,19 @@
   .product-card-unq {
     margin-right: 4px;
   }
-  
+
   .product-name {
     font-size: 16px;
   }
-  
+
   .product-quantity {
     font-size: 12px;
   }
-  
+
   .product-card-unq:hover .product-details {
     transform: translateY(-50px);
   }
-  
+
   .button-container {
     bottom: -6px;
   }
@@ -181,28 +185,29 @@
   .product-card-unq {
     padding: 10px;
   }
-  
+
   .product-image {
     height: 150px;
   }
-  
+
   .product-name {
     font-size: 14px;
+    
   }
-  
+
   .product-quantity {
     font-size: 10px;
   }
-  
+
   .add-btn {
     padding: 6px 10px;
     font-size: 12px;
   }
-  
+
   .product-card-unq:hover .product-details {
     transform: translateY(-32px);
   }
-  
+
   .button-container {
     bottom: -32px;
     padding: 3px 8px 8px;

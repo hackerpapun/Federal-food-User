@@ -9,7 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./carasole.css";
 
-const ProductCarousel = ({ products, title, subtitle, viewAllLink, type }) => {
+const  ProductCarousel = ({ products, title, subtitle, viewAllLink, type }) => {
   const settings = {
     dots: false,
     infinite: true,
