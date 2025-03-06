@@ -23,6 +23,9 @@ const categoryData = {
     "Health Drink & Supplements",
     "Fruit Juices and Drinks",
   ],
+
+  "Herbs and Seasoning": [""],
+
   "Foodgrains, Oils & Masalas": [
     "Atta, Flour & Sooji",
     "Dals & Pulses",
@@ -33,6 +36,8 @@ const categoryData = {
     "Masala & Spices",
     "Dry Fruits",
   ],
+
+
   "Bakery, Cakes & Dairy": [
     "Bakery Snacks",
     "Breads & Buns",
@@ -58,10 +63,9 @@ export const ProductDropdown = () => {
 
   return (
     <Container fluid className="dropdown-container">
-      <Row
-        className="dropdown-row align-items-center justify-content-center"
-      >
-        <Col xs={12} md={2} className="deliver-to-col">
+      <Row className="Dropdown-row-div">
+        {/* Delivery Location Dropdown */}
+        <Col xs={12} md={2} className="text-center">
           <Dropdown>
             <Dropdown.Toggle variant="success" className="top-dropdown">
               <FaLocationDot className="location-icon" />
@@ -79,30 +83,31 @@ export const ProductDropdown = () => {
             </Dropdown.Menu>
           </Dropdown>
         </Col>
-        <Col xs={12} md={10} className="d-none d-md-block">
-          <Row className="g-2 justify-content-center">
-            {Object.entries(categoryData).map(([category, items]) => (
-              <Col key={category} xs={6} md={3} className="text-center">
-                <Dropdown>
-                  <Dropdown.Toggle variant="success" className="top-dropdown">
-                    {category}
-                  </Dropdown.Toggle>
-                  <Dropdown.Menu id="dropdown-box">
-                    {items.map((item, index) => (
-                      <Dropdown.Item
-                        key={index}
-                        onClick={() => handleSelectCategory(item)}
-                      >
-                        {item}
-                      </Dropdown.Item>
-                    ))}
-                  </Dropdown.Menu>
-                </Dropdown>
-              </Col>
-            ))}
-          </Row>
-        </Col>
+
+        {/* Category Dropdowns */}
+
+        {Object.entries(categoryData).map(([category, items]) => (
+          <Col key={category} xs={6} md={2} className="text-center">
+            <Dropdown>
+              <Dropdown.Toggle variant="success" className="top-dropdown">
+                {category}
+              </Dropdown.Toggle>
+              <Dropdown.Menu id="dropdown-box">
+                {items.map((item, index) => (
+                  <Dropdown.Item
+                    key={index}
+                    onClick={() => handleSelectCategory(item)}
+                  >
+                    {item}
+                  </Dropdown.Item>
+                ))}
+              </Dropdown.Menu>
+            </Dropdown>
+          </Col>
+        ))}
       </Row>
     </Container>
   );
 };
+
+export default ProductDropdown;
