@@ -3,7 +3,7 @@ import { Dropdown, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, removeFromCart } from "../../redux/slices/cartSlice";
+import { addToCart, removeFromCart } from "../../config/redux/slices/cartSlice";
 import "./ProductCard.css";
 import vegIcon from "../../assets/th (2).jpg";
 import nonVegIcon from "../../assets/th (3).jpg";

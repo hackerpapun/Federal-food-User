@@ -5,6 +5,7 @@ import ProductCard from "../ProductCard/ProductCard.jsx";
 import { FaAngleDown, FaAngleRight } from "react-icons/fa";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./CategoryPage.css";
+import { getCategory } from "../../config/controller/userController.js";
 
 const categories = [
   {
@@ -42,6 +43,17 @@ const products = [
 
 const Sidebar = ({ setSelectedCategory }) => {
   const [activeKey, setActiveKey] = useState(null);
+  const [selectedCategory, setSelectedCategory1] = useState(null);
+
+  const getCategoryById =async (id) => {
+    await getCategory()
+    .then((Response) => {
+      setSelectedCategory1(Response.data)
+    })
+    
+  }
+  useEffect(() => {
+console.log(selectedCategory,"selectedCategory")  });
 
   return (
     <Container>

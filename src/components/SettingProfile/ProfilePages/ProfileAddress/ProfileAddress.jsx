@@ -8,7 +8,7 @@ import {
   fetchAddresses,
   addAddress,
   deleteAddress,
-} from "../../../../redux/slices/addressSlice";
+} from "../../../../config/redux/slices/addressSlice";
 import Addresslocation from "../ProfileAddress/Addresslocation";
 import Delete from "../../../Delete/Delete";
 
