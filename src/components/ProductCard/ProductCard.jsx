@@ -49,8 +49,8 @@ const ProductCard = ({ product }) => {
     <div
       className="product-card-unq"
       style={{ marginRight: "12px !important", height: "48vh" }}
-      onMouseEnter={() => setIsHovered(true)} 
-      onMouseLeave={() => setIsHovered(false)} 
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <div className="food-icon">
         <img
@@ -107,12 +107,12 @@ const ProductCard = ({ product }) => {
                   style={{
                     backgroundColor: "#7FAD39",
                     border: "none",
-                    padding: "8px 15px",
-                    fontSize: "16px",
+                    padding: ".84rem 1.14rem",
+                    fontSize: ".81rem",
                     display: "flex",
                     alignItems: "center",
                     gap: "8px",
-                    borderRadius: "5px",
+                    borderRadius: ".125rem",
                     width: "100px",
                     justifyContent: "center",
                   }}
@@ -121,7 +121,7 @@ const ProductCard = ({ product }) => {
                   ADD
                 </Button>
               )
-            : isHovered && ( 
+            : isHovered && (
                 <div
                   style={{ display: "flex", alignItems: "center", gap: "10px" }}
                 >
@@ -135,6 +135,7 @@ const ProductCard = ({ product }) => {
                       paddingBottom: "7px",
                       backgroundColor: "#7FAD39",
                       color: "white",
+                      
                     }}
                   >
                     <FaMinus />
@@ -152,6 +153,7 @@ const ProductCard = ({ product }) => {
                       paddingBottom: "7px",
                       backgroundColor: "#7FAD39",
                       color: "white",
+                      
                     }}
                   >
                     <FaPlus />
