@@ -14,7 +14,7 @@ import Delete from "../../../Delete/Delete";
 
 export const ProfileAddress = ({ isConfirmPage = false, onAddressSelect }) => {
   const dispatch = useDispatch();
-  const addresses = useSelector((state) => state.addresses.addressList);
+  const addresses = useSelector((state) => state.addresses.addressList) || []; // Fallback to an empty array
   const loading = useSelector((state) => state.addresses.loading);
   const error = useSelector((state) => state.addresses.error);
 
@@ -71,9 +71,7 @@ export const ProfileAddress = ({ isConfirmPage = false, onAddressSelect }) => {
             <Col md={5} lg={4} key={index} className="address-column">
               <div
                 style={{ cursor: "pointer" }}
-                className={`address-card ${
-                  isConfirmPage ? "clickable-card" : ""
-                }`}
+                className={`address-card ${isConfirmPage ? "clickable-card" : ""}`}
                 onClick={
                   isConfirmPage ? () => handleSelectAddress(index) : undefined
                 }
