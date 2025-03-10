@@ -1,11 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types"; // Import PropTypes
+import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Button, Modal, Form, Row, Col, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "../../config/redux/slices/authSlice"; 
+import { loginUser } from "../../config/redux/slices/authSlice";
 import "./Login.css";
 
 const schema = z.object({
@@ -23,24 +23,19 @@ const Login = ({
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     resolver: zodResolver(schema),
   });
 
   const dispatch = useDispatch();
-  const { loading, error, user } = useSelector((state) => state.auth);
+  const { loading, error } = useSelector((state) => state.auth);
 
   const onSubmit = async (data) => {
-    try {
-      const resultAction = await dispatch(loginUser(data));
-      if (loginUser.fulfilled.match(resultAction)) {
-        console.log("✅ Login successful:", resultAction.payload);
-        handleClose();
-      } else {
-        console.error("❌ Login failed:", resultAction.payload);
-      }
-    } catch (err) {
-      console.error("⚠️ Unexpected error:", err);
+    const resultAction = await dispatch(loginUser(data));
+    if (loginUser.fulfilled.match(resultAction)) {
+      reset();
+      handleClose();
     }
   };
 
@@ -51,7 +46,6 @@ const Login = ({
       </Modal.Header>
       <Modal.Body>
         {error && <div className="error-message">{error}</div>}
-        {user && <div className="success-message">Welcome, {user.name}!</div>}
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Row>
             <Col>

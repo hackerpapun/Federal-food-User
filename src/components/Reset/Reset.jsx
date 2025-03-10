@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Button, Modal, Form, Row, Col, Spinner } from "react-bootstrap";
+import { Button, Modal, Form, Row, Col, Spinner, Alert } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import forgotPassword from "../../config/redux/slices/authSlice";
+import { resetPassword } from "../../config/redux/slices/authSlice";
 import "./Reset.css";
 
 const schema = z.object({
@@ -19,18 +19,20 @@ const Reset = ({ show, handleClose, handleShowLogin }) => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     resolver: zodResolver(schema),
   });
 
   useEffect(() => {
     if (success) {
+      reset();
       handleClose();
     }
-  }, [success, handleClose]);
+  }, [success, reset, handleClose]);
 
-  const onSubmit = (data) => {
-    dispatch(forgotPassword(data.email));
+  const onSubmit = async (data) => {
+    dispatch(resetPassword(data.email));
   };
 
   return (
@@ -39,7 +41,9 @@ const Reset = ({ show, handleClose, handleShowLogin }) => {
         <Modal.Title className="reset">Reset Password</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        {error && <p className="error-message">{error}</p>}
+        {error && <Alert variant="danger">{error}</Alert>}
+        {success && <Alert variant="success">Password reset email sent!</Alert>}
+
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Row>
             <Col>
@@ -57,7 +61,7 @@ const Reset = ({ show, handleClose, handleShowLogin }) => {
             </Col>
           </Row>
           <Row>
-            <Col>
+            <Col className="text-center">
               <Button className="submit-btn" type="submit" disabled={loading}>
                 {loading ? (
                   <Spinner animation="border" size="sm" />

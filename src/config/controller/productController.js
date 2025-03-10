@@ -7,6 +7,13 @@ export const GetAllProducts = ({ id, token }) => {
     uri: url,
   });
 };
+export const getCategory = ({ id, token }) => {
+  const url = `/product/all-products/${id}`;
+  return HttpClient.apiCaller({
+    token,
+    uri: url,
+  });
+};
 
 export const GetFeaturedProducts = ({ token }) =>
   HttpClient.apiCaller({

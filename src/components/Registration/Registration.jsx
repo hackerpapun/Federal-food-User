@@ -8,11 +8,12 @@ import {
   Form,
   Row,
   Col,
-  FormCheck,
+  Dropdown,
+  DropdownButton,
   Spinner,
+  Alert,
 } from "react-bootstrap";
-import { useDispatch } from "react-redux";
-import registerUser from "../../config/redux/slices/authSlice"; 
+import UserController from "../Registration/Registration";
 import "./Registration.css";
 
 const schema = z.object({
@@ -22,6 +23,9 @@ const schema = z.object({
   lastName: z.string().min(2, "Last Name is required"),
   mobileNumber: z.string().regex(/^\d{10}$/, "Invalid mobile number"),
   referralCode: z.string().optional(),
+  role: z.array(z.enum(["admin", "user", "seller"]), {
+    required_error: "Please select at least one role",
+  }),
   agree: z.literal(true, {
     errorMap: () => ({ message: "You must agree to the terms" }),
   }),
@@ -32,25 +36,40 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     resolver: zodResolver(schema),
   });
 
-  const dispatch = useDispatch(); 
   const [loading, setLoading] = useState(false);
+  const [apiError, setApiError] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(null);
+  const [selectedRoles, setSelectedRoles] = useState([]);
 
   const onSubmit = async (data) => {
     setLoading(true);
-    console.log("Registration Data:", data);
+    setApiError(null);
+    setSuccessMessage(null);
 
     try {
-      await dispatch(registerUser(data)).unwrap(); 
-      handleClose(); 
+      await UserController.registerUser ({ ...data, role: selectedRoles });
+      setSuccessMessage("Registration successful! Redirecting to login...");
+      setTimeout(() => {
+        reset();
+        handleClose();
+        handleShowLogin();
+      }, 2000);
     } catch (error) {
-      console.error("Registration failed:", error); 
+      setApiError(error?.message || "Registration failed, please try again.");
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
+  };
+
+  const handleRoleChange = (role) => {
+    setSelectedRoles((prev) =>
+      prev.includes(role) ? prev.filter((r) => r !== role) : [...prev, role]
+    );
   };
 
   return (
@@ -59,6 +78,9 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
         <Modal.Title className="tsignup">Sign Up</Modal.Title>
       </Modal.Header>
       <Modal.Body>
+        {apiError && <Alert variant="danger">{apiError}</Alert>}
+        {successMessage && <Alert variant="success">{successMessage}</Alert>}
+
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Row>
             <Col>
@@ -75,6 +97,7 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
               </Form.Group>
             </Col>
           </Row>
+
           <Row>
             <Col>
               <Form.Group>
@@ -90,6 +113,7 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
               </Form.Group>
             </Col>
           </Row>
+
           <Row>
             <Col>
               <Form.Group>
@@ -107,6 +131,7 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
               </Form.Group>
             </Col>
           </Row>
+
           <Row>
             <Col>
               <Form.Group>
@@ -122,6 +147,7 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
               </Form.Group>
             </Col>
           </Row>
+
           <Row>
             <Col>
               <Form.Group>
@@ -139,6 +165,43 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
               </Form.Group>
             </Col>
           </Row>
+
+          <Row>
+            <Col>
+              <Form.Group>
+                <Form.Label>Select Role:</Form.Label>
+                <Dropdown className="Roll">
+                  <DropdownButton
+                    variant="secondary"
+                    title={
+                      selectedRoles.length > 0
+                        ? selectedRoles[0]
+                        : "Select Role"
+                    }
+                    id="role-dropdown"
+                    drop="down"
+                    className="custom-dropdown-button" // Add a custom class
+                  >
+                    {["admin", "user", "seller"].map((role) => (
+                      <Dropdown.Item
+                        key={role}
+                        onClick={() => {
+                          setSelectedRoles([role]);
+                        }}
+                      >
+                        {role.charAt(0).toUpperCase() + role.slice(1)}
+                      </Dropdown.Item>
+                    ))}
+                  </DropdownButton>
+                </Dropdown>
+                {errors.role && (
+                  <div className="error-message">{errors.role.message}</div>
+                )}
+              </Form.Group>
+            </Col>
+          </Row>
+
+          {/* Referral Code Field */}
           <Row>
             <Col>
               <Form.Group>
@@ -151,25 +214,25 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
               </Form.Group>
             </Col>
           </Row>
+
+          {/* Terms and Conditions Checkbox */}
           <Row>
             <Col>
-              <FormCheck
+              <Form.Check
                 type="checkbox"
                 className={errors.agree ? "is-invalid" : ""}
                 {...register("agree")}
                 label={
                   <p className="note">
-                    By clicking on the I agree button click, download or if you
-                    use the Application, you <br />
-                    agree to be bound by the{" "}
+                    By clicking on the I agree button, you accept our{" "}
                     <a href="#" style={{ color: "blue" }}>
-                      EULA certificate
+                      Terms & Conditions
                     </a>{" "}
                     and{" "}
                     <a href="#" style={{ color: "blue" }}>
-                      Privacy policy
-                    </a>{" "}
-                    of this app.
+                      Privacy Policy
+                    </a>
+                    .
                   </p>
                 }
               />
@@ -178,6 +241,8 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
               )}
             </Col>
           </Row>
+
+          {/* Login Link */}
           <Row>
             <Col>
               <a href="#" className="note1" onClick={handleShowLogin}>
@@ -186,30 +251,22 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
               </a>
             </Col>
           </Row>
-          <Row
-            className="text-center"
-            style={{
-              borderBottom: "1px solid #ced4da",
-              justifyContent: "center",
-              display: "flex",
-            }}
-          ></Row>
+
+          {/* Submit Button */}
           <Row>
-            <Col>
+            <Col className="text-center">
               <Button className="login-btn" type="submit" disabled={loading}>
                 {loading ? (
-                  <>
-                    <Spinner
-                      animation="border"
-                      size="sm"
-                      role="status"
-                      style={{
-                        marginRight: "5px",
-                        width: "1.5rem",
-                        height: "1.5rem",
-                      }}
-                    />
-                  </>
+                  <Spinner
+                    animation="border"
+                    size="sm"
+                    role="status"
+                    style={{
+                      marginRight: "5px",
+                      width: "1.5rem",
+                      height: "1.5rem",
+                    }}
+                  />
                 ) : (
                   "SIGNUP"
                 )}

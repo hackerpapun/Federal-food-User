@@ -19,11 +19,11 @@ import {
 import logo1 from "../../assets/logo.png";
 import "../NavBar/NavBar.css";
 import Login from "../Login/Login";
-import Registration from "../Registration/Registration";
 import ForgotPassword from "../Reset/Reset";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser, logoutUser } from "../../config/redux/slices/authSlice";
+import Registration from "../Registration/Registration";
 
 export default function AppNavbar() {
   const [activeModal, setActiveModal] = useState(null);
@@ -33,12 +33,14 @@ export default function AppNavbar() {
 
   const handleShowModal = (modal) => setActiveModal(modal);
   const handleCloseModal = () => setActiveModal(null);
+
   const handleLoginSuccess = (name) => {
-    dispatch(loginUser(name));
-    handleCloseModal();
+    dispatch(loginUser(name)); // Dispatch login action with user name
+    handleCloseModal(); // Close the modal after successful login
   };
+
   const handleLogout = () => {
-    dispatch(logoutUser());
+    dispatch(logoutUser()); // Dispatch logout action
   };
 
   return (
@@ -50,6 +52,7 @@ export default function AppNavbar() {
         variant="dark"
       >
         <Container fluid="xl" className="px-lg-5">
+          {/* Navbar Toggle for Small Screens */}
           <Navbar.Toggle
             aria-controls="offcanvasNavbar"
             className="border-0 text-white d-lg-none"
@@ -60,8 +63,8 @@ export default function AppNavbar() {
             <img src={logo1} alt="Logo" height="25" />
           </Navbar.Brand>
 
+          {/* User and Cart Icons for Small Screens */}
           <div className="d-flex align-items-center d-lg-none">
-            {/* User icon for small screens */}
             {isAuthenticated ? (
               <Nav.Link
                 className="text-white nav-link me-2"
@@ -77,12 +80,12 @@ export default function AppNavbar() {
                 <FaUser />
               </Nav.Link>
             )}
-            {/* Cart icon for small screens */}
             <Nav.Link href="/cart" className="text-white nav-link">
               <FaShoppingCart />
             </Nav.Link>
           </div>
 
+          {/* Offcanvas Menu for Small Screens */}
           <Navbar.Offcanvas
             id="offcanvasNavbar"
             placement="start"
@@ -144,6 +147,7 @@ export default function AppNavbar() {
             </Offcanvas.Body>
           </Navbar.Offcanvas>
 
+          {/* Navbar for Large Screens */}
           <Navbar.Collapse
             id="basic-navbar-nav"
             className="d-none d-lg-flex justify-content-between w-100"
@@ -152,6 +156,7 @@ export default function AppNavbar() {
               <img src={logo1} alt="Logo" height="30" />
             </Navbar.Brand>
 
+            {/* Search Bar */}
             <Form className="d-flex mx-2 w-50">
               <FormControl
                 type="search"
@@ -160,6 +165,7 @@ export default function AppNavbar() {
               />
             </Form>
 
+            {/* Language Dropdown */}
             <Dropdown className="ms-3">
               <Dropdown.Toggle
                 style={{ backgroundColor: "#7fad39", border: "none" }}
@@ -179,6 +185,7 @@ export default function AppNavbar() {
               </Dropdown.Menu>
             </Dropdown>
 
+            {/* User Account and Cart */}
             <Nav className="d-flex align-items-center flex-nowrap">
               {isAuthenticated ? (
                 <Dropdown>
@@ -225,6 +232,7 @@ export default function AppNavbar() {
                 </Button>
               )}
 
+              {/* Cart Icon */}
               <Nav.Link
                 className="text-white d-flex align-items-center ms-3"
                 onClick={() => navigate("/cart")}
@@ -236,6 +244,7 @@ export default function AppNavbar() {
         </Container>
       </Navbar>
 
+      {/* Modals for Login, Registration, and Forgot Password */}
       {activeModal === "login" && (
         <Login
           show={true}

@@ -8,36 +8,34 @@ export const loginUser = async (data) => {
   });
 };
 
-export const signupUser = async (data) => {
+export const registerUser = async (data) => {
   return HttpClient.apiCaller({
-    uri: "/auth/sign-up",
+    uri: "/auth/register",
     method: "POST",
     data,
   });
 };
-export const getCategory = async (data) => {
+
+export const logoutUser = async () => {
   return HttpClient.apiCaller({
-    uri: "/categories",
-    method: "GET",
-    data,
-  });
-};
-export const getProduct = async (data) => {
-  return HttpClient.apiCaller({
-    uri: "/products",
-    method: "GET",
-    data,
+    uri: "/auth/logout",
+    method: "DELETE",
   });
 };
 
-
+export const resetPassword = async (data) => {
+  return HttpClient.apiCaller({
+    uri: "/auth/reset-password",
+    method: "POST",
+    data,
+  });
+};
 
 const UserController = {
-  // Auth
   loginUser,
-  signupUser,
-  getCategory,
-  getProduct
+  registerUser,
+  logoutUser,
+  resetPassword,
 };
 
 export default UserController;

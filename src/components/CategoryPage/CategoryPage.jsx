@@ -5,7 +5,7 @@ import ProductCard from "../ProductCard/ProductCard.jsx";
 import { FaAngleDown, FaAngleRight } from "react-icons/fa";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./CategoryPage.css";
-import { getCategory } from "../../config/controller/userController.js";
+import { getCategory } from "../../config/controller/productController.js";
 
 const categories = [
   {
