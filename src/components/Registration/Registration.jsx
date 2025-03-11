@@ -242,7 +242,6 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
             </Col>
           </Row>
 
-          {/* Login Link */}
           <Row>
             <Col>
               <a href="#" className="note1" onClick={handleShowLogin}>

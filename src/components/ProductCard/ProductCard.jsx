@@ -34,16 +34,24 @@ const ProductCard = ({ product }) => {
     );
   };
 
-  const handleDecrease = () => {
-    if (count > 0) {
-      dispatch(
-        removeFromCart({
-          id: product.id,
-          option: product.options?.[0] || null,
-        })
-      );
-    }
-  };
+const handleDecrease = () => {
+  if (count > 1) {
+    dispatch(
+      removeFromCart({
+        id: product.id,
+        option: product.options?.[0] || null,
+      })
+    );
+  } else if (count === 1) {
+    dispatch(
+      removeFromCart({
+        id: product.id,
+        option: product.options?.[0] || null,
+        removeEntirely: true,
+      })
+    );
+  }
+};
 
   return (
     <div
