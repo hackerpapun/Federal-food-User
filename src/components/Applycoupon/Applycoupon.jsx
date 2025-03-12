@@ -5,19 +5,19 @@ import { Button, Col, Modal, Row } from "react-bootstrap";
 const Applycoupon = ({ show, handleClose }) => {
   return (
     <Modal show={show} onHide={handleClose} centered className="couponpage">
-      <Modal.Header closeButton className="hcoupon">
+      <Modal.Header className="hcoupon">
         <Modal.Title className="tcoupon">Apply Coupon</Modal.Title>
       </Modal.Header>
       <Modal.Body className="bcoupon"></Modal.Body>
       <Modal.Footer>
-        <Row
+        {/* <Row
           className="text-center"
           style={{
             borderBottom: "1px solid #ced4da",
             justifyContent: "center",
             display: "flex",
           }}
-        >
+        > */}
           <Col
             className="text-center"
             style={{ display: "flex", justifyContent: "center" }}
@@ -26,7 +26,7 @@ const Applycoupon = ({ show, handleClose }) => {
               Cancel
             </Button>
           </Col>
-        </Row>
+        {/* </Row> */}
       </Modal.Footer>
     </Modal>
   );

@@ -65,7 +65,7 @@ const Contactus = () => {
 
           <p>
             <MdEmail size={20} className="icon" />
-            info@initappz.com
+            info@initappz.com 
           </p>
           <p>
             <FaPhone size={17} className="icon" />
