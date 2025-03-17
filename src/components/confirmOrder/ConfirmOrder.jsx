@@ -41,7 +41,7 @@ const ConfirmOrder = () => {
       price: 99,
       quantity: 1,
       weight: "1kg",
-      image:
+      image:  
         "https://ultimate-grocery-api-capacitor.initappz.com/public/storage/images/5f047f2097bdc.jpg",
     },
     {
