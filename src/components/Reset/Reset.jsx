@@ -36,13 +36,17 @@ const Reset = ({ show, handleClose, handleShowLogin }) => {
   };
 
   return (
-    <Modal show={show} onHide={handleClose} centered className="resetpage">
+    <Modal show={show} onHide={handleClose} centered className="reset-modal">
       <Modal.Header closeButton>
-        <Modal.Title className="reset">Reset Password</Modal.Title>
+        <Modal.Title className="reset-title">Reset Password</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         {error && <Alert variant="danger">{error}</Alert>}
-        {success && <Alert variant="success">Password reset email sent!</Alert>}
+        {success && (
+          <Alert variant="success">
+            Password reset email sent successfully!
+          </Alert>
+        )}
 
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Row>
@@ -50,8 +54,8 @@ const Reset = ({ show, handleClose, handleShowLogin }) => {
               <Form.Group>
                 <Form.Control
                   type="email"
-                  placeholder="Email"
-                  className={errors.email ? "is-invalid" : ""}
+                  placeholder="Enter your email"
+                  className={`text-input ${errors.email ? "is-invalid" : ""}`}
                   {...register("email")}
                 />
                 {errors.email && (
@@ -60,6 +64,7 @@ const Reset = ({ show, handleClose, handleShowLogin }) => {
               </Form.Group>
             </Col>
           </Row>
+
           <Row>
             <Col className="text-center">
               <Button className="submit-btn" type="submit" disabled={loading}>
@@ -69,6 +74,14 @@ const Reset = ({ show, handleClose, handleShowLogin }) => {
                   "SEND OTP"
                 )}
               </Button>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col className="text-center mt-3">
+              <a href="#" className="login-link" onClick={handleShowLogin}>
+                Back to Login
+              </a>
             </Col>
           </Row>
         </Form>

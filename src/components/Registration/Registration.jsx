@@ -13,7 +13,8 @@ import {
   Spinner,
   Alert,
 } from "react-bootstrap";
-import UserController from "../Registration/Registration";
+import { FaChevronDown } from "react-icons/fa";
+import UserController from "../../config/controller/UserController";
 import "./Registration.css";
 
 const schema = z.object({
@@ -23,9 +24,7 @@ const schema = z.object({
   lastName: z.string().min(2, "Last Name is required"),
   mobileNumber: z.string().regex(/^\d{10}$/, "Invalid mobile number"),
   referralCode: z.string().optional(),
-  role: z.array(z.enum(["admin", "user", "seller"]), {
-    required_error: "Please select at least one role",
-  }),
+  role: z.string().min(1, "Please select a role"),
   agree: z.literal(true, {
     errorMap: () => ({ message: "You must agree to the terms" }),
   }),
@@ -44,7 +43,7 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
   const [loading, setLoading] = useState(false);
   const [apiError, setApiError] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
-  const [selectedRoles, setSelectedRoles] = useState([]);
+  const [selectedRole, setSelectedRole] = useState("");
 
   const onSubmit = async (data) => {
     setLoading(true);
@@ -52,7 +51,7 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
     setSuccessMessage(null);
 
     try {
-      await UserController.registerUser ({ ...data, role: selectedRoles });
+      await UserController.registerUser({ ...data, role: selectedRole });
       setSuccessMessage("Registration successful! Redirecting to login...");
       setTimeout(() => {
         reset();
@@ -64,12 +63,6 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
     } finally {
       setLoading(false);
     }
-  };
-
-  const handleRoleChange = (role) => {
-    setSelectedRoles((prev) =>
-      prev.includes(role) ? prev.filter((r) => r !== role) : [...prev, role]
-    );
   };
 
   return (
@@ -98,6 +91,7 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
             </Col>
           </Row>
 
+          {/* Password Field */}
           <Row>
             <Col>
               <Form.Group>
@@ -114,6 +108,7 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
             </Col>
           </Row>
 
+          {/* First Name */}
           <Row>
             <Col>
               <Form.Group>
@@ -132,6 +127,7 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
             </Col>
           </Row>
 
+          {/* Last Name */}
           <Row>
             <Col>
               <Form.Group>
@@ -148,6 +144,7 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
             </Col>
           </Row>
 
+          {/* Mobile Number */}
           <Row>
             <Col>
               <Form.Group>
@@ -166,29 +163,28 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
             </Col>
           </Row>
 
+          {/* Role Dropdown */}
           <Row>
             <Col>
               <Form.Group>
                 <Form.Label>Select Role:</Form.Label>
-                <Dropdown className="Roll">
+                <Dropdown
+                  onSelect={(role) => setSelectedRole(role)}
+                  className="Roll"
+                >
                   <DropdownButton
                     variant="secondary"
                     title={
-                      selectedRoles.length > 0
-                        ? selectedRoles[0]
+                      selectedRole
+                        ? selectedRole.charAt(0).toUpperCase() +
+                          selectedRole.slice(1)
                         : "Select Role"
                     }
                     id="role-dropdown"
-                    drop="down"
-                    className="custom-dropdown-button" // Add a custom class
+                    className="custom-dropdown-button"
                   >
                     {["admin", "user", "seller"].map((role) => (
-                      <Dropdown.Item
-                        key={role}
-                        onClick={() => {
-                          setSelectedRoles([role]);
-                        }}
-                      >
+                      <Dropdown.Item key={role} eventKey={role}>
                         {role.charAt(0).toUpperCase() + role.slice(1)}
                       </Dropdown.Item>
                     ))}
@@ -251,7 +247,6 @@ const Registration = ({ show, handleClose, handleShowLogin }) => {
             </Col>
           </Row>
 
-          {/* Submit Button */}
           <Row>
             <Col className="text-center">
               <Button className="login-btn" type="submit" disabled={loading}>

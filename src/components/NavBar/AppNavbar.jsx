@@ -35,12 +35,12 @@ export default function AppNavbar() {
   const handleCloseModal = () => setActiveModal(null);
 
   const handleLoginSuccess = (name) => {
-    dispatch(loginUser(name)); // Dispatch login action with user name
-    handleCloseModal(); // Close the modal after successful login
+    dispatch(loginUser(name)); 
+    handleCloseModal();
   };
 
   const handleLogout = () => {
-    dispatch(logoutUser()); // Dispatch logout action
+    dispatch(logoutUser());
   };
 
   return (
@@ -52,7 +52,6 @@ export default function AppNavbar() {
         variant="dark"
       >
         <Container fluid="xl" className="px-lg-5">
-          {/* Navbar Toggle for Small Screens */}
           <Navbar.Toggle
             aria-controls="offcanvasNavbar"
             className="border-0 text-white d-lg-none"
@@ -147,7 +146,6 @@ export default function AppNavbar() {
             </Offcanvas.Body>
           </Navbar.Offcanvas>
 
-          {/* Navbar for Large Screens */}
           <Navbar.Collapse
             id="basic-navbar-nav"
             className="d-none d-lg-flex justify-content-between w-100"
@@ -156,7 +154,6 @@ export default function AppNavbar() {
               <img src={logo1} alt="Logo" height="30" />
             </Navbar.Brand>
 
-            {/* Search Bar */}
             <Form className="d-flex mx-2 w-50">
               <FormControl
                 type="search"
@@ -165,7 +162,6 @@ export default function AppNavbar() {
               />
             </Form>
 
-            {/* Language Dropdown */}
             <Dropdown className="ms-3">
               <Dropdown.Toggle
                 style={{ backgroundColor: "#7fad39", border: "none" }}
@@ -185,7 +181,6 @@ export default function AppNavbar() {
               </Dropdown.Menu>
             </Dropdown>
 
-            {/* User Account and Cart */}
             <Nav className="d-flex align-items-center flex-nowrap">
               {isAuthenticated ? (
                 <Dropdown>
@@ -232,7 +227,6 @@ export default function AppNavbar() {
                 </Button>
               )}
 
-              {/* Cart Icon */}
               <Nav.Link
                 className="text-white d-flex align-items-center ms-3"
                 onClick={() => navigate("/cart")}
@@ -244,7 +238,6 @@ export default function AppNavbar() {
         </Container>
       </Navbar>
 
-      {/* Modals for Login, Registration, and Forgot Password */}
       {activeModal === "login" && (
         <Login
           show={true}
